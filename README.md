@@ -10,13 +10,13 @@ Shapley value calculation in Java
 * symetry
 * additivity
 
-##Example 
+## Example 
 How to share a taxi travel ?
+Amy, Bob and Clare are sharing a taxi. We imagine they are going to the same direction.
+
 Amy must pay 6 to go home
 Bob must pay 12 to go home
 Clare must pay 42 to go home
-
-Amy, Bob and Clare are sharing a taxi. We imagine they are going to the same direction.
 
 
 # resources
