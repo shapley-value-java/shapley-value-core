@@ -19,35 +19,35 @@ Amy, Bob and Clare are sharing a taxi. We imagine they are going to the same dir
 - Clare must pay 42 to go home
 
 # Calculation examples
-## one element
-### input 
+## One element
+### Input 
 characteristic function : (2^N -> R)
 - v({1})=1.0
-### output
+### Output
 shapley value (N -> R)
 phi1 =1.0
 
-## two elements
-### input
+## Two elements
+### Input
 N = {1,2}
 characteristic function : (2^N -> R)
 - v({1})   = 1
 - v({2})   = 2
 - v({1,2}) = 4
 
-### calculation
+### Calculation
 
 |coalition | marginal contribution 1  | marginal contribution 2 |
 | -------- | ------------------------ | ----------------------- |
 | 1 12     | v({1})=1                 | v({1,2})-v({1}) =3      |
 | 2 12     | v({1,2})-v({2})=2        | v({2})= 2               |
 
-### output
+### Output
 - phi1 = (1+2)/2=1.5
 - phi2 = (3+2)/2=2.5
 
-### three elements
-## input
+## Three elements
+### Input
 characteristic function : (2^N -> R)
 - v({1})     = 80
 - v({2})     = 56
@@ -57,7 +57,7 @@ characteristic function : (2^N -> R)
 - v({2,3})   = 72
 - v({1,2,3}) = 90
 
-### output
+### Output
 - phi1 = 39.2
 - phi2 = 20.7
 - phi3 = 30.2
