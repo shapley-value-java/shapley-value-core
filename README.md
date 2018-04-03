@@ -14,9 +14,9 @@ Shapley value calculation in Java
 How to share a taxi travel ?
 Amy, Bob and Clare are sharing a taxi. We imagine they are going to the same direction.
 
-Amy must pay 6 to go home
-Bob must pay 12 to go home
-Clare must pay 42 to go home
+- Amy must pay 6 to go home
+- Bob must pay 12 to go home
+- Clare must pay 42 to go home
 
 # Calculation examples
 ## one element
@@ -34,6 +34,7 @@ characteristic function : (2^N -> R)
 - v({1})   = 1
 - v({2})   = 2
 - v({1,2}) = 4
+
 ### calculation
 
 |coalition | marginal contribution 1  | marginal contribution 2 |
@@ -42,9 +43,8 @@ characteristic function : (2^N -> R)
 | 2 12     | v({1,2})-v({2})=2        | v({2})= 2               |
 
 ### output
-phi1 = (1+2)/2=1.5
-
-phi2 = (3+2)/2=2.5
+- phi1 = (1+2)/2=1.5
+- phi2 = (3+2)/2=2.5
 
 ### three elements
 ## input
@@ -58,11 +58,9 @@ characteristic function : (2^N -> R)
 - v({1,2,3}) = 90
 
 ### output
-phi1 = 39.2
-
-phi2 = 20.7
-
-phi3 = 30.2
+- phi1 = 39.2
+- phi2 = 20.7
+- phi3 = 30.2
 
 # resources
 ## video
