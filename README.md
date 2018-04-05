@@ -6,9 +6,9 @@ Shapley value calculation in Java
 
 ## Fair distribution 
 * Efficiency
-* null player 
-* symetry
-* additivity
+* Null player 
+* Symetry
+* Additivity
 
 ## Application example share a taxi 
 How to share a taxi travel ?
@@ -19,6 +19,9 @@ Amy, Bob and Clare are sharing a taxi. We imagine they are going to the same dir
 - Clare must pay 42 to go home
 
 # Calculation examples
+
+Here is several examples with a few participants. You can imagine that with big groups the calculation becomes very difficult.
+
 ## One element
 ### Input 
 characteristic function : (2^N -> R)

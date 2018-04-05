@@ -23,7 +23,6 @@ public class ShapleyValueTest {
 		double phi1 = output.get(1);
 		
 		assertEquals(phi1, 1.0, 0.01);
-		
 	}
 
 	
