@@ -44,8 +44,7 @@ public class TaxiCalculationTest {
 	}
 	
 	@Test
-	public void testCalculateThreeParticipants() {
-		
+	public void testCalculateThreeParticipants() {		
 		TaxiCalculation taxiCalculation = 
 				new TaxiCalculation.TaxiCalculationBuilder(3)
 				.addUser(6.0, "A")
@@ -53,17 +52,14 @@ public class TaxiCalculationTest {
 				.addUser(42.0, "C")
 				.build();
 
-		
 		Map<String,Double> output = taxiCalculation.calculate();
 		double phiA = output.get("A");
 		double phiB = output.get("B");
 		double phiC = output.get("C");
-		
-		
+				
 		assertEquals(phiA, 2.0, 0.01);
 		assertEquals(phiB, 5.0, 0.01);
-		assertEquals(phiC, 35.0, 0.01);
-		
+		assertEquals(phiC, 35.0, 0.01);	
 	}
 
 }
