@@ -32,7 +32,7 @@ With this example, we can see that Shapley value is for everybody efficient. Bec
 	@Test
 	public void testCalculateThreeParticipants() {		
 		TaxiCalculation taxiCalculation = 
-				new TaxiCalculation.TaxiCalculationBuilder(3)
+				new TaxiCalculation.TaxiCalculationBuilder()
 				.addUser(6.0, "A")
 				.addUser(12.0, "B")
 				.addUser(42.0, "C")

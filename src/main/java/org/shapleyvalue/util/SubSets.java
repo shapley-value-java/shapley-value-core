@@ -31,7 +31,7 @@ public class SubSets {
 	        
 	    }
 
-		
+	    logger.debug("getAllSubSetsNonEmpty for {} element, result {}",nbElements, result);
 		return result;
 	}
 	

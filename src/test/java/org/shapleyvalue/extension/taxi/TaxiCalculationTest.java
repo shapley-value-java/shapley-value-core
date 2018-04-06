@@ -12,7 +12,7 @@ public class TaxiCalculationTest {
 	public void testCalculateOneParticipant() {
 		
 		TaxiCalculation taxiCalculation = 
-				new TaxiCalculation.TaxiCalculationBuilder(1)
+				new TaxiCalculation.TaxiCalculationBuilder()
 				.addUser(1.0, "A").build();
 	
 		
@@ -27,7 +27,7 @@ public class TaxiCalculationTest {
 	public void testCalculateTwoParticipants() {
 		
 		TaxiCalculation taxiCalculation = 
-				new TaxiCalculation.TaxiCalculationBuilder(2)
+				new TaxiCalculation.TaxiCalculationBuilder()
 				.addUser(1.0, "A")
 				.addUser(1.0, "B")
 				.build();
@@ -46,7 +46,7 @@ public class TaxiCalculationTest {
 	@Test
 	public void testCalculateThreeParticipants() {		
 		TaxiCalculation taxiCalculation = 
-				new TaxiCalculation.TaxiCalculationBuilder(3)
+				new TaxiCalculation.TaxiCalculationBuilder()
 				.addUser(6.0, "A")
 				.addUser(12.0, "B")
 				.addUser(42.0, "C")

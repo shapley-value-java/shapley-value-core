@@ -9,8 +9,6 @@ import org.shapleyvalue.CharacteristicFunction.CharacteristicFunctionBuilder;
 import org.shapleyvalue.ShapleyValue;
 import org.shapleyvalue.util.SubSets;
 
-import com.google.common.collect.ImmutableBiMap.Builder;
-
 public class TaxiCalculation {
 	
 	private CharacteristicFunction cfunction;
@@ -38,13 +36,13 @@ public class TaxiCalculation {
 	
 	
 	public static class TaxiCalculationBuilder {
-		private final int nbPlayers;
+		private int nbPlayers;
 		private int currentPlayer;
 		private Map<Integer, Double> v;
 		private Map<Integer, String> range;
 
-		public TaxiCalculationBuilder(int nbPlayers) {
-			this.nbPlayers = nbPlayers;
+		public TaxiCalculationBuilder() {
+			nbPlayers = 0;
 			currentPlayer = 0;
 			v = new HashMap<>();
 			range = new HashMap<>();
@@ -58,6 +56,7 @@ public class TaxiCalculation {
 		}
 
 		public TaxiCalculation build() {
+			nbPlayers = currentPlayer;
 			return new TaxiCalculation(this);
 		}
 
