@@ -18,6 +18,39 @@ Amy, Bob and Clare are sharing a taxi. We imagine they are going to the same dir
 - Bob must pay 12 to go home
 - Clare must pay 42 to go home
 
+If they share the taxi, the Shapley value will give :
+- Amy must pay 2
+- Bob must pay 5
+- Clare must pay 35
+- The total 2+5+35 = 42
+
+With this example, we can see that Shapley value is for everybody efficient. Because Amy, Bob, and Clare pay less when they share than when they travel alone. 
+
+### Code example
+
+```java
+	@Test
+	public void testCalculateThreeParticipants() {		
+		TaxiCalculation taxiCalculation = 
+				new TaxiCalculation.TaxiCalculationBuilder(3)
+				.addUser(6.0, "A")
+				.addUser(12.0, "B")
+				.addUser(42.0, "C")
+				.build();
+
+		Map<String,Double> output = taxiCalculation.calculate();
+		double phiA = output.get("A");
+		double phiB = output.get("B");
+		double phiC = output.get("C");
+				
+		assertEquals(phiA, 2.0, 0.01);
+		assertEquals(phiB, 5.0, 0.01);
+		assertEquals(phiC, 35.0, 0.01);	
+	}
+```
+
+
+
 # Calculation examples
 
 Here is several examples with a few participants. You can imagine that with big groups the calculation becomes very difficult.
