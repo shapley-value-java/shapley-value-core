@@ -37,26 +37,23 @@ public class TaxiCalculation {
 	
 	public static class TaxiCalculationBuilder {
 		private int nbPlayers;
-		private int currentPlayer;
 		private Map<Integer, Double> v;
 		private Map<Integer, String> range;
 
 		public TaxiCalculationBuilder() {
 			nbPlayers = 0;
-			currentPlayer = 0;
 			v = new HashMap<>();
 			range = new HashMap<>();
 		}
 
 		public TaxiCalculationBuilder addUser(double value, String userName) {
-			currentPlayer ++;
-			v.put(currentPlayer, value);
-			range.put(currentPlayer, userName);
+			nbPlayers ++;
+			v.put(nbPlayers, value);
+			range.put(nbPlayers, userName);
 			return this;
 		}
 
 		public TaxiCalculation build() {
-			nbPlayers = currentPlayer;
 			return new TaxiCalculation(this);
 		}
 
