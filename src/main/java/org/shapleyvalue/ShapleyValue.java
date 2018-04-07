@@ -30,8 +30,12 @@ public class ShapleyValue {
 		if(logger.isDebugEnabled()) logger.debug("ShapleyValue cfunction={}",this.cfunction);
 	}
 	
-	
 	public Map<Integer,Double> calculate() {
+		return calculate(false);
+	}
+	
+	
+	public Map<Integer,Double> calculate(boolean normalized) {
 		if(logger.isDebugEnabled()) logger.debug("ShapleyValue calculate started");
 		
 		int size = cfunction.getNbPlayers();
@@ -53,8 +57,16 @@ public class ShapleyValue {
 			}
 		}
 		
+		double total = 0;
 		for(int i=1; i<=size; i++) {
+			total += output.get(i)/factorielSize;
 			output.put(i, output.get(i)/factorielSize);
+		}
+		
+		if(normalized) {
+			for(int i=1; i<=size; i++) {
+				output.put(i, output.get(i)/total);
+			}
 		}
 		
 		
