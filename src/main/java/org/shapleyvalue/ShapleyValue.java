@@ -9,7 +9,7 @@ import java.util.Set;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import org.shapleyvalue.util.FactorielUtil;
+import org.shapleyvalue.util.FactorialUtil;
 import org.shapleyvalue.util.Permutations;
 
 public class ShapleyValue {
@@ -39,7 +39,7 @@ public class ShapleyValue {
 		if(logger.isDebugEnabled()) logger.debug("ShapleyValue calculate started");
 		
 		int size = cfunction.getNbPlayers();
-		int factorielSize = FactorielUtil.factoriel(size);
+		int factorielSize = FactorialUtil.factorial(size);
 		List<List<Integer>> permutations = Permutations.getAllPermutation(size);
 		
 		for(int i=1; i<=size; i++) {

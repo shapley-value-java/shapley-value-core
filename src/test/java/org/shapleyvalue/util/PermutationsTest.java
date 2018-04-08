@@ -17,7 +17,7 @@ public class PermutationsTest {
 		int permutationSize =1;
 		List<List<Integer>> permutations =Permutations.getAllPermutation(permutationSize);
 		
-		assertEquals(permutations.toString(),permutations.size(),FactorielUtil.factoriel(permutationSize));
+		assertEquals(permutations.toString(),permutations.size(),FactorialUtil.factorial(permutationSize));
 		assertTrue(permutations.toString(),permutations.contains(Arrays.asList(1)));
 	}
 	
@@ -26,7 +26,7 @@ public class PermutationsTest {
 		int permutationSize =2;
 		List<List<Integer>> permutations =Permutations.getAllPermutation(permutationSize);
 		
-		assertEquals(permutations.toString(),permutations.size(),FactorielUtil.factoriel(permutationSize));
+		assertEquals(permutations.toString(),permutations.size(),FactorialUtil.factorial(permutationSize));
 		assertTrue(permutations.toString(),permutations.contains(Arrays.asList(1,2)));
 	}
 	
@@ -35,7 +35,7 @@ public class PermutationsTest {
 		int permutationSize =3;
 		List<List<Integer>> permutations =Permutations.getAllPermutation(permutationSize);
 		
-		assertEquals(permutations.toString(),permutations.size(),FactorielUtil.factoriel(permutationSize));
+		assertEquals(permutations.toString(),permutations.size(),FactorialUtil.factorial(permutationSize));
 		assertTrue(permutations.toString(),permutations.contains(Arrays.asList(1,3,2)));
 	}
 
