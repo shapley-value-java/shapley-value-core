@@ -8,6 +8,7 @@
 	<properties>
 		<slf4j-version>1.7.25</slf4j-version>
 		<jgiven-version>0.15.3</jgiven-version>
+		<archunit-version>0.5.0</archunit-version>
 	</properties>
 
 	<dependencies>
@@ -47,6 +48,12 @@
 			<groupId>com.tngtech.jgiven</groupId>
 			<artifactId>jgiven-junit</artifactId>
 			<version>${jgiven-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.tngtech.archunit</groupId>
+			<artifactId>archunit-junit</artifactId>
+			<version>${archunit-version}</version>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 	<build>
