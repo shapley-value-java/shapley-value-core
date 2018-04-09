@@ -52,7 +52,6 @@ public class FraudRuleEvaluationTest {
 				.addRule("Rule3", 1,2,3)
 				.addRule("Rule4", 4)
 				.build();
-	
 		
 		Map<String,Double> output = evaluation.calculate();
 		double phiRule1 = output.get("Rule1");

@@ -26,30 +26,6 @@ If they share the taxi, the Shapley value will give :
 
 With this example, we can see that Shapley value is for everybody efficient. Because Amy, Bob, and Clare pay less when they share than when they travel alone. 
 
-### Code example
-
-```java
-	@Test
-	public void testCalculateThreeParticipants() {		
-		TaxiCalculation taxiCalculation = 
-				new TaxiCalculation.TaxiCalculationBuilder()
-				.addUser(6.0, "A")
-				.addUser(12.0, "B")
-				.addUser(42.0, "C")
-				.build();
-
-		Map<String,Double> output = taxiCalculation.calculate();
-		double phiA = output.get("A");
-		double phiB = output.get("B");
-		double phiC = output.get("C");
-				
-		assertEquals(phiA, 2.0, 0.01);
-		assertEquals(phiB, 5.0, 0.01);
-		assertEquals(phiC, 35.0, 0.01);	
-	}
-```
-
-
 
 # Calculation examples
 
@@ -168,6 +144,80 @@ characteristic function : (2^N -> R)
 		
 	}
 ```
+
+# Extension
+## Share taxi
+### Example
+This example is :
+Amy, Bob and Clare are sharing a taxi. We imagine they are going to the same direction.
+
+- Amy must pay 6 to go home
+- Bob must pay 12 to go home
+- Clare must pay 42 to go home 
+
+### Code example
+
+```java
+	@Test
+	public void testCalculateThreeParticipants() {		
+		TaxiCalculation taxiCalculation = 
+				new TaxiCalculation.TaxiCalculationBuilder()
+				.addUser(6.0, "A")
+				.addUser(12.0, "B")
+				.addUser(42.0, "C")
+				.build();
+
+		Map<String,Double> output = taxiCalculation.calculate();
+		double phiA = output.get("A");
+		double phiB = output.get("B");
+		double phiC = output.get("C");
+				
+		assertEquals(phiA, 2.0, 0.01);
+		assertEquals(phiB, 5.0, 0.01);
+		assertEquals(phiC, 35.0, 0.01);	
+	}
+```
+## Fraud rules evaluation
+Example:
+There are four fraudulent transactions T1, T2, T3, T4.
+There are four rules trying to detect the fraud events.
+- Rule1 detects T1, T2, T3
+- Rule2 detects T1, T2, T3
+- Rule3 detects T1, T2, T3
+- Rule4 detects T4
+
+The Shapley value evaluates the contribution of each rules (the sum will be normalized to 1)
+The Rules4 detects 1/4 of the event (alone) so we can expect phiRule4=0.25
+The rules 1, 2, 3 detect the same events and should have the same Shapley value.
+phiRule1=phiRule2=phiRule2=0.25
+
+### Code example
+
+```java
+	@Test
+	public void testEvaluationFourRules() {
+		
+		FraudRuleEvaluation evaluation = 
+				new FraudRuleEvaluation.FraudRuleEvaluationBuilder()
+				.addRule("Rule1", 1,2,3)
+				.addRule("Rule2", 1,2,3)
+				.addRule("Rule3", 1,2,3)
+				.addRule("Rule4", 4)
+				.build();
+		
+		Map<String,Double> output = evaluation.calculate();
+		double phiRule1 = output.get("Rule1");
+		double phiRule2 = output.get("Rule2");
+		double phiRule3 = output.get("Rule3");
+		double phiRule4 = output.get("Rule4");
+		
+		assertEquals(phiRule1, 0.25, 0.01);
+		assertEquals(phiRule2, 0.25, 0.01);
+		assertEquals(phiRule3, 0.25, 0.01);
+		assertEquals(phiRule4, 0.25, 0.01);
+	}
+```
+
 
 # resources
 ## video
