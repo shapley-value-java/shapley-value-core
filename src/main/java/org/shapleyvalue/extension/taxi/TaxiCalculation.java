@@ -3,11 +3,10 @@ package org.shapleyvalue.extension.taxi;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-
 import org.shapleyvalue.core.CharacteristicFunction;
 import org.shapleyvalue.core.ShapleyValue;
 import org.shapleyvalue.core.CharacteristicFunction.CharacteristicFunctionBuilder;
-import org.shapleyvalue.util.SubSets;
+import org.shapleyvalue.util.Powerset;
 
 public class TaxiCalculation {
 	
@@ -17,7 +16,8 @@ public class TaxiCalculation {
 	
 	private TaxiCalculation(TaxiCalculationBuilder builder) {
 
-		Set<Set<Integer>> sets = SubSets.getAllSubSetsNonEmpty(builder.getNbPlayers());
+		Set<Set<Integer>> sets = Powerset.calculate(builder.getNbPlayers());
+		sets.remove(Powerset.nullSet);
 
 		CharacteristicFunctionBuilder cfunctionBuilder = 
 				new CharacteristicFunction.CharacteristicFunctionBuilder(builder.getNbPlayers());

@@ -9,13 +9,16 @@ import java.util.Set;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class SubSets {
+public class Powerset {
 	
-	private static final Logger logger = LoggerFactory.getLogger(SubSets.class);
+	private static final Logger logger = LoggerFactory.getLogger(Powerset.class);
 	
-	public static Set<Set<Integer>> getAllSubSetsNonEmpty(int nbElements) {
+	public static final  Set<Integer> nullSet = new HashSet<Integer>();
+	
+	public static Set<Set<Integer>> calculate(int nbElements) {
 		Set<Set<Integer>> result = new HashSet<>();
 		
+		result.add(new HashSet<Integer>());
 
 	    for (int i=1 ; i<=nbElements; i++) {
 	    	result.add(new HashSet<>(Arrays.asList(i)));
@@ -31,7 +34,7 @@ public class SubSets {
 	        
 	    }
 
-	    logger.debug("getAllSubSetsNonEmpty for {} element, result {}",nbElements, result);
+	    logger.debug("Powerset for {} element, result {}",nbElements, result);
 		return result;
 	}
 	
