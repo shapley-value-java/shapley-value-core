@@ -7,9 +7,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.shapleyvalue.CharacteristicFunction;
-import org.shapleyvalue.ShapleyValue;
-import org.shapleyvalue.CharacteristicFunction.CharacteristicFunctionBuilder;
+import org.shapleyvalue.core.CharacteristicFunction;
+import org.shapleyvalue.core.ShapleyValue;
+import org.shapleyvalue.core.CharacteristicFunction.CharacteristicFunctionBuilder;
 import org.shapleyvalue.util.SubSets;
 
 public class FraudRuleEvaluation {

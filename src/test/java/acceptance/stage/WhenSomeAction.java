@@ -2,11 +2,11 @@ package acceptance.stage;
 
 import java.util.Map;
 
+import org.shapleyvalue.core.CharacteristicFunction;
+import org.shapleyvalue.core.ShapleyValue;
+
 import com.tngtech.jgiven.Stage;
 import com.tngtech.jgiven.annotation.Hidden;
-
-import org.shapleyvalue.CharacteristicFunction;
-import org.shapleyvalue.ShapleyValue;
 
 public class WhenSomeAction extends Stage<WhenSomeAction> {
 

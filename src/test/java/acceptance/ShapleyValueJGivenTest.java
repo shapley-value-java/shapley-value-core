@@ -3,10 +3,10 @@ package acceptance;
 import java.util.Map;
 
 import org.junit.Test;
+import org.shapleyvalue.core.CharacteristicFunction;
 
 import com.tngtech.jgiven.junit.ScenarioTest;
 
-import org.shapleyvalue.CharacteristicFunction;
 import acceptance.stage.GivenSomeState;
 import acceptance.stage.ThenSomeOutcome;
 import acceptance.stage.WhenSomeAction;

@@ -1,4 +1,4 @@
-package org.shapleyvalue;
+package org.shapleyvalue.core;
 
 import java.util.HashMap;
 import java.util.HashSet;

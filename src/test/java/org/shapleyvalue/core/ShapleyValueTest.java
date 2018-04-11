@@ -1,4 +1,4 @@
-package org.shapleyvalue;
+package org.shapleyvalue.core;
 
 import static org.junit.Assert.*;
 
@@ -6,6 +6,8 @@ import java.util.Map;
 
 
 import org.junit.Test;
+import org.shapleyvalue.core.CharacteristicFunction;
+import org.shapleyvalue.core.ShapleyValue;
 
 public class ShapleyValueTest {
 

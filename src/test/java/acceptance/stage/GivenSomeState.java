@@ -1,6 +1,6 @@
 package acceptance.stage;
 
-import org.shapleyvalue.CharacteristicFunction;
+import org.shapleyvalue.core.CharacteristicFunction;
 
 public class GivenSomeState {
 
