@@ -6,10 +6,13 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
 import org.shapleyvalue.core.CharacteristicFunction;
-import org.shapleyvalue.core.ShapleyValue;
 import org.shapleyvalue.core.CharacteristicFunction.CharacteristicFunctionBuilder;
+import org.shapleyvalue.core.ShapleyValue;
 import org.shapleyvalue.util.Powerset;
+
+import com.google.common.collect.Sets;
 
 public class FraudRuleEvaluation {
 	
@@ -20,7 +23,7 @@ public class FraudRuleEvaluation {
 	
 	public FraudRuleEvaluation(FraudRuleEvaluationBuilder builder) {
 		Set<Set<Integer>> sets = Powerset.calculate(builder.getNbPlayers());
-		sets.remove(Powerset.nullSet);
+		Sets.difference(sets, Powerset.nullSet);
 
 		CharacteristicFunctionBuilder cfunctionBuilder = 
 				new CharacteristicFunction.CharacteristicFunctionBuilder(builder.getNbPlayers());
