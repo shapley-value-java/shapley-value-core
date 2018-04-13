@@ -8,8 +8,6 @@ import org.shapleyvalue.core.ShapleyValue;
 import org.shapleyvalue.core.CharacteristicFunction.CharacteristicFunctionBuilder;
 import org.shapleyvalue.util.Powerset;
 
-import com.google.common.collect.Sets;
-
 public class TaxiCalculation {
 	
 	private CharacteristicFunction cfunction;
@@ -17,9 +15,7 @@ public class TaxiCalculation {
 	private Map<Integer, String> range;
 	
 	private TaxiCalculation(TaxiCalculationBuilder builder) {
-
 		Set<Set<Integer>> sets = Powerset.calculate(builder.getNbPlayers());
-		Sets.difference(sets, Powerset.nullSet);
 
 		CharacteristicFunctionBuilder cfunctionBuilder = 
 				new CharacteristicFunction.CharacteristicFunctionBuilder(builder.getNbPlayers());

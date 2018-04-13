@@ -12,8 +12,6 @@ import org.shapleyvalue.core.CharacteristicFunction.CharacteristicFunctionBuilde
 import org.shapleyvalue.core.ShapleyValue;
 import org.shapleyvalue.util.Powerset;
 
-import com.google.common.collect.Sets;
-
 public class FraudRuleEvaluation {
 	
 	private CharacteristicFunction cfunction;
@@ -23,7 +21,6 @@ public class FraudRuleEvaluation {
 	
 	public FraudRuleEvaluation(FraudRuleEvaluationBuilder builder) {
 		Set<Set<Integer>> sets = Powerset.calculate(builder.getNbPlayers());
-		Sets.difference(sets, Powerset.nullSet);
 
 		CharacteristicFunctionBuilder cfunctionBuilder = 
 				new CharacteristicFunction.CharacteristicFunctionBuilder(builder.getNbPlayers());
