@@ -20,7 +20,7 @@ public class Powerset {
 		logger.debug("inputSet {}", inputSet);
 		
 		Set<Set<Integer>> result = Sets.powerSet(inputSet);
-	    logger.debug("Powerset for {} element, result {}",nbElements, result);
+	    logger.debug("Powerset for {} element, result {}",nbElements, result.toArray());
 		return result;
 	}
 

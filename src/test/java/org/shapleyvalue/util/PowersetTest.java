@@ -20,7 +20,7 @@ public class PowersetTest {
 		int nbElements = 0;
 		Set<Set<Integer>> sets = Powerset.calculate(nbElements);
 		//set = {}
-		logger.info("sets= {}",sets);
+		logger.info("sets= {}",sets.toArray());
 		assertEquals(sets.size(),Math.pow(2, nbElements), 0.01);
 		assertTrue(sets.contains(Powerset.nullSet));
 		
@@ -31,7 +31,7 @@ public class PowersetTest {
 		int nbElements = 1;
 		Set<Set<Integer>> sets = Powerset.calculate(nbElements);
 		//set = {} {1}
-		logger.info("sets= {}",sets);
+		logger.info("sets= {}",sets.toArray());
 		assertEquals(sets.size(),Math.pow(2, nbElements), 0.01);
 		assertTrue(sets.contains(Powerset.nullSet));
 		assertTrue(sets.contains(new HashSet<>(Arrays.asList(1))));
@@ -43,7 +43,7 @@ public class PowersetTest {
 		int nbElements = 2;
 		Set<Set<Integer>> sets = Powerset.calculate(nbElements);
 		//set = {} {1} {2} {1,2}
-		logger.info("sets= {}",sets);
+		logger.info("sets= {}",sets.toArray());
 		assertEquals(sets.size(),Math.pow(2, nbElements), 0.01);
 		assertTrue(sets.contains(Powerset.nullSet));
 		assertTrue(sets.contains(new HashSet<>(Arrays.asList(1,2))));
@@ -55,7 +55,7 @@ public class PowersetTest {
 		int nbElements = 3;
 		Set<Set<Integer>> sets = Powerset.calculate(nbElements);
 		//set = {} {1} {2} {3} {1,2} {1,3} {2,3} {1,2,3}
-		logger.info("sets= {}",sets);
+		logger.info("sets= {}",sets.toArray());
 		assertEquals(sets.size(),Math.pow(2, nbElements), 0.01);
 		assertTrue(sets.contains(Powerset.nullSet));
 		assertTrue(sets.contains(new HashSet<>(Arrays.asList(1,2,3))));
