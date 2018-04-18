@@ -7,8 +7,6 @@ import java.util.Set;
 import org.shapleyvalue.core.CharacteristicFunction;
 import org.shapleyvalue.core.ShapleyValue;
 import org.shapleyvalue.core.CharacteristicFunction.CharacteristicFunctionBuilder;
-import org.shapleyvalue.extension.taxi.TaxiCalculation;
-import org.shapleyvalue.extension.taxi.TaxiCalculation.TaxiCalculationBuilder;
 import org.shapleyvalue.util.Powerset;
 
 
@@ -30,7 +28,7 @@ public class ParlementCalculation {
 				int val = builder.getV().get(i);
 				nbRepresentants += val;
 			}
-			if(nbRepresentants>(1+(builder.getNbRepresentants()/2)))
+			if(nbRepresentants>=(1+(builder.getNbRepresentants()/2)))
 				cfunctionBuilder.addCoalition(1, set.toArray(new Integer[set.size()]));
 			else
 				cfunctionBuilder.addCoalition(0, set.toArray(new Integer[set.size()]));
