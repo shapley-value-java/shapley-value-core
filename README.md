@@ -218,11 +218,26 @@ phiRule1=phiRule2=phiRule2=0.25
 	}
 ```
 
+## Parlement
+### First example
+Question: The parliament of Micronesia is made up of four political parties, A, B, C, and D, which have 45, 25, 15, and 15 representatives, respectively.
+If a coalition has the majority it receives 1, if a coalition has no majority it receives 0.
+
+the solution is 
+- phiA=0.5 
+- phiB=1/6
+- phiC=1/6
+- phiD=1/6
+B, C, and D have the same Shapley value, so the same influence.
+
 
 # resources
 ## video
 * how to share a taxi https://www.youtube.com/watch?v=aThG4YAFErw
 * course about game theory https://www.youtube.com/watch?v=qcLZMYPdpH4
+
+## example parlement application
+https://math.stackexchange.com/questions/1310344/calculating-shapley-value-on-voting-game
 
 ## other project in java
 * http://bitsbytesnwords.blogspot.be/2013/02/shapley-value.html

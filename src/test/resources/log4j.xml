@@ -10,7 +10,7 @@
   </appender> 
   
   <logger name="org.shapleyvalue" additivity="false">
-   <level value="debug" />
+   <level value="INFO" />
    <appender-ref ref="console" />
  </logger>
 
