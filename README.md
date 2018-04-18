@@ -230,6 +230,26 @@ the solution is
 - phiD=1/6
 B, C, and D have the same Shapley value, so the same influence.
 
+### Belgium parlement
+The Belgium parlement has 151 members and a lot of parties (figures of the 18/04/2018)
+- NVA 31
+- PS 23
+- MR 20
+- CD&V 18
+- openVLD 14
+- EcoloGroen 12
+- CDH 9
+- VB 3
+- Defi 2
+- PTB 2
+- VW 2
+- PP 1
+
+In fact, it becomes very difficult to calculate the Shapley value for this 12 parties.
+Because the number of permutation possible is huge : factorial(12)=  479 001 600 !
+
+
+
 
 # resources
 ## video
