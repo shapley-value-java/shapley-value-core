@@ -237,6 +237,7 @@ The Belgium parlement has 151 members and a lot of parties (figures of the 18/04
 - MR 20
 - CD&V 18
 - openVLD 14
+- PSA 13
 - EcoloGroen 12
 - CDH 9
 - VB 3
@@ -245,8 +246,8 @@ The Belgium parlement has 151 members and a lot of parties (figures of the 18/04
 - VW 2
 - PP 1
 
-In fact, it becomes very difficult to calculate the Shapley value for this 12 parties.
-Because the number of permutation possible is huge : factorial(12)=  479 001 600 !
+In fact, it becomes very difficult to calculate the Shapley value for this 13 parties.
+Because the number of permutation possible is huge : factorial(13)=  a lot ...
 
 
 
