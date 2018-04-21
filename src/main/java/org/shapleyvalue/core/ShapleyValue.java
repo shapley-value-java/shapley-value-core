@@ -39,7 +39,7 @@ public class ShapleyValue {
 		if(logger.isDebugEnabled()) logger.debug("ShapleyValue calculate started");
 		
 		int size = cfunction.getNbPlayers();
-		int factorielSize = FactorialUtil.factorial(size);
+		long factorielSize = FactorialUtil.factorial(size);
 		List<List<Integer>> permutations = Permutations.getAllPermutation(size);
 		
 		for(int i=1; i<=size; i++) {
