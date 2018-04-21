@@ -52,28 +52,31 @@ public class ParlementCalculationTest {
 				.addParty("EcoloGroen", 12)
 				.addParty("CDH", 9)
 				.addParty("VB", 3)
-				/////.addParty("others", 7)
+				//.addParty("others", 7)
 				//.addParty("Defi", 2)
 				//.addParty("PTB", 2)
 				//.addParty("VW", 2)
-				.addParty("PP", 1)
+				//.addParty("PP", 1)
 				.build();
 	
 		
 		Map<String,Double> output = parlementCalculation.calculate();
 		double phiNVA = output.get("NVA");
-		logger.info("phiNVA= {}",phiNVA);
+		logger.info("phiNVA= {}",String.format("%.3f", phiNVA));
+		
 		double phiPS = output.get("PS");
-		logger.info("phiPS= {}",phiPS);
+		logger.info("phiPS= {}",String.format("%.3f", phiPS));
+		
+		double phiMR = output.get("MR");
+		logger.info("phiMR= {}",String.format("%.3f", phiMR));
 		
 		double phiCDH = output.get("CDH");
-		logger.info("phiCDH= {}",phiCDH);
+		logger.info("phiCDH= {}",String.format("%.3f", phiCDH));
 		
 		double phiVB = output.get("VB");
-		logger.info("phiVB= {}",phiVB);
+		logger.info("phiVB= {}",String.format("%.3f", phiVB));
 		
-		double phiPP = output.get("PP");
-		logger.info("phiPP= {}",phiPP);
+
 	}
 	
 

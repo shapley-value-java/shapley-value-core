@@ -10,7 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import org.shapleyvalue.util.FactorialUtil;
-import org.shapleyvalue.util.Permutations;
+import org.shapleyvalue.util.permutation.PermutationLinkList;
 
 public class ShapleyValue {
 	
@@ -40,13 +40,15 @@ public class ShapleyValue {
 		
 		int size = cfunction.getNbPlayers();
 		long factorielSize = FactorialUtil.factorial(size);
-		List<List<Integer>> permutations = Permutations.getAllPermutation(size);
+		
+		PermutationLinkList permutations = new PermutationLinkList(size);
 		
 		for(int i=1; i<=size; i++) {
 			output.put(i, 0.0);
 		}
 		
-		for(List<Integer> coalition : permutations) {
+		List<Integer> coalition = permutations.getNextPermutation();
+		while(!coalition.isEmpty()) {
 			Set<Integer> set = new HashSet<>();
 			double prevVal =0;
 			for(Integer element : coalition) {
@@ -55,6 +57,7 @@ public class ShapleyValue {
 				output.put(element,val+output.get(element));
 				prevVal += val;
 			}
+			coalition = permutations.getNextPermutation();
 		}
 		
 		double total = 0;

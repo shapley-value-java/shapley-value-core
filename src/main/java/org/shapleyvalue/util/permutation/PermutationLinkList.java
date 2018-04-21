@@ -3,7 +3,6 @@ package org.shapleyvalue.util.permutation;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.shapleyvalue.extension.parlement.ParlementCalculationTest;
 import org.shapleyvalue.util.FactorialUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
