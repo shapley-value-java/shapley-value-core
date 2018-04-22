@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 
 import org.shapleyvalue.util.FactorialUtil;
 import org.shapleyvalue.util.permutation.PermutationLinkList;
+import org.shapleyvalue.util.permutation.RandomPermutations;
 
 public class ShapleyValue {
 
@@ -37,10 +38,10 @@ public class ShapleyValue {
 	}
 
 	public Map<Integer, Double> calculate() {
-		return calculate(false, 0);
+		return calculate(false, 0,false);
 	}
 
-	public Map<Integer, Double> calculate(boolean normalized, long sampleSize) {
+	public Map<Integer, Double> calculate(boolean normalized, long sampleSize, boolean randomValue) {
 		if (logger.isDebugEnabled())
 			logger.debug("ShapleyValue calculate started");
 		// System.out.println("currentRange "+currentRange);
@@ -60,7 +61,13 @@ public class ShapleyValue {
 		}
 
 		while (!isLastReached() && count <= sampleSize) {
-			List<Integer> coalition = permutations.getNextPermutation();
+			List<Integer> coalition = null;
+			if(!randomValue) { 
+				coalition = permutations.getNextPermutation();
+			} else  {
+				coalition = RandomPermutations.getRandom(size);
+			}
+				
 			currentRange++;
 			// System.out.println("currentRange "+currentRange);
 			count++;

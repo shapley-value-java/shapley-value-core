@@ -15,8 +15,10 @@ public class ParlementCalculation {
 	private CharacteristicFunction cfunction;
 	private ShapleyValue shapleyValue;
 	private Map<Integer, String> range;
+
 	
 	private ParlementCalculation(ParlementCalculationBuilder builder) {
+
 		Set<Set<Integer>> sets = Powerset.calculate(builder.getNbPlayers());
 
 		CharacteristicFunctionBuilder cfunctionBuilder = 
@@ -86,7 +88,21 @@ public class ParlementCalculation {
 	}
 	
 	public Map<String, Double> calculate(long sampleSize) {
-		Map<Integer, Double> tempRes = shapleyValue.calculate(true,sampleSize);
+		Map<Integer, Double> tempRes = shapleyValue.calculate(true,sampleSize, false);
+		Map<String, Double> res = new HashMap<>();
+		double total =0;
+		for(Integer i : tempRes.keySet()) {
+			total += tempRes.get(i);
+		}
+		for(Integer i : tempRes.keySet()) {
+			res.put(range.get(i), tempRes.get(i)/total);
+		}
+		return res;
+		
+	}
+	
+	public Map<String, Double> calculate(long sampleSize, boolean random) {
+		Map<Integer, Double> tempRes = shapleyValue.calculate(true,sampleSize, random);
 		Map<String, Double> res = new HashMap<>();
 		double total =0;
 		for(Integer i : tempRes.keySet()) {

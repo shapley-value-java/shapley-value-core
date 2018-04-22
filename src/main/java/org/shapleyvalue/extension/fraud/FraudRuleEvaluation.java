@@ -38,7 +38,7 @@ public class FraudRuleEvaluation {
 
 	public Map<String, Double> calculate() {
 		shapleyValue = new ShapleyValue(cfunction);
-		Map<Integer, Double> tempRes = shapleyValue.calculate(true,0);
+		Map<Integer, Double> tempRes = shapleyValue.calculate(true,0, false);
 		Map<String, Double> res = new HashMap<>();
 		for(Integer i : tempRes.keySet()) {
 			res.put(range.get(i), tempRes.get(i));

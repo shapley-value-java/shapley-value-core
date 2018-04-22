@@ -116,4 +116,6 @@ public class PermutationLinkList {
 	public long getPermutationRange() {
 		return permutationRange;
 	}
+	
+
 }

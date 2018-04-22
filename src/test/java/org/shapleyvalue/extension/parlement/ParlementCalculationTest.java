@@ -35,7 +35,7 @@ public class ParlementCalculationTest {
 	}
 
 	@Test
-	@Ignore
+	//@Ignore
 	public void testExampleBelgium() {
 
 		ParlementCalculation parlementCalculation = new ParlementCalculation.ParlementCalculationBuilder()
@@ -46,8 +46,8 @@ public class ParlementCalculationTest {
 		//System.out.println(FactorialUtil.factorial(13) / 100);
 
 		Map<String, Double> output = null;
-		while (!parlementCalculation.isLastReached()) {
-			output = parlementCalculation.calculate(10_000_000);
+		//while (!parlementCalculation.isLastReached()) {
+			output = parlementCalculation.calculate(100_000, true);
 
 			double phiNVA = output.get("NVA");
 			logger.info("phiNVA= {}", String.format("%.3f", phiNVA));
@@ -87,7 +87,7 @@ public class ParlementCalculationTest {
 
 			double phiPP = output.get("PP");
 			logger.info("phiPP= {}", String.format("%.3f", phiPP));
-		}
+		//}
 	}
 
 }
