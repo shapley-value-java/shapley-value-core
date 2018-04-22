@@ -36,6 +36,7 @@ public class ParlementCalculation {
 		}
 		range = builder.getRange();
 		cfunction = cfunctionBuilder.build();
+		shapleyValue = new ShapleyValue(cfunction);
 	}
 	
 	
@@ -84,15 +85,23 @@ public class ParlementCalculation {
 		
 	}
 	
-	public Map<String, Double> calculate() {
-		shapleyValue = new ShapleyValue(cfunction);
-		Map<Integer, Double> tempRes = shapleyValue.calculate(true);
+	public Map<String, Double> calculate(long sampleSize) {
+		Map<Integer, Double> tempRes = shapleyValue.calculate(true,sampleSize);
 		Map<String, Double> res = new HashMap<>();
+		double total =0;
 		for(Integer i : tempRes.keySet()) {
-			res.put(range.get(i), tempRes.get(i));
+			total += tempRes.get(i);
+		}
+		for(Integer i : tempRes.keySet()) {
+			res.put(range.get(i), tempRes.get(i)/total);
 		}
 		return res;
 		
 	}
+	
+	public boolean isLastReached() {
+		return shapleyValue.isLastReached();
+	}
+	
 
 }

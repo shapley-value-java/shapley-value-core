@@ -13,69 +13,96 @@ import org.shapleyvalue.util.FactorialUtil;
 import org.shapleyvalue.util.permutation.PermutationLinkList;
 
 public class ShapleyValue {
-	
-	//private Map<Set<Integer>, Double> input; 
+
 	private CharacteristicFunction cfunction;
-	private Map<Integer,Double> output;
-	
+	private Map<Integer, Double> output;
+	private PermutationLinkList permutations;
+	private long currentRange;
+	private int size;
+
 	private final Logger logger = LoggerFactory.getLogger(ShapleyValue.class);
-	
-	
+
 	public ShapleyValue(CharacteristicFunction cfunction) {
 		this.cfunction = cfunction;
+		size = cfunction.getNbPlayers();
+		currentRange = 0;
 
 		this.output = new HashMap<>();
-		
-		//this.input.putAll(input);
-		if(logger.isDebugEnabled()) logger.debug("ShapleyValue cfunction={}",this.cfunction);
-	}
-	
-	public Map<Integer,Double> calculate() {
-		return calculate(false);
-	}
-	
-	
-	public Map<Integer,Double> calculate(boolean normalized) {
-		if(logger.isDebugEnabled()) logger.debug("ShapleyValue calculate started");
-		
-		int size = cfunction.getNbPlayers();
-		long factorielSize = FactorialUtil.factorial(size);
-		
-		PermutationLinkList permutations = new PermutationLinkList(size);
-		
-		for(int i=1; i<=size; i++) {
+		for (int i = 1; i <= size; i++) {
 			output.put(i, 0.0);
 		}
-		
-		List<Integer> coalition = permutations.getNextPermutation();
-		while(!coalition.isEmpty()) {
+
+		// if(logger.isDebugEnabled()) logger.debug("ShapleyValue
+		// cfunction={}",this.cfunction);
+	}
+
+	public Map<Integer, Double> calculate() {
+		return calculate(false, 0);
+	}
+
+	public Map<Integer, Double> calculate(boolean normalized, long sampleSize) {
+		if (logger.isDebugEnabled())
+			logger.debug("ShapleyValue calculate started");
+		// System.out.println("currentRange "+currentRange);
+		long factorialSize = FactorialUtil.factorial(size);
+		// System.out.println("factorialSize "+factorialSize);
+
+		// int size = cfunction.getNbPlayers();
+		// long factorialSize = FactorialUtil.factorial(size);
+
+		if (permutations == null) {
+			permutations = new PermutationLinkList(size);
+		}
+
+		int count = 1;
+		if (sampleSize <= 0) {
+			sampleSize = factorialSize;
+		}
+
+		while (!isLastReached() && count <= sampleSize) {
+			List<Integer> coalition = permutations.getNextPermutation();
+			currentRange++;
+			// System.out.println("currentRange "+currentRange);
+			count++;
 			Set<Integer> set = new HashSet<>();
-			double prevVal =0;
-			for(Integer element : coalition) {
+			double prevVal = 0;
+			for (Integer element : coalition) {
 				set.add(element);
-				double val = cfunction.getValue(set)-prevVal;
-				output.put(element,val+output.get(element));
+				double val = cfunction.getValue(set) - prevVal;
+				output.put(element, val + output.get(element));
 				prevVal += val;
 			}
-			coalition = permutations.getNextPermutation();
+			// System.out.println("output "+output);
 		}
-		
+
 		double total = 0;
-		for(int i=1; i<=size; i++) {
-			total += output.get(i)/factorielSize;
-			output.put(i, output.get(i)/factorielSize);
-		}
-		
-		if(normalized) {
-			for(int i=1; i<=size; i++) {
-				output.put(i, output.get(i)/total);
+		if (isLastReached()) {
+			for (int i = 1; i <= size; i++) {
+				total += output.get(i) / factorialSize;
+				output.put(i, output.get(i) / factorialSize);
+			}
+
+			if (normalized) {
+				Map<Integer, Double> normalizedOutput = new HashMap<>();
+				for (int i = 1; i <= size; i++) {
+					normalizedOutput.put(i, output.get(i) / total);
+				}
+				if (logger.isDebugEnabled())
+					logger.debug("ShapleyValue calculate normalizedOutput={}", normalizedOutput);
+				return normalizedOutput;
 			}
 		}
-		
-		
-		if(logger.isDebugEnabled()) logger.debug("ShapleyValue calculate output={}",output);
+		if (logger.isDebugEnabled())
+			logger.debug("ShapleyValue calculate output={}", output);
 		return output;
-		
+
 	}
-	
+
+	public boolean isLastReached() {
+		if (currentRange < FactorialUtil.factorial(size))
+			return false;
+		else
+			return true;
+	}
+
 }

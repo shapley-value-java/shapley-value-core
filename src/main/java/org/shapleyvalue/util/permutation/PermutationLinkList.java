@@ -48,7 +48,6 @@ public class PermutationLinkList {
 		if(root==null) {
 			return new ArrayList<Integer>();
 		}
-		//System.out.println("trace1");
 		
 		List<Integer> list = new ArrayList<>();
 		
