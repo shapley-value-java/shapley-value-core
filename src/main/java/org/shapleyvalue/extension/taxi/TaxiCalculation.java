@@ -72,7 +72,8 @@ public class TaxiCalculation {
 
 	public Map<String, Double> calculate() {
 		shapleyValue = new ShapleyValue(cfunction);
-		Map<Integer, Double> tempRes = shapleyValue.calculate();
+		shapleyValue.calculate(); 
+		Map<Integer, Double> tempRes = shapleyValue.getResult(); 
 		Map<String, Double> res = new HashMap<>();
 		for(Integer i : tempRes.keySet()) {
 			res.put(range.get(i), tempRes.get(i));

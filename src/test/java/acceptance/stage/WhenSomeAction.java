@@ -15,8 +15,8 @@ public class WhenSomeAction extends Stage<WhenSomeAction> {
 	public Map<Integer,Double> the_shapley_value_is_calculated(@Hidden CharacteristicFunction v) {
 		
 		ShapleyValue s = new ShapleyValue(v);	
-		return s.calculate();
-		
+		s.calculate();
+		return s.getResult();
 	}
 
 	public WhenSomeAction a_dummy_user_is_added(@Hidden CharacteristicFunction v) {

@@ -87,22 +87,16 @@ public class ParlementCalculation {
 		
 	}
 	
-	public Map<String, Double> calculate(long sampleSize) {
-		Map<Integer, Double> tempRes = shapleyValue.calculate(true,sampleSize, false);
-		Map<String, Double> res = new HashMap<>();
-		double total =0;
-		for(Integer i : tempRes.keySet()) {
-			total += tempRes.get(i);
-		}
-		for(Integer i : tempRes.keySet()) {
-			res.put(range.get(i), tempRes.get(i)/total);
-		}
-		return res;
-		
+	public void calculate(long sampleSize) {
+		shapleyValue.calculate(sampleSize, false);	
 	}
 	
-	public Map<String, Double> calculate(long sampleSize, boolean random) {
-		Map<Integer, Double> tempRes = shapleyValue.calculate(true,sampleSize, random);
+	public void calculate(long sampleSize, boolean random) {
+		shapleyValue.calculate(sampleSize, random);	
+	}
+	
+	public Map<String, Double> getResult() {
+		Map<Integer, Double> tempRes = shapleyValue.getResult();
 		Map<String, Double> res = new HashMap<>();
 		double total =0;
 		for(Integer i : tempRes.keySet()) {
@@ -112,8 +106,9 @@ public class ParlementCalculation {
 			res.put(range.get(i), tempRes.get(i)/total);
 		}
 		return res;
-		
 	}
+	
+
 	
 	public boolean isLastReached() {
 		return shapleyValue.isLastReached();

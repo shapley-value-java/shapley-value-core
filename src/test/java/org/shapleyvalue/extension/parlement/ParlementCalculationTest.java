@@ -5,7 +5,6 @@ import static org.junit.Assert.assertEquals;
 import java.util.Map;
 
 import org.junit.Test;
-import org.junit.Ignore;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -20,7 +19,9 @@ public class ParlementCalculationTest {
 				.addParty("A", 45).addParty("B", 25).addParty("C", 15).addParty("D", 15).build();
 		Map<String, Double> output = null;
 		while (!parlementCalculation.isLastReached())
-			output = parlementCalculation.calculate(5);
+			parlementCalculation.calculate(5);
+		
+		output = parlementCalculation.getResult();
 
 		double phiA = output.get("A");
 		double phiB = output.get("B");
@@ -42,12 +43,11 @@ public class ParlementCalculationTest {
 				.addParty("PSA", 13).addParty("EcoloGroen", 12).addParty("CDH", 9).addParty("VB", 3).addParty("Defi", 2)
 				.addParty("PTB", 2).addParty("VW", 2).addParty("PP", 1).build();
 
-		// System.out.println(FactorialUtil.factorial(13) );
-
 		Map<String, Double> output = null;
 
-		output = parlementCalculation.calculate(10_000, true);
-
+		parlementCalculation.calculate(20_000, true);
+		output = parlementCalculation.getResult();
+		
 		double phiNVA = output.get("NVA");
 		logger.info("phiNVA= {}", String.format("%.3f", phiNVA));
 

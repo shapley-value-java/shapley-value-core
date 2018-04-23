@@ -20,6 +20,7 @@ public class ShapleyValue {
 	private PermutationLinkList permutations;
 	private long currentRange;
 	private int size;
+	private long factorialSize;
 
 	private final Logger logger = LoggerFactory.getLogger(ShapleyValue.class);
 
@@ -27,29 +28,22 @@ public class ShapleyValue {
 		this.cfunction = cfunction;
 		size = cfunction.getNbPlayers();
 		currentRange = 0;
+		factorialSize = FactorialUtil.factorial(size);
 
 		this.output = new HashMap<>();
 		for (int i = 1; i <= size; i++) {
 			output.put(i, 0.0);
 		}
-
-		// if(logger.isDebugEnabled()) logger.debug("ShapleyValue
-		// cfunction={}",this.cfunction);
 	}
 
-	public Map<Integer, Double> calculate() {
-		return calculate(false, 0,false);
+	public void calculate() {
+		calculate(0,false);
 	}
 
-	public Map<Integer, Double> calculate(boolean normalized, long sampleSize, boolean randomValue) {
+	public void calculate(long sampleSize, boolean randomValue) {
 		if (logger.isDebugEnabled())
 			logger.debug("ShapleyValue calculate started");
-		// System.out.println("currentRange "+currentRange);
-		long factorialSize = FactorialUtil.factorial(size);
-		// System.out.println("factorialSize "+factorialSize);
 
-		// int size = cfunction.getNbPlayers();
-		// long factorialSize = FactorialUtil.factorial(size);
 
 		if (permutations == null) {
 			permutations = new PermutationLinkList(size);
@@ -79,31 +73,38 @@ public class ShapleyValue {
 				output.put(element, val + output.get(element));
 				prevVal += val;
 			}
-			// System.out.println("output "+output);
-		}
 
-		double total = 0;
-		if (isLastReached()) {
-			for (int i = 1; i <= size; i++) {
-				total += output.get(i) / factorialSize;
-				output.put(i, output.get(i) / factorialSize);
-			}
-
-			if (normalized) {
-				Map<Integer, Double> normalizedOutput = new HashMap<>();
-				for (int i = 1; i <= size; i++) {
-					normalizedOutput.put(i, output.get(i) / total);
-				}
-				if (logger.isDebugEnabled())
-					logger.debug("ShapleyValue calculate normalizedOutput={}", normalizedOutput);
-				return normalizedOutput;
-			}
 		}
-		if (logger.isDebugEnabled())
-			logger.debug("ShapleyValue calculate output={}", output);
-		return output;
 
 	}
+	
+	public Map<Integer, Double> getResult() {
+		return getResult(0) ;
+	}
+	
+	public Map<Integer, Double> getResult(int normalizedValue) {
+		
+		double total = 0;
+		for (int i = 1; i <= size; i++) {
+			total += output.get(i) / factorialSize;
+			output.put(i, output.get(i) / factorialSize);
+		}
+
+		if (normalizedValue!=0) {
+			Map<Integer, Double> normalizedOutput = new HashMap<>();
+			for (int i = 1; i <= size; i++) {
+				normalizedOutput.put(i, output.get(i) / total);
+			}
+			if (logger.isDebugEnabled())
+				logger.debug("ShapleyValue calculate normalizedOutput={}", normalizedOutput);
+			return normalizedOutput;
+		}
+		if (logger.isDebugEnabled())
+			logger.debug("ShapleyValue getResult output={}", output);
+		return output;
+	}
+	
+	
 
 	public boolean isLastReached() {
 		if (currentRange < FactorialUtil.factorial(size))
