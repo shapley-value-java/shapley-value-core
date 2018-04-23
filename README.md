@@ -50,10 +50,10 @@ phi1 =1.0
 				.addCoalition(1.0, 1).build();
 	
 		ShapleyValue s = new ShapleyValue(cfunction);
+		s.calculate();
+		Map<Integer,Double> output =s.getResult();
 		
-		Map<Integer,Double> output =s.calculate();
-		double phi1 = output.get(1);
-		
+		double phi1 = output.get(1);	
 		assertEquals(phi1, 1.0, 0.01);
 	}
 ```
@@ -88,9 +88,10 @@ characteristic function : (2^N -> R)
 				.addCoalition(2.0, 2)
 				.addCoalition(4.0, 1, 2).build();	
 			
-		ShapleyValue s = new ShapleyValue(cfunction);
+		ShapleyValue s = new ShapleyValue(cfunction);		
+		s.calculate();
+		Map<Integer,Double> output =s.getResult();
 		
-		Map<Integer,Double> output =s.calculate();
 		double phi1 = output.get(1);
 		double phi2 = output.get(2);
 		
@@ -131,17 +132,17 @@ characteristic function : (2^N -> R)
 				.addCoalition(72.0, 2, 3)			
 				.addCoalition(90.0, 1, 2, 3).build();	
 	
-		ShapleyValue s = new ShapleyValue(cfunction);
+		ShapleyValue s = new ShapleyValue(cfunction);		
+		s.calculate();
+		Map<Integer,Double> output =s.getResult();
 		
-		Map<Integer,Double> output =s.calculate();
 		double v1 = output.get(1);
 		double v2 = output.get(2);
 		double v3 = output.get(3);
 		
 		assertEquals(v1, 39.2, 0.1);
 		assertEquals(v2, 20.7, 0.1);
-		assertEquals(v3, 30.2, 0.1);
-		
+		assertEquals(v3, 30.2, 0.1);		
 	}
 ```
 
