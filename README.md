@@ -231,7 +231,7 @@ the solution is
 B, C, and D have the same Shapley value, so the same influence.
 
 ### Belgium parlement
-The Belgium parlement has 151 members and a lot of parties (figures of the 18/04/2018)
+The Belgium parlement has 151 members and a lot of parties (13 parties, figures of the 18/04/2018)
 - NVA 31
 - PS 23
 - MR 20
@@ -247,10 +247,25 @@ The Belgium parlement has 151 members and a lot of parties (figures of the 18/04
 - PP 1
 
 In fact, it becomes very difficult to calculate the Shapley value for this 13 parties.
-Because the number of permutation possible is huge : factorial(13)=  a lot ...
+Because the number of permutation possible is huge : factorial(13)=  a lot around 6 milliard or 6 billion.
 
+But it is possible to take a smaller set of permutations taken randomly.
+In this case 500 000 permutations seems to be enough to have a precision of 0.1 percent and takes 30 seconds calculation with a old PC.
 
-
+With a normalized results to 100, here is the result finally not so far from the proportional result
+- NVA 22.9
+- PS 15.4
+- MR 13.5
+- CD&V 12.0
+- openVLD 8.8
+- PSA 8.2
+- EcoloGroen 7.6
+- CDH 6.0
+- VB 1.6
+- Defi 1.1
+- PTB 1.1
+- VW 1.1
+- PP 0.6
 
 # resources
 ## video

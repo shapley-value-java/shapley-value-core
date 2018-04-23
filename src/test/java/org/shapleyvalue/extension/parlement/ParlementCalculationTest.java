@@ -5,7 +5,6 @@ import static org.junit.Assert.assertEquals;
 import java.util.Map;
 
 import org.junit.Test;
-import org.shapleyvalue.util.FactorialUtil;
 import org.junit.Ignore;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -43,51 +42,51 @@ public class ParlementCalculationTest {
 				.addParty("PSA", 13).addParty("EcoloGroen", 12).addParty("CDH", 9).addParty("VB", 3).addParty("Defi", 2)
 				.addParty("PTB", 2).addParty("VW", 2).addParty("PP", 1).build();
 
-		//System.out.println(FactorialUtil.factorial(13) / 100);
+		// System.out.println(FactorialUtil.factorial(13) );
 
 		Map<String, Double> output = null;
-		//while (!parlementCalculation.isLastReached()) {
-			output = parlementCalculation.calculate(100_000, true);
 
-			double phiNVA = output.get("NVA");
-			logger.info("phiNVA= {}", String.format("%.3f", phiNVA));
+		output = parlementCalculation.calculate(10_000, true);
 
-			double phiPS = output.get("PS");
-			logger.info("phiPS= {}", String.format("%.3f", phiPS));
+		double phiNVA = output.get("NVA");
+		logger.info("phiNVA= {}", String.format("%.3f", phiNVA));
 
-			double phiMR = output.get("MR");
-			logger.info("phiMR= {}", String.format("%.3f", phiMR));
+		double phiPS = output.get("PS");
+		logger.info("phiPS= {}", String.format("%.3f", phiPS));
 
-			double phiCDV = output.get("CD&V");
-			logger.info("phiCD&V= {}", String.format("%.3f", phiCDV));
+		double phiMR = output.get("MR");
+		logger.info("phiMR= {}", String.format("%.3f", phiMR));
 
-			double phiOpenVld = output.get("openVLD");
-			logger.info("phiOpenVld= {}", String.format("%.3f", phiOpenVld));
+		double phiCDV = output.get("CD&V");
+		logger.info("phiCD&V= {}", String.format("%.3f", phiCDV));
 
-			double phiPSA = output.get("PSA");
-			logger.info("phiPSA= {}", String.format("%.3f", phiPSA));
+		double phiOpenVld = output.get("openVLD");
+		logger.info("phiOpenVld= {}", String.format("%.3f", phiOpenVld));
 
-			double phiEcoloGroen = output.get("EcoloGroen");
-			logger.info("phiEcoloGroen= {}", String.format("%.3f", phiEcoloGroen));
+		double phiPSA = output.get("PSA");
+		logger.info("phiPSA= {}", String.format("%.3f", phiPSA));
 
-			double phiCDH = output.get("CDH");
-			logger.info("phiCDH= {}", String.format("%.3f", phiCDH));
+		double phiEcoloGroen = output.get("EcoloGroen");
+		logger.info("phiEcoloGroen= {}", String.format("%.3f", phiEcoloGroen));
 
-			double phiVB = output.get("VB");
-			logger.info("phiVB= {}", String.format("%.3f", phiVB));
+		double phiCDH = output.get("CDH");
+		logger.info("phiCDH= {}", String.format("%.3f", phiCDH));
 
-			double phiDefi = output.get("Defi");
-			logger.info("phiDefi= {}", String.format("%.3f", phiDefi));
+		double phiVB = output.get("VB");
+		logger.info("phiVB= {}", String.format("%.3f", phiVB));
 
-			double phiPTB = output.get("PTB");
-			logger.info("phiPTB= {}", String.format("%.3f", phiPTB));
+		double phiDefi = output.get("Defi");
+		logger.info("phiDefi= {}", String.format("%.3f", phiDefi));
 
-			double phiVW = output.get("VW");
-			logger.info("phiVW= {}", String.format("%.3f", phiVW));
+		double phiPTB = output.get("PTB");
+		logger.info("phiPTB= {}", String.format("%.3f", phiPTB));
 
-			double phiPP = output.get("PP");
-			logger.info("phiPP= {}", String.format("%.3f", phiPP));
-		//}
+		double phiVW = output.get("VW");
+		logger.info("phiVW= {}", String.format("%.3f", phiVW));
+
+		double phiPP = output.get("PP");
+		logger.info("phiPP= {}", String.format("%.3f", phiPP));
+
 	}
 
 }
