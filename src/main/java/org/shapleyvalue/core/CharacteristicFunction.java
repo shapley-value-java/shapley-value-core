@@ -8,7 +8,15 @@ import java.util.Set;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-
+/**
+ * represent the following function often written by v
+ * 2^N -> R
+ * for each subset of the set {1.. N} is associated a value
+ * per convention v(empty set) = 0
+ * 
+ * @author Franck Benault
+ *
+ */
 public class CharacteristicFunction {
 	
 	private final Logger logger = LoggerFactory.getLogger(CharacteristicFunction.class);
@@ -69,6 +77,7 @@ public class CharacteristicFunction {
 
 	}
 
+	@Deprecated
 	public void addDummyUser() {
 		if(logger.isDebugEnabled()) logger.debug("begin addDummyUser {}", this);
 		
