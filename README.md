@@ -219,7 +219,7 @@ phiRule1=phiRule2=phiRule2=0.25
 	}
 ```
 
-## Parlement
+## Parliament
 ### First example
 Question: The parliament of Micronesia is made up of four political parties, A, B, C, and D, which have 45, 25, 15, and 15 representatives, respectively.
 If a coalition has the majority it receives 1, if a coalition has no majority it receives 0.
@@ -231,8 +231,8 @@ the solution is
 - phiD=1/6
 B, C, and D have the same Shapley value, so the same influence.
 
-### Belgium parlement
-The Belgium parlement has 151 members and a lot of parties (13 parties, figures of the 18/04/2018)
+### Belgium parliament
+The Belgium parliament has 151 members and a lot of parties (13 parties, figures of the 18/04/2018)
 - NVA 31
 - PS 23
 - MR 20

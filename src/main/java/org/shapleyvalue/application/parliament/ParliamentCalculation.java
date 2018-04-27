@@ -1,4 +1,4 @@
-package org.shapleyvalue.application.parlement;
+package org.shapleyvalue.application.parliament;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -16,14 +16,14 @@ import org.shapleyvalue.util.Powerset;
  * @author Franck Benault
  *
  */
-public class ParlementCalculation {
+public class ParliamentCalculation {
 	
 	private CharacteristicFunction cfunction;
 	private ShapleyValue shapleyValue;
 	private Map<Integer, String> range;
 
 	
-	private ParlementCalculation(ParlementCalculationBuilder builder) {
+	private ParliamentCalculation(ParliamentCalculationBuilder builder) {
 
 		Set<Set<Integer>> sets = Powerset.calculate(builder.getNbPlayers());
 
@@ -49,26 +49,26 @@ public class ParlementCalculation {
 	
 	/**
 	 * 
-	 * Builder for ParlementCalculation class
+	 * Builder for ParliamentCalculation class
 	 * 
 	 * @author Franck Benault
 	 *
 	 */
-	public static class ParlementCalculationBuilder {
+	public static class ParliamentCalculationBuilder {
 		
 		private int nbPlayers;
 		private Map<Integer, Integer> v;
 		private Map<Integer, String> range;
 		private int nbRepresentants;
 
-		public ParlementCalculationBuilder() {
+		public ParliamentCalculationBuilder() {
 			nbPlayers = 0;
 			nbRepresentants =0;
 			v = new HashMap<>();
 			range = new HashMap<>();
 		}
 
-		public ParlementCalculationBuilder addParty(String partyName , int nbRepresentants) {
+		public ParliamentCalculationBuilder addParty(String partyName , int nbRepresentants) {
 			nbPlayers ++;
 			this.nbRepresentants += nbRepresentants;
 			v.put(nbPlayers, nbRepresentants);
@@ -76,8 +76,8 @@ public class ParlementCalculation {
 			return this;
 		}
 		
-		public ParlementCalculation build() {
-			return new ParlementCalculation(this);
+		public ParliamentCalculation build() {
+			return new ParliamentCalculation(this);
 		}
 		
 		public int getNbPlayers() {

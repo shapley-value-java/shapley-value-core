@@ -1,4 +1,4 @@
-package org.shapleyvalue.application.parlement;
+package org.shapleyvalue.application.parliament;
 
 import static org.junit.Assert.assertEquals;
 
@@ -8,14 +8,14 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class ParlementCalculationTest {
+public class ParliamentCalculationTest {
 
-	private final Logger logger = LoggerFactory.getLogger(ParlementCalculationTest.class);
+	private final Logger logger = LoggerFactory.getLogger(ParliamentCalculationTest.class);
 
 	@Test
 	public void testExampleMicronesia() {
 
-		ParlementCalculation parlementCalculation = new ParlementCalculation.ParlementCalculationBuilder()
+		ParliamentCalculation parlementCalculation = new ParliamentCalculation.ParliamentCalculationBuilder()
 				.addParty("A", 45).addParty("B", 25).addParty("C", 15).addParty("D", 15).build();
 		Map<String, Double> output = null;
 		while (!parlementCalculation.isLastReached())
@@ -38,7 +38,7 @@ public class ParlementCalculationTest {
 	//@Ignore
 	public void testExampleBelgium() {
 
-		ParlementCalculation parlementCalculation = new ParlementCalculation.ParlementCalculationBuilder()
+		ParliamentCalculation parlementCalculation = new ParliamentCalculation.ParliamentCalculationBuilder()
 				.addParty("NVA", 31).addParty("PS", 23).addParty("MR", 20).addParty("CD&V", 18).addParty("openVLD", 14)
 				.addParty("PSA", 13).addParty("EcoloGroen", 12).addParty("CDH", 9).addParty("VB", 3).addParty("Defi", 2)
 				.addParty("PTB", 2).addParty("VW", 2).addParty("PP", 1).build();
