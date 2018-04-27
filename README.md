@@ -146,7 +146,7 @@ characteristic function : (2^N -> R)
 	}
 ```
 
-# Extension
+# Applications
 ## Share taxi
 ### Example
 This example is :

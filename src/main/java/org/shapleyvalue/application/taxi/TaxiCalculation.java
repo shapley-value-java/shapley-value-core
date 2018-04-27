@@ -1,4 +1,4 @@
-package org.shapleyvalue.extension.taxi;
+package org.shapleyvalue.application.taxi;
 
 import java.util.HashMap;
 import java.util.Map;

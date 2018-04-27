@@ -77,7 +77,6 @@ public class CharacteristicFunction {
 
 	}
 
-	@Deprecated
 	public void addDummyUser() {
 		if(logger.isDebugEnabled()) logger.debug("begin addDummyUser {}", this);
 		

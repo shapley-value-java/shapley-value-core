@@ -1,4 +1,4 @@
-package org.shapleyvalue.extension.taxi;
+package org.shapleyvalue.application.taxi;
 
 import static org.junit.Assert.*;
 

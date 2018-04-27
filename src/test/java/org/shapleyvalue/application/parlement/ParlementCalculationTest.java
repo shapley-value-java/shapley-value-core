@@ -1,4 +1,4 @@
-package org.shapleyvalue.extension.parlement;
+package org.shapleyvalue.application.parlement;
 
 import static org.junit.Assert.assertEquals;
 

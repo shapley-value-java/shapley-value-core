@@ -1,4 +1,4 @@
-package org.shapleyvalue.extension.fraud;
+package org.shapleyvalue.application.fraud;
 
 import static org.junit.Assert.*;
 

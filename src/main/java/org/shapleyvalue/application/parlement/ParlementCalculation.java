@@ -1,4 +1,4 @@
-package org.shapleyvalue.extension.parlement;
+package org.shapleyvalue.application.parlement;
 
 import java.util.HashMap;
 import java.util.Map;
