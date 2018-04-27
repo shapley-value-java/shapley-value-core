@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * represent the following function often written by v
- * 2^N -> R
+ * 2^N to R
  * for each subset of the set {1.. N} is associated a value
  * per convention v(empty set) = 0
  * 
