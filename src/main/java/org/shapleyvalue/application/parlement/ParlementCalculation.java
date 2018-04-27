@@ -9,7 +9,13 @@ import org.shapleyvalue.core.ShapleyValue;
 import org.shapleyvalue.core.CharacteristicFunction.CharacteristicFunctionBuilder;
 import org.shapleyvalue.util.Powerset;
 
-
+/**
+ * Application of the Shapley value for a parliament
+ * 
+ * 
+ * @author Franck Benault
+ *
+ */
 public class ParlementCalculation {
 	
 	private CharacteristicFunction cfunction;
@@ -41,7 +47,13 @@ public class ParlementCalculation {
 		shapleyValue = new ShapleyValue(cfunction);
 	}
 	
-	
+	/**
+	 * 
+	 * Builder for ParlementCalculation class
+	 * 
+	 * @author Franck Benault
+	 *
+	 */
 	public static class ParlementCalculationBuilder {
 		
 		private int nbPlayers;
