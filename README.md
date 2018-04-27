@@ -268,13 +268,13 @@ With a normalized results to 100, here is the result finally not so far from the
 - VW 1.1
 - PP 0.6
 
-# resources
-## video
+# Resources
+## Video
 * how to share a taxi https://www.youtube.com/watch?v=aThG4YAFErw
 * course about game theory https://www.youtube.com/watch?v=qcLZMYPdpH4
 
-## example parlement application
+## Example parliament application
 https://math.stackexchange.com/questions/1310344/calculating-shapley-value-on-voting-game
 
-## other project in java
+## Other project in java
 * http://bitsbytesnwords.blogspot.be/2013/02/shapley-value.html
