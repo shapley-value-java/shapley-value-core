@@ -1,4 +1,4 @@
-![Build Status](https://travis-ci.org/shapley-value-java/shapley-value-core.svg?branch=master)
+[![Build Status](https://travis-ci.org/shapley-value-java/shapley-value-core.svg?branch=master)](https://travis-ci.org/shapley-value-java/shapley-value-core)
 
 # shapley-value-core
 Shapley value calculation in Java
