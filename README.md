@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/shapley-value-java/shapley-value-core.svg?branch=master)](https://travis-ci.org/shapley-value-java/shapley-value-core)![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.shapley-value-java/shapley-value-core/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.shapley-value-java/shapley-value-core) 
+[![Build Status](https://travis-ci.org/shapley-value-java/shapley-value-core.svg?branch=master)](https://travis-ci.org/shapley-value-java/shapley-value-core) ![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.shapley-value-java/shapley-value-core/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.shapley-value-java/shapley-value-core) 
 
 
 # shapley-value-core
