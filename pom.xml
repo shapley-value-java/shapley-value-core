@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>io.github.shapley-value-java</groupId>
 	<artifactId>shapley-value-core</artifactId>
-	<version>0.0.1</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<name>Shapley value java8 - Core</name>
 	
 	<url>https://github.com/shapley-value-java</url>
