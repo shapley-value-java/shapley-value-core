@@ -4,6 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+import org.shapleyvalue.application.CoalitionStrategy;
+import org.shapleyvalue.application.ShapleyApplication;
+import org.shapleyvalue.application.ShapleyApplicationException;
 import org.shapleyvalue.core.CharacteristicFunction;
 import org.shapleyvalue.core.ShapleyValue;
 import org.shapleyvalue.core.CharacteristicFunction.CharacteristicFunctionBuilder;
@@ -14,9 +17,12 @@ import org.shapleyvalue.util.Powerset;
  * 
  * 
  * @author Franck Benault
+ * 
+ * @version	0.0.2
+ * @since 0.0.1
  *
  */
-public class ParliamentCalculation {
+public class ParliamentCalculation implements ShapleyApplication {
 	
 	private CharacteristicFunction cfunction;
 	private ShapleyValue shapleyValue;
@@ -99,15 +105,9 @@ public class ParliamentCalculation {
 		
 	}
 	
-	public void calculate(long sampleSize) {
-		shapleyValue.calculate(sampleSize, false);	
-	}
+
 	
-	public void calculate(long sampleSize, boolean random) {
-		shapleyValue.calculate(sampleSize, random);	
-	}
-	
-	public Map<String, Double> getResult() {
+	private Map<String, Double> getResult() {
 		Map<Integer, Double> tempRes = shapleyValue.getResult();
 		Map<String, Double> res = new HashMap<>();
 		double total =0;
@@ -122,7 +122,32 @@ public class ParliamentCalculation {
 	
 
 	
-	public boolean isLastReached() {
+
+
+	@Override
+	public Map<String, Double> calculate() {
+		shapleyValue.calculate();	
+		return getResult();
+	}
+
+	@Override
+	public Map<String, Double> calculate(long nbCoalitions) throws ShapleyApplicationException {
+		shapleyValue.calculate(nbCoalitions, false);	
+		return getResult();
+	}
+
+	@Override
+	public Map<String, Double> calculate(long nbCoalitions, CoalitionStrategy strategy)
+			throws ShapleyApplicationException {
+		if(strategy.equals(CoalitionStrategy.RANDOM))
+			shapleyValue.calculate(nbCoalitions, true);
+		else
+			shapleyValue.calculate(nbCoalitions, false);
+		return getResult();
+	}
+
+	@Override
+	public boolean isLastCoalitionReached() throws ShapleyApplicationException {
 		return shapleyValue.isLastReached();
 	}
 	

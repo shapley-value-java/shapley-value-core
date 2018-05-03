@@ -27,15 +27,18 @@ import org.shapleyvalue.util.Powerset;
  * which is not detected by the other rules.
  * 
  * @author Franck Benault
+ * 
+ * @version	0.0.2
+ * @since 0.0.1
  *
  */
-public class FraudRuleEvaluation {
+public class FraudRuleCalculation {
 	
 	private CharacteristicFunction cfunction;
 	private ShapleyValue shapleyValue;
 	private Map<Integer, String> range;
 	
-	public FraudRuleEvaluation(FraudRuleEvaluationBuilder builder) {
+	public FraudRuleCalculation(FraudRuleEvaluationBuilder builder) {
 		Set<Set<Integer>> sets = Powerset.calculate(builder.getNbPlayers());
 
 		CharacteristicFunctionBuilder cfunctionBuilder = 
@@ -99,9 +102,9 @@ public class FraudRuleEvaluation {
 			return nbPlayers;
 		}
 
-		public FraudRuleEvaluation build() {
+		public FraudRuleCalculation build() {
 
-			return new FraudRuleEvaluation(this);
+			return new FraudRuleCalculation(this);
 		}
 		
 		public  Map<Integer, List<Integer>> getV() {

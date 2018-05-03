@@ -84,24 +84,25 @@ public class ShapleyValue {
 	
 	public Map<Integer, Double> getResult(int normalizedValue) {
 		
+		Map<Integer, Double> res = new HashMap<>();
 		double total = 0;
 		for (int i = 1; i <= size; i++) {
 			total += output.get(i) / factorialSize;
-			output.put(i, output.get(i) / factorialSize);
+			res.put(i, output.get(i) / factorialSize);
 		}
 
 		if (normalizedValue!=0) {
-			Map<Integer, Double> normalizedOutput = new HashMap<>();
+			Map<Integer, Double> normalizedRes = new HashMap<>();
 			for (int i = 1; i <= size; i++) {
-				normalizedOutput.put(i, output.get(i) / total);
+				normalizedRes.put(i, res.get(i) / total);
 			}
 			if (logger.isDebugEnabled())
-				logger.debug("ShapleyValue calculate normalizedOutput={}", normalizedOutput);
-			return normalizedOutput;
+				logger.debug("ShapleyValue calculate normalizedOutput={}", normalizedRes);
+			return normalizedRes;
 		}
 		if (logger.isDebugEnabled())
 			logger.debug("ShapleyValue getResult output={}", output);
-		return output;
+		return res;
 	}
 	
 	

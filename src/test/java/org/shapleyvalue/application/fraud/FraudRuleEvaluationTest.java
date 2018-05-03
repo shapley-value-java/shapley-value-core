@@ -15,8 +15,8 @@ public class FraudRuleEvaluationTest {
 	@Test
 	public void testEvaluationOneRule() {
 		
-		FraudRuleEvaluation evaluation = 
-				new FraudRuleEvaluation.FraudRuleEvaluationBuilder()
+		FraudRuleCalculation evaluation = 
+				new FraudRuleCalculation.FraudRuleEvaluationBuilder()
 				.addRule("Rule1", 1)
 				.build();
 	
@@ -31,8 +31,8 @@ public class FraudRuleEvaluationTest {
 	@Test
 	public void testEvaluationTwoRules() {
 		
-		FraudRuleEvaluation evaluation = 
-				new FraudRuleEvaluation.FraudRuleEvaluationBuilder()
+		FraudRuleCalculation evaluation = 
+				new FraudRuleCalculation.FraudRuleEvaluationBuilder()
 				.addRule("Rule1", 1)
 				.addRule("Rule2", 1)
 				.build();
@@ -49,8 +49,8 @@ public class FraudRuleEvaluationTest {
 	@Test
 	public void testEvaluationFourRules() {
 		
-		FraudRuleEvaluation evaluation = 
-				new FraudRuleEvaluation.FraudRuleEvaluationBuilder()
+		FraudRuleCalculation evaluation = 
+				new FraudRuleCalculation.FraudRuleEvaluationBuilder()
 				.addRule("Rule1", 1,2,3)
 				.addRule("Rule2", 1,2,3)
 				.addRule("Rule3", 1,2,3)
@@ -73,8 +73,8 @@ public class FraudRuleEvaluationTest {
 	@Test
 	public void testEvaluationXXXRules() {
 		
-		FraudRuleEvaluation evaluation = 
-				new FraudRuleEvaluation.FraudRuleEvaluationBuilder()
+		FraudRuleCalculation evaluation = 
+				new FraudRuleCalculation.FraudRuleEvaluationBuilder()
 				.addRule("Rule1", 1,2,3,4,5,7,9)
 				.addRule("Rule2", 1,3,6,8)
 				//.addRule("Rule3", 1,2,7)

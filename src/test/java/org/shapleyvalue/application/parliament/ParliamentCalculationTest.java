@@ -5,6 +5,8 @@ import static org.junit.Assert.assertEquals;
 import java.util.Map;
 
 import org.junit.Test;
+import org.shapleyvalue.application.CoalitionStrategy;
+import org.shapleyvalue.application.ShapleyApplicationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -13,15 +15,14 @@ public class ParliamentCalculationTest {
 	private final Logger logger = LoggerFactory.getLogger(ParliamentCalculationTest.class);
 
 	@Test
-	public void testExampleMicronesia() {
+	public void testExampleMicronesia() throws ShapleyApplicationException {
 
 		ParliamentCalculation parlementCalculation = new ParliamentCalculation.ParliamentCalculationBuilder()
 				.addParty("A", 45).addParty("B", 25).addParty("C", 15).addParty("D", 15).build();
 		Map<String, Double> output = null;
-		while (!parlementCalculation.isLastReached())
-			parlementCalculation.calculate(5);
+		while (!parlementCalculation.isLastCoalitionReached())
+			output = parlementCalculation.calculate(5);
 		
-		output = parlementCalculation.getResult();
 
 		double phiA = output.get("A");
 		double phiB = output.get("B");
@@ -36,17 +37,15 @@ public class ParliamentCalculationTest {
 
 	@Test
 	//@Ignore
-	public void testExampleBelgium() {
+	public void testExampleBelgium() throws ShapleyApplicationException {
 
 		ParliamentCalculation parlementCalculation = new ParliamentCalculation.ParliamentCalculationBuilder()
 				.addParty("NVA", 31).addParty("PS", 23).addParty("MR", 20).addParty("CD&V", 18).addParty("openVLD", 14)
 				.addParty("PSA", 13).addParty("EcoloGroen", 12).addParty("CDH", 9).addParty("VB", 3).addParty("Defi", 2)
 				.addParty("PTB", 2).addParty("VW", 2).addParty("PP", 1).build();
 
-		Map<String, Double> output = null;
-
-		parlementCalculation.calculate(20_000, true);
-		output = parlementCalculation.getResult();
+		Map<String, Double> output = parlementCalculation.calculate(20_000, CoalitionStrategy.RANDOM);
+	
 		
 		double phiNVA = output.get("NVA");
 		logger.info("phiNVA= {}", String.format("%.3f", phiNVA));
