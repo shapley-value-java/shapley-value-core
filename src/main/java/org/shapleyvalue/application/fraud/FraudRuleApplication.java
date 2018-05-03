@@ -35,13 +35,13 @@ import org.shapleyvalue.util.Powerset;
  * @since 0.0.1
  *
  */
-public class FraudRuleCalculation implements ShapleyApplication {
+public class FraudRuleApplication implements ShapleyApplication {
 	
 	private CharacteristicFunction cfunction;
 	private ShapleyValue shapleyValue;
 	private Map<Integer, String> range;
 	
-	public FraudRuleCalculation(FraudRuleEvaluationBuilder builder) {
+	public FraudRuleApplication(FraudRuleEvaluationBuilder builder) {
 		Set<Set<Integer>> sets = Powerset.calculate(builder.getNbPlayers());
 
 		CharacteristicFunctionBuilder cfunctionBuilder = 
@@ -105,9 +105,9 @@ public class FraudRuleCalculation implements ShapleyApplication {
 			return nbPlayers;
 		}
 
-		public FraudRuleCalculation build() {
+		public FraudRuleApplication build() {
 
-			return new FraudRuleCalculation(this);
+			return new FraudRuleApplication(this);
 		}
 		
 		public  Map<Integer, List<Integer>> getV() {

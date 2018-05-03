@@ -17,8 +17,8 @@ public class FraudRuleApplicationTest {
 	@Test
 	public void testEvaluationOneRule() {
 		
-		FraudRuleCalculation evaluation = 
-				new FraudRuleCalculation.FraudRuleEvaluationBuilder()
+		FraudRuleApplication evaluation = 
+				new FraudRuleApplication.FraudRuleEvaluationBuilder()
 				.addRule("Rule1", 1)
 				.build();
 	
@@ -33,8 +33,8 @@ public class FraudRuleApplicationTest {
 	@Test
 	public void testEvaluationTwoRules() {
 		
-		FraudRuleCalculation evaluation = 
-				new FraudRuleCalculation.FraudRuleEvaluationBuilder()
+		FraudRuleApplication evaluation = 
+				new FraudRuleApplication.FraudRuleEvaluationBuilder()
 				.addRule("Rule1", 1)
 				.addRule("Rule2", 1)
 				.build();
@@ -51,8 +51,8 @@ public class FraudRuleApplicationTest {
 	@Test
 	public void testEvaluationFourRules() {
 		
-		FraudRuleCalculation evaluation = 
-				new FraudRuleCalculation.FraudRuleEvaluationBuilder()
+		FraudRuleApplication evaluation = 
+				new FraudRuleApplication.FraudRuleEvaluationBuilder()
 				.addRule("Rule1", 1,2,3)
 				.addRule("Rule2", 1,2,3)
 				.addRule("Rule3", 1,2,3)
@@ -75,8 +75,8 @@ public class FraudRuleApplicationTest {
 	@Test
 	public void testEvaluationXXXRules() throws ShapleyApplicationException {
 		
-		FraudRuleCalculation evaluation = 
-				new FraudRuleCalculation.FraudRuleEvaluationBuilder()
+		FraudRuleApplication evaluation = 
+				new FraudRuleApplication.FraudRuleEvaluationBuilder()
 				.addRule("Rule1", 1,2,3,4,5,7,9)
 				.addRule("Rule2", 1,3,6,8)
 				.addRule("Rule3", 1,2,7)
