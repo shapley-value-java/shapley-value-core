@@ -7,6 +7,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.shapleyvalue.application.CoalitionStrategy;
+import org.shapleyvalue.application.ShapleyApplication;
+import org.shapleyvalue.application.ShapleyApplicationException;
 import org.shapleyvalue.core.CharacteristicFunction;
 import org.shapleyvalue.core.CharacteristicFunction.CharacteristicFunctionBuilder;
 import org.shapleyvalue.core.ShapleyValue;
@@ -32,7 +35,7 @@ import org.shapleyvalue.util.Powerset;
  * @since 0.0.1
  *
  */
-public class FraudRuleCalculation {
+public class FraudRuleCalculation implements ShapleyApplication {
 	
 	private CharacteristicFunction cfunction;
 	private ShapleyValue shapleyValue;
@@ -55,6 +58,7 @@ public class FraudRuleCalculation {
 		cfunction = cfunctionBuilder.build();
 	}
 
+	@Override
 	public Map<String, Double> calculate() {
 		shapleyValue = new ShapleyValue(cfunction);
 		shapleyValue.calculate(0, false);
@@ -94,7 +98,6 @@ public class FraudRuleCalculation {
 		}
 		
 		public Map<Integer, String> getRange() {
-			// TODO Auto-generated method stub
 			return range;
 		}
 
@@ -111,6 +114,41 @@ public class FraudRuleCalculation {
 			return v;
 		}
 		
+	}
+
+	@Override
+	public Map<String, Double> calculate(long nbCoalitions) throws ShapleyApplicationException {
+		shapleyValue = new ShapleyValue(cfunction);
+		shapleyValue.calculate(nbCoalitions, false);
+		Map<Integer, Double> tempRes = shapleyValue.getResult(1);
+		Map<String, Double> res = new HashMap<>();
+		for(Integer i : tempRes.keySet()) {
+			res.put(range.get(i), tempRes.get(i));
+		}
+		return res;
+	}
+
+	@Override
+	public Map<String, Double> calculate(long nbCoalitions, CoalitionStrategy strategy)
+			throws ShapleyApplicationException {
+		shapleyValue = new ShapleyValue(cfunction);
+		if(strategy.equals(CoalitionStrategy.SEQUENTIAL))
+			shapleyValue.calculate(nbCoalitions, false);
+		else 
+			shapleyValue.calculate(nbCoalitions, true);
+		
+		Map<Integer, Double> tempRes = shapleyValue.getResult(1);
+		Map<String, Double> res = new HashMap<>();
+		for(Integer i : tempRes.keySet()) {
+			res.put(range.get(i), tempRes.get(i));
+		}
+		return res;
+	}
+
+	@Override
+	public boolean isLastCoalitionReached() throws ShapleyApplicationException {
+
+		return shapleyValue.isLastReached();
 	}
 
 }

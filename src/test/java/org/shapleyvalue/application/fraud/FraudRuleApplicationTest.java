@@ -5,6 +5,8 @@ import static org.junit.Assert.*;
 import java.util.Map;
 
 import org.junit.Test;
+import org.shapleyvalue.application.CoalitionStrategy;
+import org.shapleyvalue.application.ShapleyApplicationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -71,43 +73,31 @@ public class FraudRuleApplicationTest {
 	
 	
 	@Test
-	public void testEvaluationXXXRules() {
+	public void testEvaluationXXXRules() throws ShapleyApplicationException {
 		
 		FraudRuleCalculation evaluation = 
 				new FraudRuleCalculation.FraudRuleEvaluationBuilder()
 				.addRule("Rule1", 1,2,3,4,5,7,9)
 				.addRule("Rule2", 1,3,6,8)
-				//.addRule("Rule3", 1,2,7)
-				//.addRule("Rule4", 1,9)
-				//.addRule("Rule5", 2)
-				//.addRule("Rule6", 1,2)
-				//.addRule("Rule7", 3)
-				//.addRule("Rule8", 9)
-				//.addRule("Rule9", 1,8)
+				.addRule("Rule3", 1,2,7)
+				.addRule("Rule4", 1,9)
+				.addRule("Rule5", 2)
+				.addRule("Rule6", 1,2)
+				.addRule("Rule7", 3)
+				.addRule("Rule8", 9)
+				.addRule("Rule9", 1,8)
 				.build();
 	
 		
-		Map<String,Double> output = evaluation.calculate();
-		double phiRule1 = output.get("Rule1");
-		double phiRule2 = output.get("Rule2");
-		//double phiRule3 = output.get("Rule3");
-		//double phiRule4 = output.get("Rule4");
-		//double phiRule5 = output.get("Rule5");
-		//double phiRule6 = output.get("Rule6");
-		//double phiRule7 = output.get("Rule7");
-		//double phiRule8 = output.get("Rule8");
-		//double phiRule9 = output.get("Rule9");
+		for(int i=1; i<10;i++) {
+		Map<String,Double> output = evaluation.calculate(10_000,CoalitionStrategy.RANDOM);
+			double phiRule1 = output.get("Rule1");
+			double phiRule2 = output.get("Rule2");
+			logger.info("loop {}",i);
+			logger.info("phiRule1={}",String.format("%.3f", phiRule1));
+			logger.info("phiRule2={}",String.format("%.3f", phiRule2));
+		}
 
-		
-		logger.info("phiRule1={}",phiRule1);
-		logger.info("phiRule2={}",phiRule2);
-		//System.out.println(phiRule3);
-		//System.out.println(phiRule4);
-		//System.out.println(phiRule5);
-		//System.out.println(phiRule6);
-		//System.out.println(phiRule7);
-		//System.out.println(phiRule8);
-		//System.out.println(phiRule9);
 	}
 
 
