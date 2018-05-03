@@ -8,9 +8,9 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class FraudRuleEvaluationTest {
+public class FraudRuleApplicationTest {
 	
-	private final Logger logger = LoggerFactory.getLogger(FraudRuleEvaluationTest.class);
+	private final Logger logger = LoggerFactory.getLogger(FraudRuleApplicationTest.class);
 
 	@Test
 	public void testEvaluationOneRule() {
