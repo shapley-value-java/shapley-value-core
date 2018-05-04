@@ -201,8 +201,8 @@ phiRule1=phiRule2=phiRule2=0.25
 	@Test
 	public void testEvaluationFourRules() {
 		
-		FraudRuleEvaluation evaluation = 
-				new FraudRuleEvaluation.FraudRuleEvaluationBuilder()
+		FraudRuleApplication evaluation = 
+				new FraudRuleApplication.FraudRuleApplicationBuilder()
 				.addRule("Rule1", 1,2,3)
 				.addRule("Rule2", 1,2,3)
 				.addRule("Rule3", 1,2,3)
