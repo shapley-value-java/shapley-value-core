@@ -41,7 +41,7 @@ public class FraudRuleApplication implements ShapleyApplication {
 	private ShapleyValue shapleyValue;
 	private Map<Integer, String> range;
 	
-	public FraudRuleApplication(FraudRuleEvaluationBuilder builder) {
+	public FraudRuleApplication(FraudRuleApplicationBuilder builder) {
 		Set<Set<Integer>> sets = Powerset.calculate(builder.getNbPlayers());
 
 		CharacteristicFunctionBuilder cfunctionBuilder = 
@@ -78,19 +78,19 @@ public class FraudRuleApplication implements ShapleyApplication {
 	 * @author Franck Benault
 	 *
 	 */
-	public static class FraudRuleEvaluationBuilder {
+	public static class FraudRuleApplicationBuilder {
 		
 		private int nbPlayers;
 		private Map<Integer, String> range;
 		private Map<Integer, List<Integer>> v;
 		
-		public FraudRuleEvaluationBuilder() {
+		public FraudRuleApplicationBuilder() {
 			nbPlayers = 0;		
 			range = new HashMap<>();
 			v = new HashMap<>();
 		}
 		
-		public FraudRuleEvaluationBuilder addRule(String ruleName, Integer... eventIds) {
+		public FraudRuleApplicationBuilder addRule(String ruleName, Integer... eventIds) {
 			nbPlayers++;
 			range.put(nbPlayers, ruleName);
 			v.put(nbPlayers, Arrays.asList(eventIds));
