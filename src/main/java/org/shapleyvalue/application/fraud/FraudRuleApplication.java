@@ -56,11 +56,11 @@ public class FraudRuleApplication implements ShapleyApplication {
 		}
 		range = builder.getRange();
 		cfunction = cfunctionBuilder.build();
+		shapleyValue = new ShapleyValue(cfunction);
 	}
 
 	@Override
 	public Map<String, Double> calculate() {
-		shapleyValue = new ShapleyValue(cfunction);
 		shapleyValue.calculate(0, false);
 		Map<Integer, Double> tempRes = shapleyValue.getResult(1);
 		Map<String, Double> res = new HashMap<>();
@@ -118,7 +118,6 @@ public class FraudRuleApplication implements ShapleyApplication {
 
 	@Override
 	public Map<String, Double> calculate(long nbCoalitions) throws ShapleyApplicationException {
-		shapleyValue = new ShapleyValue(cfunction);
 		shapleyValue.calculate(nbCoalitions, false);
 		Map<Integer, Double> tempRes = shapleyValue.getResult(1);
 		Map<String, Double> res = new HashMap<>();
@@ -131,7 +130,6 @@ public class FraudRuleApplication implements ShapleyApplication {
 	@Override
 	public Map<String, Double> calculate(long nbCoalitions, CoalitionStrategy strategy)
 			throws ShapleyApplicationException {
-		shapleyValue = new ShapleyValue(cfunction);
 		if(strategy.equals(CoalitionStrategy.SEQUENTIAL))
 			shapleyValue.calculate(nbCoalitions, false);
 		else 
