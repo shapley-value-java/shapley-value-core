@@ -164,14 +164,14 @@ Amy, Bob and Clare are sharing a taxi. We imagine they are going to the same dir
 ```java
 	@Test
 	public void testCalculateThreeParticipants() {		
-		TaxiCalculation taxiCalculation = 
-				new TaxiCalculation.TaxiCalculationBuilder()
+		TaxiApplication taxiApplication = 
+				new TaxiApplication.TaxiApplicationBuilder()
 				.addUser(6.0, "A")
 				.addUser(12.0, "B")
 				.addUser(42.0, "C")
 				.build();
 
-		Map<String,Double> output = taxiCalculation.calculate();
+		Map<String,Double> output = taxiApplication.calculate();
 		double phiA = output.get("A");
 		double phiB = output.get("B");
 		double phiC = output.get("C");

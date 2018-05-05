@@ -3,6 +3,10 @@ package org.shapleyvalue.application.taxi;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+
+import org.shapleyvalue.application.CoalitionStrategy;
+import org.shapleyvalue.application.ShapleyApplication;
+import org.shapleyvalue.application.ShapleyApplicationException;
 import org.shapleyvalue.core.CharacteristicFunction;
 import org.shapleyvalue.core.ShapleyValue;
 import org.shapleyvalue.core.CharacteristicFunction.CharacteristicFunctionBuilder;
@@ -26,14 +30,17 @@ import org.shapleyvalue.util.Powerset;
  * 
  * @author Franck Benault
  *
+ * @version	0.0.2
+ * @since 0.0.1
+ * 
  */
-public class TaxiCalculation {
+public class TaxiApplication implements ShapleyApplication {
 	
 	private CharacteristicFunction cfunction;
 	private ShapleyValue shapleyValue;
 	private Map<Integer, String> range;
 	
-	private TaxiCalculation(TaxiCalculationBuilder builder) {
+	private TaxiApplication(TaxiApplicationBuilder builder) {
 		Set<Set<Integer>> sets = Powerset.calculate(builder.getNbPlayers());
 
 		CharacteristicFunctionBuilder cfunctionBuilder = 
@@ -49,6 +56,7 @@ public class TaxiCalculation {
 		}
 		range = builder.getRange();
 		cfunction = cfunctionBuilder.build();
+		shapleyValue = new ShapleyValue(cfunction);
 	}
 	
 	/**
@@ -57,26 +65,26 @@ public class TaxiCalculation {
 	 * @author Franck Benault
 	 *
 	 */
-	public static class TaxiCalculationBuilder {
+	public static class TaxiApplicationBuilder {
 		private int nbPlayers;
 		private Map<Integer, Double> v;
 		private Map<Integer, String> range;
 
-		public TaxiCalculationBuilder() {
+		public TaxiApplicationBuilder() {
 			nbPlayers = 0;
 			v = new HashMap<>();
 			range = new HashMap<>();
 		}
 
-		public TaxiCalculationBuilder addUser(double value, String userName) {
+		public TaxiApplicationBuilder addUser(double value, String userName) {
 			nbPlayers ++;
 			v.put(nbPlayers, value);
 			range.put(nbPlayers, userName);
 			return this;
 		}
 
-		public TaxiCalculation build() {
-			return new TaxiCalculation(this);
+		public TaxiApplication build() {
+			return new TaxiApplication(this);
 		}
 
 		public int getNbPlayers() {
@@ -93,9 +101,8 @@ public class TaxiCalculation {
 
 	}
 
-
+	@Override
 	public Map<String, Double> calculate() {
-		shapleyValue = new ShapleyValue(cfunction);
 		shapleyValue.calculate(); 
 		Map<Integer, Double> tempRes = shapleyValue.getResult(); 
 		Map<String, Double> res = new HashMap<>();
@@ -104,6 +111,42 @@ public class TaxiCalculation {
 		}
 		return res;
 		
+	}
+
+
+	@Override
+	public Map<String, Double> calculate(long nbCoalitions) throws ShapleyApplicationException {
+		shapleyValue.calculate(nbCoalitions, false); 
+		Map<Integer, Double> tempRes = shapleyValue.getResult(); 
+		Map<String, Double> res = new HashMap<>();
+		for(Integer i : tempRes.keySet()) {
+			res.put(range.get(i), tempRes.get(i));
+		}
+		return res;
+	}
+
+
+	@Override
+	public Map<String, Double> calculate(long nbCoalitions, CoalitionStrategy strategy)
+			throws ShapleyApplicationException {
+		shapleyValue = new ShapleyValue(cfunction);
+		if(strategy.equals(CoalitionStrategy.SEQUENTIAL))
+			shapleyValue.calculate(nbCoalitions, false);
+		else 
+			shapleyValue.calculate(nbCoalitions, true);
+		
+		Map<Integer, Double> tempRes = shapleyValue.getResult(1);
+		Map<String, Double> res = new HashMap<>();
+		for(Integer i : tempRes.keySet()) {
+			res.put(range.get(i), tempRes.get(i));
+		}
+		return res;
+	}
+
+
+	@Override
+	public boolean isLastCoalitionReached() throws ShapleyApplicationException {
+		return shapleyValue.isLastReached();
 	}
 
 }

@@ -22,7 +22,7 @@ public class Arch01ApplicationRules {
 	public static final ArchRule RULES1_APPLICATION_SUB_PACKAGES_SHOULD_NOT_CONTAIN_INTEFACES =			
 	classes().that().resideInAnyPackage("..taxi..","..parliament", "..fraud..").should().notBeInterfaces();	
 	
-	@ArchIgnore
+	//@ArchIgnore
 	@ArchTest
 	public static final ArchRule RULES2_APPLICATION_SHOULD_IMPLEMENTS_SHAPLEY_APPLICATION_INTEFACE =			
 	classes().that().resideInAnyPackage("..taxi..","..parliament", "..fraud..").and().haveNameMatching(".*Calculation$").should().implement(ShapleyApplication.class);
