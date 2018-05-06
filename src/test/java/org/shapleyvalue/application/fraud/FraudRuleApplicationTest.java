@@ -125,6 +125,39 @@ public class FraudRuleApplicationTest {
 		}
 
 	}
+	
+	@Test
+	public void testIsLastCoalitionReachedFalse() throws ShapleyApplicationException {
+		
+		FraudRuleApplication evaluation = 
+				new FraudRuleApplication.FraudRuleApplicationBuilder()
+				.addRule("Rule1", 1,2,3)
+				.addRule("Rule2", 1,2,3)
+				.build();
+	
+		
+		assertFalse(evaluation.isLastCoalitionReached());
+
+	}
+	
+	@Test
+	public void testIsLastCoalitionReachedTrue() throws ShapleyApplicationException {
+		
+		FraudRuleApplication evaluation = 
+				new FraudRuleApplication.FraudRuleApplicationBuilder()
+				.addRule("Rule1", 1,2,3)
+				.addRule("Rule2", 1,2,3)
+				.build();
+	
+		
+		assertFalse(evaluation.isLastCoalitionReached());
+		evaluation.calculate(1);
+		assertFalse(evaluation.isLastCoalitionReached());
+		evaluation.calculate(1);
+		assertTrue(evaluation.isLastCoalitionReached());
+		
+
+	}
 
 
 }
