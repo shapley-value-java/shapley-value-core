@@ -1,12 +1,12 @@
-package org.shapleyvalue.application.parliament;
+package org.shapleyvalue.application.impl.parliament;
 
 import static org.junit.Assert.assertEquals;
 
 import java.util.Map;
 
 import org.junit.Test;
-import org.shapleyvalue.application.CoalitionStrategy;
-import org.shapleyvalue.application.ShapleyApplicationException;
+import org.shapleyvalue.application.facade.CoalitionStrategy;
+import org.shapleyvalue.application.facade.ShapleyApplicationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

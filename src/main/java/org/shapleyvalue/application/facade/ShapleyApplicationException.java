@@ -1,4 +1,4 @@
-package org.shapleyvalue.application;
+package org.shapleyvalue.application.facade;
 
 /**
  * 
@@ -14,7 +14,6 @@ public class ShapleyApplicationException extends Exception {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
 	
 
 }

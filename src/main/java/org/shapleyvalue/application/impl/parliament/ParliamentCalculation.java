@@ -1,12 +1,12 @@
-package org.shapleyvalue.application.parliament;
+package org.shapleyvalue.application.impl.parliament;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-import org.shapleyvalue.application.CoalitionStrategy;
-import org.shapleyvalue.application.ShapleyApplication;
-import org.shapleyvalue.application.ShapleyApplicationException;
+import org.shapleyvalue.application.facade.CoalitionStrategy;
+import org.shapleyvalue.application.facade.ShapleyApplication;
+import org.shapleyvalue.application.facade.ShapleyApplicationException;
 import org.shapleyvalue.core.CharacteristicFunction;
 import org.shapleyvalue.core.ShapleyValue;
 import org.shapleyvalue.core.CharacteristicFunction.CharacteristicFunctionBuilder;

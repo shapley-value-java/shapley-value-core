@@ -1,4 +1,4 @@
-package org.shapleyvalue.application;
+package org.shapleyvalue.application.facade;
 
 import java.util.Map;
 

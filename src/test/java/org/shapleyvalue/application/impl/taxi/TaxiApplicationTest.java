@@ -1,11 +1,11 @@
-package org.shapleyvalue.application.taxi;
+package org.shapleyvalue.application.impl.taxi;
 
 import static org.junit.Assert.*;
 
 import java.util.Map;
 
 import org.junit.Test;
-import org.shapleyvalue.application.ShapleyApplicationException;
+import org.shapleyvalue.application.facade.ShapleyApplicationException;
 
 public class TaxiApplicationTest {
 
