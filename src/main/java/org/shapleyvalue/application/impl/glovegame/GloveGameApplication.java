@@ -1,16 +1,13 @@
 package org.shapleyvalue.application.impl.glovegame;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 import org.shapleyvalue.application.facade.CoalitionStrategy;
 import org.shapleyvalue.application.facade.ShapleyApplication;
 import org.shapleyvalue.application.facade.ShapleyApplicationException;
-import org.shapleyvalue.application.impl.fraud.FraudRuleApplication.FraudRuleApplicationBuilder;
 import org.shapleyvalue.core.CharacteristicFunction;
 import org.shapleyvalue.core.ShapleyValue;
 import org.shapleyvalue.core.CharacteristicFunction.CharacteristicFunctionBuilder;
