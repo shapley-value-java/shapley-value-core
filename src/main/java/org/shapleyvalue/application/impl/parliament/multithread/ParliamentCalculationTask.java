@@ -10,7 +10,18 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
-
+/**
+ * Application of the Shapley value for a parliament
+ * with parallelism
+ * Task
+ * 
+ * 
+ * @author Franck Benault
+ * 
+ * @version	0.0.2
+ * @since 0.0.2
+ *
+ */
 public class ParliamentCalculationTask implements Callable<Map<Integer, Double>> {
 	
 	private final Logger logger = LoggerFactory.getLogger(ParliamentCalculationTask.class);

@@ -15,7 +15,18 @@ import org.shapleyvalue.core.CharacteristicFunction;
 import org.shapleyvalue.core.CharacteristicFunction.CharacteristicFunctionBuilder;
 import org.shapleyvalue.util.Powerset;
 
-
+/**
+ * Application of the Shapley value for a parliament
+ * with parallelism
+ * Executor Service
+ * 
+ * 
+ * @author Franck Benault
+ * 
+ * @version	0.0.2
+ * @since 0.0.2
+ *
+ */
 public class ParliamentCalculationService  {
 	
 	private CharacteristicFunction cfunction;
