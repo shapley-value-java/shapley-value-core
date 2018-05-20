@@ -68,7 +68,7 @@ public class ParliamentCalculationBenchmarkTest {
 	@Test
 	public void testExampleBelgium() throws ShapleyApplicationException {
 		
-		long sampleSize = 1_000_000;
+		long sampleSize = 100_000;
 		
 		Stopwatch stopwatch = Stopwatch.createStarted();
 		ParliamentCalculation parlementCalculation1 = new ParliamentCalculation.ParliamentCalculationBuilder()
@@ -115,8 +115,8 @@ public class ParliamentCalculationBenchmarkTest {
 		
 		showAndCheckResult(output);
 		
-		assertTrue(duration3< duration2);
-		assertTrue(duration3< duration1);
+		assertTrue(duration3<= duration2);
+		assertTrue(duration3<= duration1);
 
 	}
 
