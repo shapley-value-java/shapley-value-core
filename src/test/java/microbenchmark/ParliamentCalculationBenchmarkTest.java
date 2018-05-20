@@ -1,6 +1,7 @@
 package microbenchmark;
 
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.util.Map;
@@ -21,9 +22,10 @@ public class ParliamentCalculationBenchmarkTest {
 	private final Logger logger = LoggerFactory.getLogger(ParliamentCalculationBenchmarkTest.class);
 
 	
-	private void showResult(Map<String, Double> output) {
+	private void showAndCheckResult(Map<String, Double> output) {
 		double phiNVA = output.get("NVA");
 		logger.info("phiNVA= {}", String.format("%.3f", phiNVA));
+		assertEquals(phiNVA, 0.230,0.01);
 
 		double phiPS = output.get("PS");
 		logger.info("phiPS= {}", String.format("%.3f", phiPS));
@@ -67,7 +69,7 @@ public class ParliamentCalculationBenchmarkTest {
 	public void testExampleBelgium() throws ShapleyApplicationException {
 		
 		long sampleSize = 1_000_000;
-
+		
 		Stopwatch stopwatch = Stopwatch.createStarted();
 		ParliamentCalculation parlementCalculation1 = new ParliamentCalculation.ParliamentCalculationBuilder()
 				.addParty("NVA", 31).addParty("PS", 23).addParty("MR", 20).addParty("CD&V", 18).addParty("openVLD", 14)
@@ -80,7 +82,7 @@ public class ParliamentCalculationBenchmarkTest {
 		long duration1 = stopwatch.elapsed(TimeUnit.SECONDS);
 		logger.info("that took: {}", duration1);
 		
-		showResult(output);
+		showAndCheckResult(output);
 		
 		
 		stopwatch.reset();
@@ -96,7 +98,7 @@ public class ParliamentCalculationBenchmarkTest {
 		long duration2 = stopwatch.elapsed(TimeUnit.SECONDS);
 		logger.info("that took: {}", duration2);
 		
-		showResult(output);
+		showAndCheckResult(output);
 		
 		stopwatch.reset();
 		stopwatch.start();
@@ -111,7 +113,7 @@ public class ParliamentCalculationBenchmarkTest {
 		long duration3 = stopwatch.elapsed(TimeUnit.SECONDS);
 		logger.info("that took: {}", duration3);
 		
-		showResult(output);
+		showAndCheckResult(output);
 		
 		assertTrue(duration3< duration2);
 		assertTrue(duration3< duration1);

@@ -2,6 +2,7 @@ package org.shapleyvalue.application.impl.glovegame;
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -90,9 +91,9 @@ public class GloveGameApplication implements ShapleyApplication {
 	@Override
 	public Map<String, Double> calculate() {
 		shapleyValue.calculate(0, false);
-		Map<Integer, Double> tempRes = shapleyValue.getResult();
+		List<Double> tempRes = shapleyValue.getResult();
 		Map<String, Double> res = new HashMap<>();
-		for(Integer i : tempRes.keySet()) {
+		for(int i=1; i<=shapleyValue.getSize(); i++) {
 			res.put(range.get(i), tempRes.get(i));
 		}
 		return res;
@@ -101,9 +102,9 @@ public class GloveGameApplication implements ShapleyApplication {
 	@Override
 	public Map<String, Double> calculate(long nbCoalitions) throws ShapleyApplicationException {
 		shapleyValue.calculate(nbCoalitions, false);
-		Map<Integer, Double> tempRes = shapleyValue.getResult(0);
+		List<Double> tempRes = shapleyValue.getResult(0);
 		Map<String, Double> res = new HashMap<>();
-		for(Integer i : tempRes.keySet()) {
+		for(int i=1; i<=shapleyValue.getSize(); i++) {
 			res.put(range.get(i), tempRes.get(i));
 		}
 		return res;
@@ -117,9 +118,9 @@ public class GloveGameApplication implements ShapleyApplication {
 		else 
 			shapleyValue.calculate(nbCoalitions, true);
 		
-		Map<Integer, Double> tempRes = shapleyValue.getResult();
+		List<Double> tempRes = shapleyValue.getResult();
 		Map<String, Double> res = new HashMap<>();
-		for(Integer i : tempRes.keySet()) {
+		for(int i=1; i<=shapleyValue.getSize(); i++) {
 			res.put(range.get(i), tempRes.get(i));
 		}
 		return res;

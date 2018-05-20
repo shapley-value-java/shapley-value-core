@@ -62,9 +62,9 @@ public class FraudRuleApplication implements ShapleyApplication {
 	@Override
 	public Map<String, Double> calculate() {
 		shapleyValue.calculate(0, false);
-		Map<Integer, Double> tempRes = shapleyValue.getResult(1);
+		List<Double> tempRes = shapleyValue.getResult(1);
 		Map<String, Double> res = new HashMap<>();
-		for(Integer i : tempRes.keySet()) {
+		for(int i=1; i<=shapleyValue.getSize(); i++) {
 			res.put(range.get(i), tempRes.get(i));
 		}
 		return res;
@@ -119,9 +119,9 @@ public class FraudRuleApplication implements ShapleyApplication {
 	@Override
 	public Map<String, Double> calculate(long nbCoalitions) throws ShapleyApplicationException {
 		shapleyValue.calculate(nbCoalitions, false);
-		Map<Integer, Double> tempRes = shapleyValue.getResult(1);
+		List<Double> tempRes = shapleyValue.getResult(1);
 		Map<String, Double> res = new HashMap<>();
-		for(Integer i : tempRes.keySet()) {
+		for(int i=1; i<=shapleyValue.getSize(); i++) {
 			res.put(range.get(i), tempRes.get(i));
 		}
 		return res;
@@ -135,9 +135,9 @@ public class FraudRuleApplication implements ShapleyApplication {
 		else 
 			shapleyValue.calculate(nbCoalitions, true);
 		
-		Map<Integer, Double> tempRes = shapleyValue.getResult(1);
+		List<Double> tempRes = shapleyValue.getResult(1);
 		Map<String, Double> res = new HashMap<>();
-		for(Integer i : tempRes.keySet()) {
+		for(int i=1; i<=shapleyValue.getSize(); i++) {
 			res.put(range.get(i), tempRes.get(i));
 		}
 		return res;

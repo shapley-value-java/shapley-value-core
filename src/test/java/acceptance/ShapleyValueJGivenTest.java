@@ -1,6 +1,6 @@
 package acceptance;
 
-import java.util.Map;
+import java.util.List;
 
 import org.junit.Test;
 import org.shapleyvalue.core.CharacteristicFunction;
@@ -20,7 +20,7 @@ public class ShapleyValueJGivenTest extends ScenarioTest<GivenSomeState, WhenSom
 		CharacteristicFunction v = null;
 		
 		v = given().a_charateristic_funtion_for_$_players(nbPlayers);
-		Map<Integer,Double> output = when().the_shapley_value_is_calculated(v);
+		List<Double> output = when().the_shapley_value_is_calculated(v);
 		then().the_shapley_value_is_efficient_for_the_$_players(nbPlayers,v, output);
 		
 	}
@@ -32,7 +32,7 @@ public class ShapleyValueJGivenTest extends ScenarioTest<GivenSomeState, WhenSom
 		CharacteristicFunction v = null;
 		
 		v = given().a_charateristic_funtion_for_$_players(nbPlayers);
-		Map<Integer,Double> output = when().a_dummy_user_is_added(v).
+		List<Double> output = when().a_dummy_user_is_added(v).
 		and().the_shapley_value_is_calculated(v);
 		then().the_dummy_user_receives_nothing(output, nbPlayers+1);
 		

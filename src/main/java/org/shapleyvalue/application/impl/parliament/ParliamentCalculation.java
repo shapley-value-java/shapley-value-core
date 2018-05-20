@@ -1,6 +1,7 @@
 package org.shapleyvalue.application.impl.parliament;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -108,13 +109,13 @@ public class ParliamentCalculation implements ShapleyApplication {
 
 	
 	private Map<String, Double> getResult() {
-		Map<Integer, Double> tempRes = shapleyValue.getResult();
+		List<Double> tempRes = shapleyValue.getResult();
 		Map<String, Double> res = new HashMap<>();
 		double total =0;
-		for(Integer i : tempRes.keySet()) {
+		for(int i=1; i<=shapleyValue.getSize(); i++) {
 			total += tempRes.get(i);
 		}
-		for(Integer i : tempRes.keySet()) {
+		for(int i=1; i<=shapleyValue.getSize(); i++) {
 			res.put(range.get(i), tempRes.get(i)/total);
 		}
 		return res;

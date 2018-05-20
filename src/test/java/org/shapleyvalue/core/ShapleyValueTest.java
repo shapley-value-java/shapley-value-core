@@ -2,7 +2,7 @@ package org.shapleyvalue.core;
 
 import static org.junit.Assert.*;
 
-import java.util.Map;
+import java.util.List;
 
 
 import org.junit.Test;
@@ -21,7 +21,7 @@ public class ShapleyValueTest {
 	
 		ShapleyValue s = new ShapleyValue(cfunction);
 		s.calculate();
-		Map<Integer,Double> output =s.getResult();
+		List<Double> output =s.getResult();
 		double phi1 = output.get(1);
 		
 		assertEquals(phi1, 1.0, 0.01);
@@ -39,7 +39,7 @@ public class ShapleyValueTest {
 			
 		ShapleyValue s = new ShapleyValue(cfunction);
 		s.calculate();
-		Map<Integer,Double> output =s.getResult();
+		List<Double> output =s.getResult();
 		double phi1 = output.get(1);
 		double phi2 = output.get(2);
 		
@@ -63,7 +63,7 @@ public class ShapleyValueTest {
 	
 		ShapleyValue s = new ShapleyValue(cfunction);
 		s.calculate();
-		Map<Integer,Double> output =s.getResult();
+		List<Double> output =s.getResult();
 		double v1 = output.get(1);
 		double v2 = output.get(2);
 		double v3 = output.get(3);
@@ -85,7 +85,7 @@ public class ShapleyValueTest {
 		cfunction.addDummyUser();
 		ShapleyValue s = new ShapleyValue(cfunction);
 		s.calculate();
-		Map<Integer,Double> output =s.getResult();
+		List<Double> output =s.getResult();
 		double phi1 = output.get(1);
 		double phi2 = output.get(2);
 		double phi3 = output.get(3);

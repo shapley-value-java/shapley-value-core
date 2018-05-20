@@ -1,6 +1,6 @@
 package acceptance.stage;
 
-import java.util.Map;
+import java.util.List;
 
 import org.shapleyvalue.core.CharacteristicFunction;
 import org.shapleyvalue.core.ShapleyValue;
@@ -12,7 +12,7 @@ public class WhenSomeAction extends Stage<WhenSomeAction> {
 
 
 
-	public Map<Integer,Double> the_shapley_value_is_calculated(@Hidden CharacteristicFunction v) {
+	public List<Double> the_shapley_value_is_calculated(@Hidden CharacteristicFunction v) {
 		
 		ShapleyValue s = new ShapleyValue(v);	
 		s.calculate();

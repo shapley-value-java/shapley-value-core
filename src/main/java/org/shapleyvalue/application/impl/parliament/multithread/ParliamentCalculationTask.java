@@ -1,6 +1,6 @@
 package org.shapleyvalue.application.impl.parliament.multithread;
 
-import java.util.Map;
+import java.util.List;
 import java.util.concurrent.Callable;
 
 
@@ -22,7 +22,7 @@ import org.slf4j.LoggerFactory;
  * @since 0.0.2
  *
  */
-public class ParliamentCalculationTask implements Callable<Map<Integer, Double>> {
+public class ParliamentCalculationTask implements Callable<List<Double>> {
 	
 	private final Logger logger = LoggerFactory.getLogger(ParliamentCalculationTask.class);
 
@@ -41,7 +41,7 @@ public class ParliamentCalculationTask implements Callable<Map<Integer, Double>>
 
 
 	@Override
-	public Map<Integer, Double> call() throws Exception {
+	public List<Double> call() throws Exception {
 		logger.info("thread {} started", threadNumber);
 		
 		shapleyValue.calculate(nbCoalitions, true);

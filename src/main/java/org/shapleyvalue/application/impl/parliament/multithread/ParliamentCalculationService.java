@@ -14,6 +14,8 @@ import java.util.concurrent.Future;
 import org.shapleyvalue.core.CharacteristicFunction;
 import org.shapleyvalue.core.CharacteristicFunction.CharacteristicFunctionBuilder;
 import org.shapleyvalue.util.Powerset;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Application of the Shapley value for a parliament
@@ -28,6 +30,9 @@ import org.shapleyvalue.util.Powerset;
  *
  */
 public class ParliamentCalculationService  {
+	
+	private final Logger logger = LoggerFactory.getLogger(ParliamentCalculationService.class);
+
 	
 	private CharacteristicFunction cfunction;
 	private Map<Integer, String> range;
@@ -110,43 +115,49 @@ public class ParliamentCalculationService  {
 	
 
 	
-	private Map<String, Double> getResult(Map<Integer, Double> tempRes) {
+	private Map<String, Double> getResult(List<Double> tempRes, int nbThreads) {
 
+
+	
+		
 		Map<String, Double> res = new HashMap<>();
 		double total =0;
-		for(Integer i : tempRes.keySet()) {
+		for(int i=1; i<tempRes.size(); i++) {
 			total += tempRes.get(i);
 		}
-		for(Integer i : tempRes.keySet()) {
+		for(int i=1; i<tempRes.size(); i++) {
 			res.put(range.get(i), tempRes.get(i)/total);
 		}
 		return res;
+		
+		
+		
 	}
 	
 
 
 
-	public Map<String, Double> calculate(long nbCoalitions, int threadsPoolSize) {
+	public Map<String, Double> calculate(long nbCoalitions, int nbThreads) {
 		
 		
 		
-		ExecutorService executor = Executors.newFixedThreadPool(threadsPoolSize);
+		ExecutorService executor = Executors.newFixedThreadPool(nbThreads);
 
-		List<Future<Map<Integer, Double>>> res = new ArrayList<>();
+		List<Future<List<Double>>> res = new ArrayList<>();
 		
-		for(int i=1; i<=threadsPoolSize; i++) {
-			ParliamentCalculationTask task = new ParliamentCalculationTask(cfunction, nbCoalitions/threadsPoolSize, i);
-			Future<Map<Integer, Double>> restask = executor.submit(task);
+		for(int i=1; i<=nbThreads; i++) {
+			ParliamentCalculationTask task = new ParliamentCalculationTask(cfunction, nbCoalitions/nbThreads, i);
+			Future<List<Double>> restask = executor.submit(task);
 			res.add(restask);
 		}
 		
 		
 		
 		
-		Map<Integer, Double> mapResult = null;
+		List<Double> listResult = null;
 		try {
-			for(Future<Map<Integer, Double>> rest : res) {
-				mapResult=mergeMap(mapResult, rest.get());
+			for(Future<List<Double>> rest : res) {
+				listResult=mergeList(listResult, rest.get());
 			}
 			
 		} catch (InterruptedException e) {
@@ -156,22 +167,23 @@ public class ParliamentCalculationService  {
 		}
 		
 		executor.shutdown();
+		logger.debug("listResult {}",listResult);
 
-		return getResult(mapResult);
+		return getResult(listResult,nbThreads);
 	}
 
 
 
-	private Map<Integer, Double> mergeMap(Map<Integer, Double> mapResult, Map<Integer, Double> map) {
-		if (mapResult==null) return map;
+	private List<Double> mergeList(List<Double> listResult, List<Double> list) {
+		if (listResult==null) return list;
 		
-		for(Integer i :mapResult.keySet()) {
-			Double val1 = mapResult.get(i);
-			Double val2 = map.get(i);
-			mapResult.put(i, val1+val2);
+		for(int i=0; i<listResult.size(); i++) {
+			Double val1 = listResult.get(i);
+			Double val2 = list.get(i);
+			listResult.set(i, val1+val2);
 		}
 		
-		return mapResult;
+		return listResult;
 	}
 
 }
