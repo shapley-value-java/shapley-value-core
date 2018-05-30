@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/shapley-value-java/shapley-value-core.svg?branch=master)](https://travis-ci.org/shapley-value-java/shapley-value-core) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.shapley-value-java/shapley-value-core/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.shapley-value-java/shapley-value-core) 
 
-[![Structure101](http://structure101.com/static-content/images/s101_170.png)](https://structure101.com/)
+Thanks to [![Structure101](http://structure101.com/static-content/images/s101_170.png)](https://structure101.com/)
 
 # shapley-value-core
 Shapley value calculation in Java
