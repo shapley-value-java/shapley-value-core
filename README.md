@@ -272,6 +272,10 @@ With a normalized results to 100, here is the result finally not so far from the
 - VW 1.1
 - PP 0.6
 
+# Code quality
+## Analysis with Struture101
+[Structural overview](imgs/structure101-V1.png "Structural overview")
+
 # Resources
 ## Video
 * how to share a taxi https://www.youtube.com/watch?v=aThG4YAFErw
