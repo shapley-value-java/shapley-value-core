@@ -274,7 +274,7 @@ With a normalized results to 100, here is the result finally not so far from the
 
 # Code quality
 ## Analysis with Struture101
-[Structural overview](imgs/structure101-V1.png "Structural overview")
+![Structural overview](imgs/structure101-V1.png "Structural overview")
 
 # Resources
 ## Video
