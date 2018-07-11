@@ -1,9 +1,7 @@
 package org.shapleyvalue.application.impl.fraud.v2;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -40,7 +38,7 @@ public class FraudRuleV2Application implements ShapleyApplication {
 	
 	private CharacteristicFunction cfunction;
 	private ShapleyValue shapleyValue;
-	private Map<Integer, String> range;
+
 	
 	public FraudRuleV2Application(FraudRuleV2ApplicationBuilder builder) {
 		Set<Set<Integer>> sets = Powerset.calculate(builder.getNbPlayers());
@@ -55,7 +53,7 @@ public class FraudRuleV2Application implements ShapleyApplication {
 			
 			cfunctionBuilder.addCoalition(v.score(), set.toArray(new Integer[set.size()]));
 		}
-		range = builder.getRange();
+
 		cfunction = cfunctionBuilder.build();
 		shapleyValue = new ShapleyValue(cfunction);
 	}
