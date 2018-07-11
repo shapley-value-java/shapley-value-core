@@ -1,6 +1,8 @@
 package org.shapleyvalue.application.impl.fraud.v2;
 
 import java.util.List;
+import java.util.Set;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -13,7 +15,7 @@ public class Tpfnfp {
 	private int falseNegatif;
 	private int falsePositif;
 	
-	public Tpfnfp(List<RuledTransaction> tx, List<Integer> rules) {
+	public Tpfnfp(List<RuledTransaction> tx, Set<Integer> rules) {
 
 		for(RuledTransaction t : tx) {
 			boolean isFired = false;
@@ -58,8 +60,9 @@ public class Tpfnfp {
 		
 		if((precision + recall) ==0) return 0;
 		
-		return (precision*recall*2) / (precision + recall); 
-		
+		double score= (precision*recall*2) / (precision + recall); 
+		logger.debug("score ={}", score);
+		return score;
 	}
 
 }

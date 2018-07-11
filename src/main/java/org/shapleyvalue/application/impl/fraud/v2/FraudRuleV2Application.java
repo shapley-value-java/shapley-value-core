@@ -42,18 +42,18 @@ public class FraudRuleV2Application implements ShapleyApplication {
 	private ShapleyValue shapleyValue;
 	private Map<Integer, String> range;
 	
-	public FraudRuleV2Application(FraudRuleApplicationBuilder builder) {
+	public FraudRuleV2Application(FraudRuleV2ApplicationBuilder builder) {
 		Set<Set<Integer>> sets = Powerset.calculate(builder.getNbPlayers());
 
 		CharacteristicFunctionBuilder cfunctionBuilder = 
 				new CharacteristicFunction.CharacteristicFunctionBuilder(builder.getNbPlayers());
 		
+
 		for(Set<Integer> set : sets) {
-			Set<Integer> rulesFound = new HashSet<>();
-			for(Integer i : set) {	
-				rulesFound.addAll(builder.getV().get(i));			
-			}
-			cfunctionBuilder.addCoalition(rulesFound.size(), set.toArray(new Integer[set.size()]));
+			
+			Tpfnfp v = new Tpfnfp(builder.getRuledTransactions(), set);
+			
+			cfunctionBuilder.addCoalition(v.score(), set.toArray(new Integer[set.size()]));
 		}
 		range = builder.getRange();
 		cfunction = cfunctionBuilder.build();
@@ -66,7 +66,7 @@ public class FraudRuleV2Application implements ShapleyApplication {
 		List<Double> tempRes = shapleyValue.getResult(1);
 		Map<String, Double> res = new HashMap<>();
 		for(int i=1; i<=shapleyValue.getSize(); i++) {
-			res.put(range.get(i), tempRes.get(i));
+			res.put(""+i, tempRes.get(i));
 		}
 		return res;
 		
@@ -79,23 +79,21 @@ public class FraudRuleV2Application implements ShapleyApplication {
 	 * @author Franck Benault
 	 *
 	 */
-	public static class FraudRuleApplicationBuilder {
+	public static class FraudRuleV2ApplicationBuilder {
 		
 		private int nbPlayers;
 		private Map<Integer, String> range;
-		private Map<Integer, List<Integer>> v;
 		private List<RuledTransaction> ruledTransactions;
 		
-		public FraudRuleApplicationBuilder() {
+		public FraudRuleV2ApplicationBuilder() {
 			nbPlayers = 0;		
 			ruledTransactions = new ArrayList<>();
 			range = new HashMap<>();
-			v = new HashMap<>();
 		}
 		
-		public FraudRuleApplicationBuilder addRule(RuledTransaction ruledTransaction) {
-			nbPlayers++;
-			
+		public FraudRuleV2ApplicationBuilder addRule(RuledTransaction ruledTransaction) {
+			nbPlayers = ruledTransaction.getNbRules();
+			ruledTransactions.add(ruledTransaction);
 
 			return this;
 		}
@@ -113,8 +111,8 @@ public class FraudRuleV2Application implements ShapleyApplication {
 			return new FraudRuleV2Application(this);
 		}
 		
-		public  Map<Integer, List<Integer>> getV() {
-			return v;
+		public  List<RuledTransaction> getRuledTransactions() {
+			return ruledTransactions;
 		}
 		
 	}
@@ -125,7 +123,7 @@ public class FraudRuleV2Application implements ShapleyApplication {
 		List<Double> tempRes = shapleyValue.getResult(1);
 		Map<String, Double> res = new HashMap<>();
 		for(int i=1; i<=shapleyValue.getSize(); i++) {
-			res.put(range.get(i), tempRes.get(i));
+			res.put(""+i, tempRes.get(i));
 		}
 		return res;
 	}
@@ -141,7 +139,7 @@ public class FraudRuleV2Application implements ShapleyApplication {
 		List<Double> tempRes = shapleyValue.getResult(1);
 		Map<String, Double> res = new HashMap<>();
 		for(int i=1; i<=shapleyValue.getSize(); i++) {
-			res.put(range.get(i), tempRes.get(i));
+			res.put(""+i, tempRes.get(i));
 		}
 		return res;
 	}
