@@ -9,9 +9,7 @@ import java.util.Set;
 import org.shapleyvalue.application.facade.CoalitionStrategy;
 import org.shapleyvalue.application.facade.ShapleyApplication;
 import org.shapleyvalue.application.facade.ShapleyApplicationException;
-import org.shapleyvalue.core.CharacteristicFunction;
-import org.shapleyvalue.core.CharacteristicFunction.CharacteristicFunctionBuilder;
-import org.shapleyvalue.core.ShapleyValue;
+import org.shapleyvalue.application.impl.fraud.v2.CharacteristicFunctionV2.CharacteristicFunctionBuilderV2;
 import org.shapleyvalue.util.Powerset;
 
 /**
@@ -36,26 +34,17 @@ import org.shapleyvalue.util.Powerset;
  */
 public class FraudRuleV2Application implements ShapleyApplication {
 	
-	private CharacteristicFunction cfunction;
-	private ShapleyValue shapleyValue;
+	private CharacteristicFunctionV2 cfunction;
+	private ShapleyValueV2 shapleyValue;
 
 	
 	public FraudRuleV2Application(FraudRuleV2ApplicationBuilder builder) {
-		Set<Set<Integer>> sets = Powerset.calculate(builder.getNbPlayers());
 
-		CharacteristicFunctionBuilder cfunctionBuilder = 
-				new CharacteristicFunction.CharacteristicFunctionBuilder(builder.getNbPlayers());
-		
-
-		for(Set<Integer> set : sets) {
-			
-			Tpfnfp v = new Tpfnfp(builder.getRuledTransactions(), set);
-			
-			cfunctionBuilder.addCoalition(v.score(), set.toArray(new Integer[set.size()]));
-		}
-
+		CharacteristicFunctionBuilderV2 cfunctionBuilder = 
+				new CharacteristicFunctionV2.CharacteristicFunctionBuilderV2(builder.getNbPlayers());
 		cfunction = cfunctionBuilder.build();
-		shapleyValue = new ShapleyValue(cfunction);
+		cfunction.setRuledTransactions(builder.getRuledTransactions());
+		shapleyValue = new ShapleyValueV2(cfunction);
 	}
 
 	@Override

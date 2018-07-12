@@ -10,7 +10,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Map;
 
-import org.junit.Ignore;
 import org.junit.Test;
 import org.shapleyvalue.application.facade.CoalitionStrategy;
 import org.shapleyvalue.application.facade.ShapleyApplicationException;
@@ -173,7 +172,7 @@ public class FraudRuleV2ApplicationTest {
 
 	}
 	
-	@Ignore
+
 	@Test
 	public void testEvaluationFromFileRules() throws ShapleyApplicationException, FileNotFoundException, IOException {
 		
@@ -187,15 +186,20 @@ public class FraudRuleV2ApplicationTest {
 		       builder.addRule(new RuledTransaction(line));
 		    }
 		}
+		logger.info("file read ok");
 		evaluation = builder.build();
 
 		for(int i=1; i<10;i++) {
-		Map<String,Double> output = evaluation.calculate(10_000,CoalitionStrategy.RANDOM);
+		Map<String,Double> output = evaluation.calculate(10,CoalitionStrategy.RANDOM);
 			double phiRule1 = output.get("1");
 			double phiRule2 = output.get("2");
+			double phiRule3 = output.get("3");
+			double phiRule4 = output.get("4");
 			logger.info("loop {}",i);
-			logger.info("phiRule1={}",String.format("%.3f", phiRule1));
-			logger.info("phiRule2={}",String.format("%.3f", phiRule2));
+			logger.info("phiRule1={}",String.format("%.5f", phiRule1));
+			logger.info("phiRule2={}",String.format("%.5f", phiRule2));
+			logger.info("phiRule3={}",String.format("%.5f", phiRule3));
+			logger.info("phiRule4={}",String.format("%.5f", phiRule4));
 		}
 
 	}

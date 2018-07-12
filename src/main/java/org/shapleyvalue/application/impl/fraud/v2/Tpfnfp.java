@@ -35,7 +35,7 @@ public class Tpfnfp {
 			}
 		}
 		
-		logger.info("{} {} {} ", truePositif, falseNegatif, falsePositif);
+		logger.debug("{} {} {} ", truePositif, falseNegatif, falsePositif);
 	}
 	
 	public Tpfnfp(int tp, int fn, int fp) {
