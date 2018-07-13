@@ -4,13 +4,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import org.shapleyvalue.application.facade.CoalitionStrategy;
 import org.shapleyvalue.application.facade.ShapleyApplication;
 import org.shapleyvalue.application.facade.ShapleyApplicationException;
 import org.shapleyvalue.application.impl.fraud.v2.CharacteristicFunctionV2.CharacteristicFunctionBuilderV2;
-import org.shapleyvalue.util.Powerset;
 
 /**
  * Application of the Shapley value for fraud rules evaluation

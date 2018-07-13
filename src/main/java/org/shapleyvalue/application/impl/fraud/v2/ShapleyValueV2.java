@@ -1,9 +1,7 @@
 package org.shapleyvalue.application.impl.fraud.v2;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -45,8 +43,6 @@ public class ShapleyValueV2 {
 		if (logger.isDebugEnabled())
 			logger.debug("ShapleyValue calculate started");
 
-		logger.debug("size {}", size);
-		logger.debug("sampleSize {}", sampleSize);
 		if (permutations == null) {
 			permutations = new PermutationLinkList(size);
 		}
@@ -56,27 +52,28 @@ public class ShapleyValueV2 {
 			sampleSize = factorialSize;
 		}
 
-		logger.debug("before");
 		while (!isLastReached() && count <= sampleSize) {
-			logger.debug("after");
 			List<Integer> coalition = null;
 			if(!randomValue) { 
 				coalition = permutations.getNextPermutation();
 			} else  {
 				coalition = RandomPermutations.getRandom(size);
 			}
-			logger.debug("coalition {}", coalition);
+			if(logger.isDebugEnabled())
+				logger.debug("coalition {}", coalition);
 				
 			currentRange++;
-			// System.out.println("currentRange "+currentRange);
+
 			count++;
-			Set<Integer> set = new HashSet<>();
-			double prevVal = 0;
+			//Set<Integer> set = new HashSet<>();
+			double prevVal = 0.0;
+			cfunction.resetIsFired();
 			for (Integer element : coalition) {
-				set.add(element);
-				double val = cfunction.getValue(set) - prevVal;
-				output.set(element, val + output.get(element));
-				prevVal += val;
+				//set.add(element);
+				double newVal = cfunction.getValue(element);
+				double contribution = newVal - prevVal;
+				output.set(element, contribution + output.get(element));
+				prevVal = newVal;
 			}
 
 		}

@@ -6,17 +6,16 @@ import java.util.Set;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+
 public class Tpfnfp {
 	
 	private final Logger logger = LoggerFactory.getLogger(Tpfnfp.class);
-
 	
 	private int truePositif;
 	private int falseNegatif;
 	private int falsePositif;
 	
 	public Tpfnfp(List<RuledTransaction> tx, Set<Integer> rules) {
-
 		for(RuledTransaction t : tx) {
 			boolean isFired = false;
 	
@@ -38,9 +37,34 @@ public class Tpfnfp {
 				}
 			}
 		}
-		
 		logger.debug("{} {} {} ", truePositif, falseNegatif, falsePositif);
 	}
+	
+	public Tpfnfp(List<RuledTransaction> tx, Integer rule) {
+		for(RuledTransaction t : tx) {
+			boolean isFired = t.isFired();	
+			if(!isFired) {
+				if(t.getRules().contains(rule)) {
+					isFired =true;
+					t.setFired(true);
+				}
+			}
+			if(t.isFraud()) {
+				if(isFired) {
+					truePositif++;
+				} else {
+					falseNegatif++;
+				}
+			} else {
+				if(isFired) {
+					falsePositif++;
+				}
+			}
+		}
+		logger.debug("{} {} {} ", truePositif, falseNegatif, falsePositif);
+	}
+	
+
 	
 	@Override
 	public String toString() {

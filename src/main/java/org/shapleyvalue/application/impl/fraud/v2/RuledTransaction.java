@@ -7,6 +7,7 @@ public class RuledTransaction {
 	
 
 	private boolean isFraud;
+	private boolean isFired;
 	
 	private Set<Integer> rules;
 	
@@ -41,6 +42,14 @@ public class RuledTransaction {
 
 	public int getNbRules() {
 		return nbRules;
+	}
+
+	public boolean isFired() {
+		return isFired;
+	}
+
+	public void setFired(boolean isFired) {
+		this.isFired = isFired;
 	}
 
 }

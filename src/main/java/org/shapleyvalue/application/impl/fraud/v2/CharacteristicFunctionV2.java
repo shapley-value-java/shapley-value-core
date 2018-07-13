@@ -23,13 +23,12 @@ public class CharacteristicFunctionV2 {
 
 	private int nbPlayers;
 	private List<RuledTransaction> ruledTransactions;
-	//private Map<Set<Integer>, Double> v;
+
 
 	private CharacteristicFunctionV2(CharacteristicFunctionBuilderV2 builder) {
 		nbPlayers = builder.nbPlayers;
 		ruledTransactions = builder.getRuledTransactions();
-		//v = new HashMap<>();
-		///v = builder.v;
+
 	}
 
 
@@ -39,9 +38,14 @@ public class CharacteristicFunctionV2 {
 
 	
 	public double getValue(Set<Integer> coalitionSet) {
-		
+			
 		Tpfnfp v = new Tpfnfp(ruledTransactions, coalitionSet);
-		logger.debug("v.score {}",v.score());
+		return v.score();
+	}
+	
+	public double getValue(Integer element) {
+		
+		Tpfnfp v = new Tpfnfp(ruledTransactions, element);
 		return v.score();
 	}
 	
@@ -80,6 +84,11 @@ public class CharacteristicFunctionV2 {
 			return ruledTransactions;
 		}
 
+	}
+
+	public void resetIsFired() {
+		for(RuledTransaction ruledTransaction : ruledTransactions)
+			ruledTransaction.setFired(false);
 	}
 
 

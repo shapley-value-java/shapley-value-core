@@ -9,6 +9,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import org.junit.Test;
 import org.shapleyvalue.application.facade.CoalitionStrategy;
@@ -16,6 +17,8 @@ import org.shapleyvalue.application.facade.ShapleyApplicationException;
 import org.shapleyvalue.application.impl.fraud.v2.FraudRuleV2Application.FraudRuleV2ApplicationBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.google.common.base.Stopwatch;
 
 public class FraudRuleV2ApplicationTest {
 	
@@ -177,7 +180,7 @@ public class FraudRuleV2ApplicationTest {
 	public void testEvaluationFromFileRules() throws ShapleyApplicationException, FileNotFoundException, IOException {
 		
 		FraudRuleV2Application evaluation = null; 
-				FraudRuleV2ApplicationBuilder builder=
+		FraudRuleV2ApplicationBuilder builder=
 				new FraudRuleV2Application.FraudRuleV2ApplicationBuilder();
 				
 		try (BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\AdminFBE\\workspace\\shapley-value-java\\shapley-value-core\\src\\test\\resources\\shapley_data_small.csv"))) {
@@ -189,8 +192,10 @@ public class FraudRuleV2ApplicationTest {
 		logger.info("file read ok");
 		evaluation = builder.build();
 
-		for(int i=1; i<10;i++) {
-		Map<String,Double> output = evaluation.calculate(10,CoalitionStrategy.RANDOM);
+		for(int i=1; i<=10;i++) {
+			Stopwatch stopwatch = Stopwatch.createStarted();
+			
+			Map<String,Double> output = evaluation.calculate(10,CoalitionStrategy.RANDOM);
 			double phiRule1 = output.get("1");
 			double phiRule2 = output.get("2");
 			double phiRule3 = output.get("3");
@@ -200,9 +205,9 @@ public class FraudRuleV2ApplicationTest {
 			logger.info("phiRule2={}",String.format("%.5f", phiRule2));
 			logger.info("phiRule3={}",String.format("%.5f", phiRule3));
 			logger.info("phiRule4={}",String.format("%.5f", phiRule4));
+			long duration = stopwatch.elapsed(TimeUnit.SECONDS);
+			logger.info(" duration  {}",duration);
 		}
-
 	}
-
 
 }
