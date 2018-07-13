@@ -1,10 +1,8 @@
 package org.shapleyvalue.application.impl.fraud.v2;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 import org.slf4j.Logger;
@@ -39,15 +37,6 @@ public class CharacteristicFunctionV2 {
 		return nbPlayers;
 	}
 
-	public double getValue(Integer... coalition) {
-		Set<Integer> coalitionSet = new HashSet<>();
-		
-		for(Integer player : coalition) coalitionSet.add(player);
-		
-		Tpfnfp v = new Tpfnfp(ruledTransactions, coalitionSet);
-		
-		return v.score();
-	}
 	
 	public double getValue(Set<Integer> coalitionSet) {
 		
