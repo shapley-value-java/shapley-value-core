@@ -1,6 +1,5 @@
 package org.shapleyvalue.application.impl.fraud.v2;
 
-import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -20,10 +19,7 @@ public class Tpfnfp {
 
 		for(RuledTransaction t : tx) {
 			boolean isFired = false;
-			/*Iterator<Integer> iterator = rules.iterator();
-			while(!isFired && iterator.hasNext()) {
-				if(t.getRules().contains(iterator.next())) isFired =true;
-			}*/		
+	
 			for(Integer rule : rules) {
 				if(t.getRules().contains(rule)) {
 					isFired =true;
@@ -46,6 +42,12 @@ public class Tpfnfp {
 		logger.debug("{} {} {} ", truePositif, falseNegatif, falsePositif);
 	}
 	
+	@Override
+	public String toString() {
+		return "Tpfnfp [truePositif=" + truePositif + ", falseNegatif=" + falseNegatif + ", falsePositif="
+				+ falsePositif + "]";
+	}
+
 	public Tpfnfp(int tp, int fn, int fp) {
 		truePositif = tp;
 		falseNegatif = fn;
