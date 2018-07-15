@@ -1,7 +1,13 @@
 package org.shapleyvalue.application.impl.fraud.v2;
 
+import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -77,6 +83,70 @@ public class ShapleyValueV2 {
 			}
 
 		}
+
+	}
+	
+	public void randomCalculateWithThread(long sampleSize) {
+		if (logger.isDebugEnabled())
+			logger.debug("ShapleyValue calculate started");
+
+		long nbThreads = 6;
+		ExecutorService executor = Executors.newFixedThreadPool((int) nbThreads);
+		
+        List<Future<List<Double>>> list = new ArrayList<Future<List<Double>>>();
+        //Create MyCallable instance
+        
+        for(int i=0; i< nbThreads; i++){
+            //submit Callable tasks to be executed by thread pool
+        	Callable<List<Double>> callable = new MyCallable(sampleSize/nbThreads, size, cfunction);
+            Future<List<Double>> future = executor.submit(callable);
+            //add Future to the list, we can get return value using Future
+            list.add(future);
+        }
+        for(Future<List<Double>> fut : list){
+            try {
+                //print the return value of Future, notice the output delay in console
+                // because Future.get() waits for task to get completed
+                List<Double> output2 = fut.get();
+                //merge
+                for(int element=1; element<=cfunction.getNbPlayers(); element++ )
+                	output.set(element, output.get(element)+ output2.get(element));
+                
+            } catch (InterruptedException | ExecutionException e) {
+                e.printStackTrace();
+            }
+        }
+
+		/*long count = 1;
+		if (sampleSize <= 0) {
+			sampleSize = factorialSize;
+		}*/
+
+		
+		/*while (count <= sampleSize) {
+			List<Integer> coalition = null;
+		
+	
+			coalition = RandomPermutations.getRandom(size);
+			
+			if(logger.isDebugEnabled())
+				logger.debug("coalition {}", coalition);
+				
+			currentRange++;
+
+			count++;
+
+			double prevVal = 0.0;
+			cfunction.resetIsFired();
+			for (Integer element : coalition) {
+				//set.add(element);
+				double newVal = cfunction.getValue(element);
+				double contribution = newVal - prevVal;
+				output.set(element, contribution + output.get(element));
+				prevVal = newVal;
+			}
+
+		}*/
 
 	}
 	

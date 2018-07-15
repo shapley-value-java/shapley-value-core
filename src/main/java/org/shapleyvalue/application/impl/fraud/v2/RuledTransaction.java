@@ -28,6 +28,17 @@ public class RuledTransaction {
 		nbRules = vals.length-1;
 	}
 	
+	public RuledTransaction(RuledTransaction toClone) {
+		
+		isFraud = toClone.isFraud();
+		rules = new HashSet<>();
+		nbRules = toClone.getNbRules();
+
+		rules.addAll(toClone.getRules());
+		
+
+	}
+	
 	public boolean isFraud() {
 		return isFraud;
 	}

@@ -8,7 +8,13 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
+import java.util.NavigableSet;
+import java.util.TreeMap;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.Test;
@@ -191,23 +197,76 @@ public class FraudRuleV2ApplicationTest {
 		}
 		logger.info("file read ok");
 		evaluation = builder.build();
+		
+		TreeMap<String, Double> prev_sorted_map = new TreeMap<String, Double>();
 
 		for(int i=1; i<=10;i++) {
 			Stopwatch stopwatch = Stopwatch.createStarted();
 			
-			Map<String,Double> output = evaluation.calculate(10,CoalitionStrategy.RANDOM);
-			double phiRule1 = output.get("1");
-			double phiRule2 = output.get("2");
-			double phiRule3 = output.get("3");
-			double phiRule4 = output.get("4");
-			logger.info("loop {}",i);
-			logger.info("phiRule1={}",String.format("%.5f", phiRule1));
-			logger.info("phiRule2={}",String.format("%.5f", phiRule2));
-			logger.info("phiRule3={}",String.format("%.5f", phiRule3));
-			logger.info("phiRule4={}",String.format("%.5f", phiRule4));
+			Map<String,Double> output = evaluation.calculate(300,CoalitionStrategy.RANDOM);
 			long duration = stopwatch.elapsed(TimeUnit.SECONDS);
+
+
+	        ValueComparator bvc = new ValueComparator(output);
+	        TreeMap<String, Double> sorted_map = new TreeMap<String, Double>(bvc);
+			sorted_map.putAll(output);
+			System.out.println("loop "+i);
+			for(Map.Entry<String,Double> entry : sorted_map.entrySet()) {
+				  String key = entry.getKey();
+				  Double value = entry.getValue();
+
+				  System.out.print(key + " => " + String.format("%.5f", value)+"; ");
+			}
+			System.out.println();
+			//compare sorted map
+			if(!prev_sorted_map.isEmpty()) {
+				NavigableSet<String> prevkeys = prev_sorted_map.navigableKeySet();
+				Iterator<String> prevIterator = prevkeys.iterator();				
+				NavigableSet<String> keys = sorted_map.navigableKeySet();
+				Iterator<String> iterator = keys.iterator();
+				
+				int count = 0;
+				while(iterator.hasNext()) {
+					String key = iterator.next();
+					String prevKey = prevIterator.next();
+					if(key.equals(prevKey)) {
+						count++;
+					} else {
+						break;
+					}
+				}
+				System.out.println("compare "+count);		
+			}
+			
+			prev_sorted_map = new TreeMap<String, Double>(bvc);
+			prev_sorted_map.putAll(output);
+			
+			
+			
+
+
 			logger.info(" duration  {}",duration);
 		}
 	}
+	
 
+	
+}
+
+class ValueComparator implements Comparator<String> {
+    Map<String, Double> base;
+
+    public ValueComparator(Map<String, Double> base) {
+        this.base = base;
+    }
+
+    // Note: this comparator imposes orderings that are inconsistent with
+    // equals.
+    public int compare(String a, String b) {
+        if (base.get(a) >= base.get(b)) {
+            return -1;
+        } else {
+            return 1;
+        } // returning 0 would merge keys
+    }
 }

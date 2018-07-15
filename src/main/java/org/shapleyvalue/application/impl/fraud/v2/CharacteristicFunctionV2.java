@@ -1,6 +1,7 @@
 package org.shapleyvalue.application.impl.fraud.v2;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -19,6 +20,8 @@ import org.slf4j.LoggerFactory;
  */
 public class CharacteristicFunctionV2 {
 	
+
+
 	private final Logger logger = LoggerFactory.getLogger(CharacteristicFunctionV2.class);
 
 	private int nbPlayers;
@@ -29,6 +32,21 @@ public class CharacteristicFunctionV2 {
 		nbPlayers = builder.nbPlayers;
 		ruledTransactions = builder.getRuledTransactions();
 
+	}
+
+
+	public CharacteristicFunctionV2(CharacteristicFunctionV2 toClone) {
+		nbPlayers = toClone.getNbPlayers();
+		ruledTransactions = new ArrayList<RuledTransaction>();
+		
+		for(RuledTransaction t : toClone.getRuledTransactions())
+			ruledTransactions.add(new RuledTransaction(t));
+	}
+
+
+	public Collection<? extends RuledTransaction> getRuledTransactions() {
+		// TODO Auto-generated method stub
+		return ruledTransactions;
 	}
 
 
