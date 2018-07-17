@@ -8,10 +8,8 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 import java.util.NavigableSet;
 import java.util.TreeMap;
@@ -188,8 +186,12 @@ public class FraudRuleV2ApplicationTest {
 		FraudRuleV2Application evaluation = null; 
 		FraudRuleV2ApplicationBuilder builder=
 				new FraudRuleV2Application.FraudRuleV2ApplicationBuilder();
+		
+		
+		ClassLoader classLoader = getClass().getClassLoader();
+		FileReader file = new FileReader(classLoader.getResource("shapley_data_small.csv").getFile());
 				
-		try (BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\AdminFBE\\workspace\\shapley-value-java\\shapley-value-core\\src\\test\\resources\\shapley_data_small.csv"))) {
+		try (BufferedReader br = new BufferedReader(file)) { //new FileReader("C:\\Users\\AdminFBE\\workspace\\shapley-value-java\\shapley-value-core\\src\\test\\resources\\shapley_data_small.csv"))) {
 		    String line;
 		    while ((line = br.readLine()) != null) {
 		       builder.addRule(new RuledTransaction(line));
@@ -200,17 +202,17 @@ public class FraudRuleV2ApplicationTest {
 		
 		TreeMap<String, Double> prev_sorted_map = new TreeMap<String, Double>();
 
-		for(int i=1; i<=10;i++) {
+		for(int i=1; i<=2;i++) {
 			Stopwatch stopwatch = Stopwatch.createStarted();
 			
-			Map<String,Double> output = evaluation.calculate(300,CoalitionStrategy.RANDOM);
+			Map<String,Double> output = evaluation.calculate(10,CoalitionStrategy.RANDOM);
 			long duration = stopwatch.elapsed(TimeUnit.SECONDS);
 
 
 	        ValueComparator bvc = new ValueComparator(output);
 	        TreeMap<String, Double> sorted_map = new TreeMap<String, Double>(bvc);
 			sorted_map.putAll(output);
-			System.out.println("loop "+i);
+			logger.info("loop {}",i);
 			for(Map.Entry<String,Double> entry : sorted_map.entrySet()) {
 				  String key = entry.getKey();
 				  Double value = entry.getValue();
@@ -235,7 +237,7 @@ public class FraudRuleV2ApplicationTest {
 						break;
 					}
 				}
-				System.out.println("compare "+count);		
+				logger.info("compare {}",count);		
 			}
 			
 			prev_sorted_map = new TreeMap<String, Double>(bvc);

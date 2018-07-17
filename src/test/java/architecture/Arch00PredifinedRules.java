@@ -7,6 +7,7 @@ import com.tngtech.archunit.junit.AnalyzeClasses;
 import com.tngtech.archunit.junit.ArchTest;
 import com.tngtech.archunit.junit.ArchUnitRunner;
 import com.tngtech.archunit.lang.ArchRule;
+import com.tngtech.archunit.core.importer.ImportOption;
 
 
 
@@ -18,7 +19,7 @@ import static com.tngtech.archunit.library.GeneralCodingRules.NO_CLASSES_SHOULD_
 import static com.tngtech.archunit.library.GeneralCodingRules.NO_CLASSES_SHOULD_USE_JAVA_UTIL_LOGGING;
 
 @RunWith(ArchUnitRunner.class)
-@AnalyzeClasses(packages = "org.shapleyvalue")
+@AnalyzeClasses(packages = "org.shapleyvalue", importOptions = ImportOption.DontIncludeTests.class)
 public class Arch00PredifinedRules {
 	
 

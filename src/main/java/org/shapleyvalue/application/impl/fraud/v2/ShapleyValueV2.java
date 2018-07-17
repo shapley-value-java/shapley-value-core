@@ -90,7 +90,7 @@ public class ShapleyValueV2 {
 		if (logger.isDebugEnabled())
 			logger.debug("ShapleyValue calculate started");
 
-		long nbThreads = 6;
+		long nbThreads = 4;
 		ExecutorService executor = Executors.newFixedThreadPool((int) nbThreads);
 		
         List<Future<List<Double>>> list = new ArrayList<Future<List<Double>>>();
