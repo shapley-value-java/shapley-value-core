@@ -17,6 +17,7 @@ public class FactorialUtilTest {
 		assertEquals(FactorialUtil.factorial(1),1);
 		assertEquals(FactorialUtil.factorial(3),6);
 		assertEquals(FactorialUtil.factorial(4),24);
+		assertEquals(FactorialUtil.factorial(400),Long.MAX_VALUE);
 	}
 
 }
