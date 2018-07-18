@@ -34,6 +34,10 @@ public class FraudRuleV2Application implements ShapleyApplication {
 	
 	private CharacteristicFunctionV2 cfunction;
 	private ShapleyValueV2 shapleyValue;
+	
+	public CharacteristicFunctionV2 getCfunction() {
+		return cfunction;
+	}
 
 	
 	public FraudRuleV2Application(FraudRuleV2ApplicationBuilder builder) {
