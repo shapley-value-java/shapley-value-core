@@ -1,6 +1,5 @@
 package org.shapleyvalue.application.impl.fraud.v2;
 
-import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Callable;
