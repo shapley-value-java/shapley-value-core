@@ -80,10 +80,14 @@ public class Tpfnfp {
 	
 	public double precision() {
 		
+		if(truePositif+falsePositif==0) return 0;
+		
 		return ((double)truePositif)/(truePositif+falsePositif);
 	}
 	
 	public double recall() {
+		if(truePositif+falseNegatif==0) return 0;
+		
 		return ((double) truePositif)/(truePositif+falseNegatif);
 	}
 	
