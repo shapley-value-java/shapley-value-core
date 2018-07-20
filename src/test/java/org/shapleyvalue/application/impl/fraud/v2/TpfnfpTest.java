@@ -46,6 +46,14 @@ public class TpfnfpTest {
 	
 		assertEquals(v.score(), 0.0, 0.01);
 	}
+	
+	@Test
+	public void testScoreDummyUser() {
+		Tpfnfp v = new Tpfnfp(0,0,0);
+	
+		assertEquals(v.score(), 0.0, 0.01);
+	}
+
 
 	@Test
 	public void testScoreWithRules() {
