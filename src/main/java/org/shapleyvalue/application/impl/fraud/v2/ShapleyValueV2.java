@@ -90,7 +90,7 @@ public class ShapleyValueV2 {
 			logger.debug("ShapleyValue calculate started");
 
 	
-		ExecutorService executor = Executors.newFixedThreadPool((int) nbThreads);
+		ExecutorService executor = Executors.newFixedThreadPool(nbThreads);
 		
         List<Future<List<Double>>> list = new ArrayList<Future<List<Double>>>();
         //Create MyCallable instance
@@ -115,37 +115,6 @@ public class ShapleyValueV2 {
                 e.printStackTrace();
             }
         }
-
-		/*long count = 1;
-		if (sampleSize <= 0) {
-			sampleSize = factorialSize;
-		}*/
-
-		
-		/*while (count <= sampleSize) {
-			List<Integer> coalition = null;
-		
-	
-			coalition = RandomPermutations.getRandom(size);
-			
-			if(logger.isDebugEnabled())
-				logger.debug("coalition {}", coalition);
-				
-			currentRange++;
-
-			count++;
-
-			double prevVal = 0.0;
-			cfunction.resetIsFired();
-			for (Integer element : coalition) {
-				//set.add(element);
-				double newVal = cfunction.getValue(element);
-				double contribution = newVal - prevVal;
-				output.set(element, contribution + output.get(element));
-				prevVal = newVal;
-			}
-
-		}*/
 
 	}
 	
