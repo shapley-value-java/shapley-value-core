@@ -191,16 +191,13 @@ public class FraudRuleV2ApplicationTest {
 		
 		
 		ClassLoader classLoader = getClass().getClassLoader();
-		FileReader file = new FileReader(classLoader.getResource("shapley_data_small.csv").getFile());
-				
+		//FileReader file = new FileReader(classLoader.getResource("shapley_data_small.csv").getFile());
+		FileReader file = new FileReader(classLoader.getResource("foo3.csv").getFile());
+
+		
 		try (BufferedReader br = new BufferedReader(file)) { 
 		    String line;
 		    while ((line = br.readLine()) != null) {
-		       /*if(line.startsWith("0")) {
-		    	   line="0,0,1,"+line;
-		       }else {
-		    	   line="1,1,0,"+line;
-		       }*/
 		       builder.addRule(new RuledTransaction(line));
 		    }
 		}
@@ -212,7 +209,7 @@ public class FraudRuleV2ApplicationTest {
 		for(int i=1; i<=10;i++) {
 			Stopwatch stopwatch = Stopwatch.createStarted();
 			
-			Map<String,Double> output = evaluation.calculate(300,CoalitionStrategy.RANDOM);
+			Map<String,Double> output = evaluation.calculate(30,CoalitionStrategy.RANDOM);
 			long duration = stopwatch.elapsed(TimeUnit.SECONDS);
 
 
@@ -254,7 +251,6 @@ public class FraudRuleV2ApplicationTest {
 			System.out.println(evaluation.getCfunction().getValue(new HashSet<>(Arrays.asList(1))));		
 			System.out.println(evaluation.getCfunction().getValue(new HashSet<>(Arrays.asList(2))));
 			System.out.println(evaluation.getCfunction().getValue(new HashSet<>(Arrays.asList(3))));
-			
 			System.out.println();
 			System.out.println(evaluation.getCfunction().getValue(new HashSet<>(Arrays.asList(288))));		
 			System.out.println(evaluation.getCfunction().getValue(new HashSet<>(Arrays.asList(288, 188))));

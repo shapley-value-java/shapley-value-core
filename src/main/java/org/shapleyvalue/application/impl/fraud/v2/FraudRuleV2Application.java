@@ -123,7 +123,21 @@ public class FraudRuleV2Application implements ShapleyApplication {
 		if(strategy.isSequential())
 			shapleyValue.calculate(nbCoalitions, false);
 		else 
-			shapleyValue.randomCalculateWithThread(nbCoalitions);
+			shapleyValue.randomCalculateWithThread(nbCoalitions, 4);
+		
+		List<Double> tempRes = shapleyValue.getResult(1);
+		Map<String, Double> res = new HashMap<>();
+		for(int i=1; i<=shapleyValue.getSize(); i++) {
+			res.put(""+i, tempRes.get(i));
+		}
+		return res;
+	}
+	
+
+	public Map<String, Double> calculate(long nbCoalitions, CoalitionStrategy strategy, int nbThreads)
+			throws ShapleyApplicationException {
+ 
+		shapleyValue.randomCalculateWithThread(nbCoalitions, nbThreads);
 		
 		List<Double> tempRes = shapleyValue.getResult(1);
 		Map<String, Double> res = new HashMap<>();
