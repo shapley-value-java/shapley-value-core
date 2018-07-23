@@ -115,7 +115,7 @@ public class ShapleyValueV2 {
                 e.printStackTrace();
             }
         }
-
+        executor.shutdown();
 	}
 	
 	public List<Double> getResult() {
