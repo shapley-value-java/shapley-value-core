@@ -58,6 +58,7 @@ public class CharacteristicFunctionV2 {
 	public double getValue(Set<Integer> coalitionSet) {
 			
 		Tpfnfp v = new Tpfnfp(ruledTransactions, coalitionSet);
+		//logger.info(v.toString());
 		return v.score();
 	}
 	

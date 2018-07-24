@@ -191,8 +191,8 @@ public class FraudRuleV2ApplicationTest {
 		
 		
 		ClassLoader classLoader = getClass().getClassLoader();
-		//FileReader file = new FileReader(classLoader.getResource("shapley_data_small.csv").getFile());
-		FileReader file = new FileReader(classLoader.getResource("foo3.csv").getFile());
+		FileReader file = new FileReader(classLoader.getResource("shapley_data_small.csv").getFile());
+		//FileReader file = new FileReader(classLoader.getResource("foo3.csv").getFile());
 
 		
 		try (BufferedReader br = new BufferedReader(file)) { 
@@ -209,13 +209,10 @@ public class FraudRuleV2ApplicationTest {
 		for(int i=1; i<=10;i++) {
 			Stopwatch stopwatch = Stopwatch.createStarted();
 			
-			Map<String,Double> output = evaluation.calculate(30,CoalitionStrategy.RANDOM);
+	        TreeMap<String, Double> sorted_map = evaluation.calculate(30,CoalitionStrategy.RANDOM,4);
 			long duration = stopwatch.elapsed(TimeUnit.SECONDS);
 
 
-	        ValueComparator bvc = new ValueComparator(output);
-	        TreeMap<String, Double> sorted_map = new TreeMap<String, Double>(bvc);
-			sorted_map.putAll(output);
 			logger.info("loop {}",i);
 			for(Map.Entry<String,Double> entry : sorted_map.entrySet()) {
 				  String key = entry.getKey();
@@ -244,19 +241,27 @@ public class FraudRuleV2ApplicationTest {
 				logger.info("compare {}",count);		
 			}
 			
-			prev_sorted_map = new TreeMap<String, Double>(bvc);
-			prev_sorted_map.putAll(output);
+			prev_sorted_map = sorted_map;
 	
 			/*
 			System.out.println(evaluation.getCfunction().getValue(new HashSet<>(Arrays.asList(1))));		
 			System.out.println(evaluation.getCfunction().getValue(new HashSet<>(Arrays.asList(2))));
 			System.out.println(evaluation.getCfunction().getValue(new HashSet<>(Arrays.asList(3))));
 			System.out.println();
+			*/
+			/*
 			System.out.println(evaluation.getCfunction().getValue(new HashSet<>(Arrays.asList(288))));		
 			System.out.println(evaluation.getCfunction().getValue(new HashSet<>(Arrays.asList(288, 188))));
 			System.out.println(evaluation.getCfunction().getValue(new HashSet<>(Arrays.asList(288, 188, 18))));
-			System.out.println(evaluation.getCfunction().getValue(new HashSet<>(Arrays.asList(288, 188, 18,308))));
-			System.out.println(""+308);
+			System.out.println(evaluation.getCfunction().getValue(new HashSet<>(Arrays.asList(288, 188, 18, 295))));
+			System.out.println(evaluation.getCfunction().getValue(new HashSet<>(Arrays.asList(288, 188, 18, 295, 45))));
+			System.out.println(evaluation.getCfunction().getValue(new HashSet<>(Arrays.asList(288, 188, 18, 295, 45, 365))));
+			System.out.println(evaluation.getCfunction().getValue(new HashSet<>(Arrays.asList(288, 188, 18, 295, 45, 365, 343))));
+			System.out.println(evaluation.getCfunction().getValue(new HashSet<>(Arrays.asList(288, 188, 18, 295, 45, 365, 343, 91))));
+			System.out.println(evaluation.getCfunction().getValue(new HashSet<>(Arrays.asList(288, 188, 18, 295, 45, 365, 343, 91, 293))));
+			*/
+			
+			/*System.out.println(""+308);
 			System.out.println(evaluation.getCfunction().getValue(new HashSet<>(Arrays.asList(308))));
 			System.out.println(""+1);
 			System.out.println(evaluation.getCfunction().getValue(new HashSet<>(Arrays.asList(1))));*/
@@ -269,20 +274,4 @@ public class FraudRuleV2ApplicationTest {
 	
 }
 
-class ValueComparator implements Comparator<String> {
-    Map<String, Double> base;
 
-    public ValueComparator(Map<String, Double> base) {
-        this.base = base;
-    }
-
-    // Note: this comparator imposes orderings that are inconsistent with
-    // equals.
-    public int compare(String a, String b) {
-        if (base.get(a) >= base.get(b)) {
-            return -1;
-        } else {
-            return 1;
-        } // returning 0 would merge keys
-    }
-}

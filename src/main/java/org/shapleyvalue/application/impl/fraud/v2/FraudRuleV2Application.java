@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 import org.shapleyvalue.application.facade.CoalitionStrategy;
 import org.shapleyvalue.application.facade.ShapleyApplication;
@@ -130,11 +131,13 @@ public class FraudRuleV2Application implements ShapleyApplication {
 		for(int i=1; i<=shapleyValue.getSize(); i++) {
 			res.put(""+i, tempRes.get(i));
 		}
+
 		return res;
+
 	}
 	
 
-	public Map<String, Double> calculate(long nbCoalitions, CoalitionStrategy strategy, int nbThreads)
+	public TreeMap<String, Double> calculate(long nbCoalitions, CoalitionStrategy strategy, int nbThreads)
 			throws ShapleyApplicationException {
  
 		shapleyValue.randomCalculateWithThread(nbCoalitions, nbThreads);
@@ -144,7 +147,12 @@ public class FraudRuleV2Application implements ShapleyApplication {
 		for(int i=1; i<=shapleyValue.getSize(); i++) {
 			res.put(""+i, tempRes.get(i));
 		}
-		return res;
+		
+        ValueComparator bvc = new ValueComparator(res);
+        TreeMap<String, Double> sortedMap = new TreeMap<String, Double>(bvc);
+        sortedMap.putAll(res);
+		
+		return sortedMap;
 	}
 
 	@Override
