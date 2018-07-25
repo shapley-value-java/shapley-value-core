@@ -209,7 +209,7 @@ public class FraudRuleV2ApplicationTest {
 		for(int i=1; i<=10;i++) {
 			Stopwatch stopwatch = Stopwatch.createStarted();
 			
-	        TreeMap<String, Double> sorted_map = evaluation.calculate(30,CoalitionStrategy.RANDOM,4);
+	        TreeMap<String, Double> sorted_map = evaluation.randomCalculateWithThreads(30,4);
 			long duration = stopwatch.elapsed(TimeUnit.SECONDS);
 
 

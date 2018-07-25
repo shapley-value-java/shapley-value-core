@@ -85,7 +85,7 @@ public class ShapleyValueV2 {
 
 	}
 	
-	public void randomCalculateWithThread(long sampleSize, int nbThreads) {
+	public void randomCalculateWithThreads(long sampleSize, int nbThreads) {
 		if (logger.isDebugEnabled())
 			logger.debug("ShapleyValue calculate started");
 

@@ -137,7 +137,7 @@ public class FraudRuleV2Application implements ShapleyApplication {
 	}
 	
 
-	public TreeMap<String, Double> calculate(long nbCoalitions, CoalitionStrategy strategy, int nbThreads)
+	public TreeMap<String, Double> randomCalculateWithThreads(long nbCoalitions, int nbThreads)
 			throws ShapleyApplicationException {
  
 		shapleyValue.randomCalculateWithThread(nbCoalitions, nbThreads);
