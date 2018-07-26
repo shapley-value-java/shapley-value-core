@@ -87,14 +87,6 @@ public class CharacteristicFunctionV2 {
 			
 		}
 
-		public CharacteristicFunctionBuilderV2 addCoalition(double value, Integer... coalition) {
-			Set<Integer> set = new HashSet<>();
-			for (Integer player : coalition) {
-				set.add(player);
-			}
-			return this;
-		}
-
 		public CharacteristicFunctionV2 build() {
 			return new CharacteristicFunctionV2(this);
 		}
