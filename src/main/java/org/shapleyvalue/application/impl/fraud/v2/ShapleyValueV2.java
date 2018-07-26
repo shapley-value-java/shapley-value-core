@@ -29,8 +29,11 @@ public class ShapleyValueV2 {
 	public ShapleyValueV2(CharacteristicFunctionV2 cfunction) {
 		this.cfunction = cfunction;
 		size = cfunction.getNbPlayers();
-		/*currentRange = 0;*/
-		factorialSize = FactorialUtil.factorial(size);
+		try {
+			factorialSize = FactorialUtil.factorial(size);
+		} catch (ArithmeticException e) {
+			factorialSize = 0;
+		}
 
 		this.output = new ArrayList<>(size+1);
 		for (int i = 0; i <= size; i++) {
@@ -128,8 +131,8 @@ public class ShapleyValueV2 {
 		res.add(0.0);
 		double total = 0;
 		for (int i = 1; i <= size; i++) {
-			total += output.get(i) / factorialSize;
-			res.add(output.get(i) / factorialSize);
+			total += output.get(i); 
+			res.add(output.get(i));
 		}
 
 		if (normalizedValue!=0) {
