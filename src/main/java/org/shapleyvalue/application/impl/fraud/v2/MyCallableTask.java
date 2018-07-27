@@ -8,17 +8,17 @@ import org.shapleyvalue.util.permutation.RandomPermutations;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class MyCallable implements Callable<List<Double>> {
+public class MyCallableTask implements Callable<List<Double>> {
 	
 	private long sampleSize;
 	private long size;
 	private CharacteristicFunctionV2 cfunction;
 	private List<Double> output;
 	
-	private final Logger logger = LoggerFactory.getLogger(MyCallable.class);
+	private final Logger logger = LoggerFactory.getLogger(MyCallableTask.class);
 
 	
-	public MyCallable(long sampleSize, long size, CharacteristicFunctionV2 cfunction) {
+	public MyCallableTask(long sampleSize, long size, CharacteristicFunctionV2 cfunction) {
 		this.sampleSize =sampleSize;
 		this.size = size;
 		this.cfunction = new CharacteristicFunctionV2(cfunction);

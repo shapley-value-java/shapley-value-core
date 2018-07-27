@@ -100,7 +100,7 @@ public class ShapleyValueV2 {
         
         for(int i=0; i< nbThreads; i++){
             //submit Callable tasks to be executed by thread pool
-        	Callable<List<Double>> callable = new MyCallable(sampleSize/((long)nbThreads), size, cfunction);
+        	Callable<List<Double>> callable = new MyCallableTask(sampleSize/((long)nbThreads), size, cfunction);
             Future<List<Double>> future = executor.submit(callable);
             //add Future to the list, we can get return value using Future
             list.add(future);
