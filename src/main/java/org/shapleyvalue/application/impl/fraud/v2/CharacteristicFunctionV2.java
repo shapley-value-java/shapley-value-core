@@ -2,7 +2,6 @@ package org.shapleyvalue.application.impl.fraud.v2;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -45,7 +44,6 @@ public class CharacteristicFunctionV2 {
 
 
 	public Collection<? extends RuledTransaction> getRuledTransactions() {
-		// TODO Auto-generated method stub
 		return ruledTransactions;
 	}
 
@@ -58,7 +56,6 @@ public class CharacteristicFunctionV2 {
 	public double getValue(Set<Integer> coalitionSet) {
 			
 		Tpfnfp v = new Tpfnfp(ruledTransactions, coalitionSet);
-		//logger.info(v.toString());
 		return v.score();
 	}
 	
