@@ -1,9 +1,14 @@
-package org.shapleyvalue.application.impl.fraud.v2;
+package org.shapleyvalue.util;
 
 import java.util.Comparator;
 import java.util.Map;
 
-class ValueComparator implements Comparator<String> {
+/**
+ * 
+ * Comparator to sort an HashMap
+ *
+ */
+public class ValueComparator implements Comparator<String> {
     Map<String, Double> base;
 
     public ValueComparator(Map<String, Double> base) {

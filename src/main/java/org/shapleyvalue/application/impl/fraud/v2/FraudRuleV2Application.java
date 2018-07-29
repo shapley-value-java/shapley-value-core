@@ -10,6 +10,7 @@ import org.shapleyvalue.application.facade.CoalitionStrategy;
 import org.shapleyvalue.application.facade.ShapleyApplication;
 import org.shapleyvalue.application.facade.ShapleyApplicationException;
 import org.shapleyvalue.application.impl.fraud.v2.CharacteristicFunctionV2.CharacteristicFunctionBuilderV2;
+import org.shapleyvalue.util.ValueComparator;
 
 /**
  * Application of the Shapley value for fraud rules evaluation
