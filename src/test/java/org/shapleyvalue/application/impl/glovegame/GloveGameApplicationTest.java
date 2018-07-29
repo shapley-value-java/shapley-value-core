@@ -5,14 +5,10 @@ import static org.junit.Assert.assertEquals;
 import java.util.Map;
 
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class GloveGameApplicationTest {
 	
 	
-	private final Logger logger = LoggerFactory.getLogger(GloveGameApplicationTest.class);
-
 	@Test
 	public void testEvaluationOnePlayer() {
 		

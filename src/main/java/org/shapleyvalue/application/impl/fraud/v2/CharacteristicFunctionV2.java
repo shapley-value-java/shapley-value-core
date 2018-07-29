@@ -3,7 +3,6 @@ package org.shapleyvalue.application.impl.fraud.v2;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Set;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,6 +34,7 @@ public class CharacteristicFunctionV2 {
 
 
 	public CharacteristicFunctionV2(CharacteristicFunctionV2 toClone) {
+		logger.debug("clone constructor");
 		nbPlayers = toClone.getNbPlayers();
 		ruledTransactions = new ArrayList<RuledTransaction>();
 		
@@ -52,12 +52,6 @@ public class CharacteristicFunctionV2 {
 		return nbPlayers;
 	}
 
-	
-	public double getValue(Set<Integer> coalitionSet) {
-			
-		Tpfnfp v = new Tpfnfp(ruledTransactions, coalitionSet);
-		return v.score();
-	}
 	
 	public double getValue(Integer element) {
 		
