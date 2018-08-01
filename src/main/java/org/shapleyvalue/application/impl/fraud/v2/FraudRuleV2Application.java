@@ -143,7 +143,7 @@ public class FraudRuleV2Application implements ShapleyApplication {
  
 		shapleyValue.randomCalculateWithThreads(nbCoalitions, nbThreads);
 		
-		List<Double> tempRes = shapleyValue.getResult(1);
+		List<Double> tempRes = shapleyValue.getResultWithSampleSize();
 		Map<String, Double> res = new HashMap<>();
 		for(int i=1; i<=shapleyValue.getSize(); i++) {
 			res.put(""+i, tempRes.get(i));
