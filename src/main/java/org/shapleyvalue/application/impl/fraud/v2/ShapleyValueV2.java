@@ -179,7 +179,7 @@ public class ShapleyValueV2 {
 		for (int i = 1; i <= size; i++) {
 			res.add(output.get(i)/fullSampleSize);
 		}
-		System.out.println("fullSampleSize "+fullSampleSize);
+		//System.out.println("fullSampleSize "+fullSampleSize);
 
 		if (logger.isDebugEnabled())
 			logger.debug("ShapleyValue getResult output={}", output);
