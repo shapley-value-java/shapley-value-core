@@ -52,7 +52,9 @@ characteristic function :
 ### Output
 shapley value 
 
-<a href="https://www.codecogs.com/eqnedit.php?latex=\mathbb{N}\rightarrow&space;\mathbb{R},&space;\Phi&space;\left&space;(&space;1&space;\right&space;)=1.0" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\mathbb{N}\rightarrow&space;\mathbb{R},&space;\Phi&space;\left&space;(&space;1&space;\right&space;)=1.0" title="\mathbb{N}\rightarrow \mathbb{R}, \Phi \left ( 1 \right )=1.0" /></a>
+<a href="https://www.codecogs.com/eqnedit.php?latex=N\rightarrow&space;\mathbb{R}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?N\rightarrow&space;\mathbb{R}" title="N\rightarrow \mathbb{R}" /></a>
+
+<a href="https://www.codecogs.com/eqnedit.php?latex=\Phi&space;\left&space;(&space;1&space;\right&space;)=1.0" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Phi&space;\left&space;(&space;1&space;\right&space;)=1.0" title="\Phi \left ( 1 \right )=1.0" /></a>
 
 ### Code example
 
