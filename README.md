@@ -3,7 +3,14 @@
 Thanks to [![Structure101](http://structure101.com/static-content/images/s101_170.png)](https://structure101.com/)
 
 # shapley-value-core
-Shapley value calculation in Java
+Shapley value calculation in Java introduced by Lloyd Shapley.
+
+# The Great Debate
+First a little joke : 
+- The great question for the father of Lloyd Shapley, Harlow Shapley was the size of the universe (see https://en.wikipedia.org/wiki/Great_Debate_(astronomy))
+- The great question for Lloyd Shapley was how to share a taxi ...
+
+Only the son received the Nobel price (in economics, in 2012)
 
 # Shapley value introduction
 ## Formula and notations
