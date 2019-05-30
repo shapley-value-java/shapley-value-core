@@ -37,7 +37,8 @@ Here is several examples with a few participants. You can imagine that with big 
 
 ## One element
 ### Input 
-characteristic function : ![2^N -> R](imgs/math1.gif "2^N -> R") 
+characteristic function : <a href="https://www.codecogs.com/eqnedit.php?latex=2^{N}&space;\rightarrow&space;\mathbb{R}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?2^{N}&space;\rightarrow&space;\mathbb{R}" title="2^{N} \rightarrow \mathbb{R}" /></a>
+
 - v({1})=1.0
 ### Output
 shapley value (N -> R)
