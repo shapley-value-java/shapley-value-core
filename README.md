@@ -140,7 +140,7 @@ Characteristic function : <a href="https://www.codecogs.com/eqnedit.php?latex=2^
 
 ## Three elements
 ### Input
-characteristic function : (2^N -> R)
+<a href="https://www.codecogs.com/eqnedit.php?latex=N&space;=&space;\left&space;\{&space;1,2,3&space;\right&space;\}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?N&space;=&space;\left&space;\{&space;1,2,3&space;\right&space;\}" title="N = \left \{ 1,2,3 \right \}" /></a> characteristic function : <a href="https://www.codecogs.com/eqnedit.php?latex=2^{N}&space;\rightarrow&space;\mathbb{R}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?2^{N}&space;\rightarrow&space;\mathbb{R}" title="2^{N} \rightarrow \mathbb{R}" /></a>
 - v({1})     = 80
 - v({2})     = 56
 - v({3})     = 70
