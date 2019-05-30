@@ -6,8 +6,11 @@ Thanks to [![Structure101](http://structure101.com/static-content/images/s101_17
 Shapley value calculation in Java
 
 # Shapley value introduction
-## Formula
+## Formula and notations
 The formula are done with the web site https://www.codecogs.com/latex/eqneditor.php 
+
+- Characteristic function is writen down 'v()'
+- The Shapley value is the Greek letter phi (<a href="https://www.codecogs.com/eqnedit.php?latex=\phi" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\phi" title="\phi" /></a>)
 
 ## Fair distribution 
 * Efficiency
