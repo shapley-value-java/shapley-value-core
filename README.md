@@ -94,8 +94,8 @@ Characteristic function : <a href="https://www.codecogs.com/eqnedit.php?latex=2^
 | <a href="https://www.codecogs.com/eqnedit.php?latex=\left&space;\{&space;2&space;\right&space;\}&space;\left&space;\{&space;1,2&space;\right&space;\}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\left&space;\{&space;2&space;\right&space;\}&space;\left&space;\{&space;1,2&space;\right&space;\}" title="\left \{ 2 \right \} \left \{ 1,2 \right \}" /></a>     | v({1,2})-v({2})=2        | v({2})= 2               |
 
 ### Output
-- phi1 = (1+2)/2=1.5
-- phi2 = (3+2)/2=2.5
+- <a href="https://www.codecogs.com/eqnedit.php?latex=\Phi&space;\left&space;(&space;1&space;\right&space;)=&space;\frac{1&plus;2}{2}&space;=1.5" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Phi&space;\left&space;(&space;1&space;\right&space;)=&space;\frac{1&plus;2}{2}&space;=1.5" title="\Phi \left ( 1 \right )= \frac{1+2}{2} =1.5" /></a>
+- <a href="https://www.codecogs.com/eqnedit.php?latex=\Phi&space;\left&space;(&space;2&space;\right&space;)=&space;\frac{3&plus;2}{2}&space;=2.5" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\Phi&space;\left&space;(&space;2&space;\right&space;)=&space;\frac{3&plus;2}{2}&space;=2.5" title="\Phi \left ( 2 \right )= \frac{3+2}{2} =2.5" /></a>
 
 ### Code example
 
