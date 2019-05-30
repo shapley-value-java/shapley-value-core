@@ -90,8 +90,8 @@ Characteristic function : <a href="https://www.codecogs.com/eqnedit.php?latex=2^
 
 |coalition | marginal contribution 1  | marginal contribution 2 |
 | -------- | ------------------------ | ----------------------- |
-| 1 12     | v({1})=1                 | v({1,2})-v({1}) =3      |
-| 2 12     | v({1,2})-v({2})=2        | v({2})= 2               |
+| <a href="https://www.codecogs.com/eqnedit.php?latex=\left&space;\{&space;1&space;\right&space;\}&space;\left&space;\{&space;1,2&space;\right&space;\}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\left&space;\{&space;1&space;\right&space;\}&space;\left&space;\{&space;1,2&space;\right&space;\}" title="\left \{ 1 \right \} \left \{ 1,2 \right \}" /></a>     | v({1})=1                 | v({1,2})-v({1}) =3      |
+| <a href="https://www.codecogs.com/eqnedit.php?latex=\left&space;\{&space;2&space;\right&space;\}&space;\left&space;\{&space;1,2&space;\right&space;\}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\left&space;\{&space;2&space;\right&space;\}&space;\left&space;\{&space;1,2&space;\right&space;\}" title="\left \{ 2 \right \} \left \{ 1,2 \right \}" /></a>     | v({1,2})-v({2})=2        | v({2})= 2               |
 
 ### Output
 - phi1 = (1+2)/2=1.5
