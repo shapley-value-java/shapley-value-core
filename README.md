@@ -112,6 +112,8 @@ Characteristic function : <a href="https://www.codecogs.com/eqnedit.php?latex=2^
 
 <a href="https://www.codecogs.com/eqnedit.php?latex=\phi&space;\left&space;(&space;2&space;\right&space;)\geq&space;v\left&space;(&space;\left&space;\{&space;2&space;\right&space;\}&space;\right&space;)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\phi&space;\left&space;(&space;2&space;\right&space;)\geq&space;v\left&space;(&space;\left&space;\{&space;2&space;\right&space;\}&space;\right&space;)" title="\phi \left ( 2 \right )\geq v\left ( \left \{ 2 \right \} \right )" /></a>
 
+<a href="https://www.codecogs.com/eqnedit.php?latex=\phi&space;\left&space;(&space;1&space;\right&space;)&plus;&space;\phi&space;\left&space;(&space;2&space;\right&space;)&space;=&space;v\left&space;(&space;\left&space;\{&space;1,2&space;\right&space;\}&space;\right&space;)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\phi&space;\left&space;(&space;1&space;\right&space;)&plus;&space;\phi&space;\left&space;(&space;2&space;\right&space;)&space;=&space;v\left&space;(&space;\left&space;\{&space;1,2&space;\right&space;\}&space;\right&space;)" title="\phi \left ( 1 \right )+ \phi \left ( 2 \right ) = v\left ( \left \{ 1,2 \right \} \right )" /></a>
+
 ### Code example
 
 ```java
