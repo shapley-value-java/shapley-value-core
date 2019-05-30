@@ -39,7 +39,7 @@ Here is several examples with a few participants. You can imagine that with big 
 ### Input 
 characteristic function : <a href="https://www.codecogs.com/eqnedit.php?latex=2^{N}&space;\rightarrow&space;\mathbb{R}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?2^{N}&space;\rightarrow&space;\mathbb{R}" title="2^{N} \rightarrow \mathbb{R}" /></a>
 
-- v({1})=1.0
+- <a href="https://www.codecogs.com/eqnedit.php?latex=v\left&space;(&space;\left&space;\{&space;1&space;\right&space;\}&space;\right&space;)&space;=&space;1.0" target="_blank"><img src="https://latex.codecogs.com/gif.latex?v\left&space;(&space;\left&space;\{&space;1&space;\right&space;\}&space;\right&space;)&space;=&space;1.0" title="v\left ( \left \{ 1 \right \} \right ) = 1.0" /></a>
 ### Output
 shapley value (N -> R)
 phi1 =1.0
