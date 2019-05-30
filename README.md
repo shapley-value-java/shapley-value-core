@@ -78,11 +78,13 @@ shapley value
 
 ## Two elements
 ### Input
-N = {1,2}
-characteristic function : (2^N -> R)
-- v({1})   = 1
-- v({2})   = 2
-- v({1,2}) = 4
+<a href="https://www.codecogs.com/eqnedit.php?latex=N&space;=&space;\left&space;\{&space;1,2&space;\right&space;\}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?N&space;=&space;\left&space;\{&space;1,2&space;\right&space;\}" title="N = \left \{ 1,2 \right \}" /></a>
+
+Characteristic function : <a href="https://www.codecogs.com/eqnedit.php?latex=2^{N}&space;\rightarrow&space;R" target="_blank"><img src="https://latex.codecogs.com/gif.latex?2^{N}&space;\rightarrow&space;R" title="2^{N} \rightarrow R" /></a>
+- <a href="https://www.codecogs.com/eqnedit.php?latex=v\left&space;(&space;\left&space;\{&space;\varnothing&space;\right&space;\}&space;\right&space;)&space;=&space;0" target="_blank"><img src="https://latex.codecogs.com/gif.latex?v\left&space;(&space;\left&space;\{&space;\varnothing&space;\right&space;\}&space;\right&space;)&space;=&space;0" title="v\left ( \left \{ \varnothing \right \} \right ) = 0" /></a>
+- <a href="https://www.codecogs.com/eqnedit.php?latex=v&space;\left&space;(&space;\left&space;\{&space;1&space;\right&space;\}&space;\right&space;)&space;=&space;1" target="_blank"><img src="https://latex.codecogs.com/gif.latex?v&space;\left&space;(&space;\left&space;\{&space;1&space;\right&space;\}&space;\right&space;)&space;=&space;1" title="v \left ( \left \{ 1 \right \} \right ) = 1" /></a>
+- <a href="https://www.codecogs.com/eqnedit.php?latex=v&space;\left&space;(&space;\left&space;\{&space;2&space;\right&space;\}&space;\right&space;)&space;=&space;2" target="_blank"><img src="https://latex.codecogs.com/gif.latex?v&space;\left&space;(&space;\left&space;\{&space;2&space;\right&space;\}&space;\right&space;)&space;=&space;2" title="v \left ( \left \{ 2 \right \} \right ) = 2" /></a>
+- <a href="https://www.codecogs.com/eqnedit.php?latex=v&space;\left&space;(&space;\left&space;\{&space;1,2&space;\right&space;\}&space;\right&space;)&space;=&space;4" target="_blank"><img src="https://latex.codecogs.com/gif.latex?v&space;\left&space;(&space;\left&space;\{&space;1,2&space;\right&space;\}&space;\right&space;)&space;=&space;4" title="v \left ( \left \{ 1,2 \right \} \right ) = 4" /></a>
 
 ### Calculation
 
