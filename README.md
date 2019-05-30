@@ -37,7 +37,7 @@ Here is several examples with a few participants. You can imagine that with big 
 
 ## One element
 ### Input 
-characteristic function : (2^N -> R)
+characteristic function : ![2^N -> R](imgs/math1.gif "2^N -> R") 
 - v({1})=1.0
 ### Output
 shapley value (N -> R)
