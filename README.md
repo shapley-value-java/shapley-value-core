@@ -6,7 +6,8 @@ Thanks to [![Structure101](http://structure101.com/static-content/images/s101_17
 Shapley value calculation in Java
 
 # Shapley value introduction
-
+## Formula
+The formula are done with the web site https://www.codecogs.com/latex/eqneditor.php 
 
 ## Fair distribution 
 * Efficiency
