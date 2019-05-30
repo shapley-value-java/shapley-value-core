@@ -37,9 +37,18 @@ Here is several examples with a few participants. You can imagine that with big 
 
 ## One element
 ### Input 
-characteristic function : <a href="https://www.codecogs.com/eqnedit.php?latex=2^{N}&space;\rightarrow&space;\mathbb{R}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?2^{N}&space;\rightarrow&space;\mathbb{R}" title="2^{N} \rightarrow \mathbb{R}" /></a>
+characteristic function : 
+
+<a href="https://www.codecogs.com/eqnedit.php?latex=N&space;=&space;\left&space;\{&space;1&space;\right&space;\}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?N&space;=&space;\left&space;\{&space;1&space;\right&space;\}" title="N = \left \{ 1 \right \}" /></a>
+
+<a href="https://www.codecogs.com/eqnedit.php?latex=2^{N}&space;\rightarrow&space;\mathbb{R}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?2^{N}&space;\rightarrow&space;\mathbb{R}" title="2^{N} \rightarrow \mathbb{R}" /></a>
+
+- <a href="https://www.codecogs.com/eqnedit.php?latex=v\left&space;(&space;\left&space;\{&space;\varnothing&space;\right&space;\}&space;\right&space;)&space;=&space;0.0" target="_blank"><img src="https://latex.codecogs.com/gif.latex?v\left&space;(&space;\left&space;\{&space;\varnothing&space;\right&space;\}&space;\right&space;)&space;=&space;0.0" title="v\left ( \left \{ \varnothing \right \} \right ) = 0.0" /></a>
 
 - <a href="https://www.codecogs.com/eqnedit.php?latex=v\left&space;(&space;\left&space;\{&space;1&space;\right&space;\}&space;\right&space;)&space;=&space;1.0" target="_blank"><img src="https://latex.codecogs.com/gif.latex?v\left&space;(&space;\left&space;\{&space;1&space;\right&space;\}&space;\right&space;)&space;=&space;1.0" title="v\left ( \left \{ 1 \right \} \right ) = 1.0" /></a>
+
+
+
 ### Output
 shapley value 
 
