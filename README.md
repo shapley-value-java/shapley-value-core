@@ -154,6 +154,7 @@ Characteristic function : <a href="https://www.codecogs.com/eqnedit.php?latex=2^
 |coalition | marginal contribution 1  | marginal contribution 2 | marginal contribution 3 |
 | -------- | ------------------------ | ----------------------- | ----------------------- |
 | <a href="https://www.codecogs.com/eqnedit.php?latex=\left&space;\{&space;1&space;\right&space;\}&space;\left&space;\{&space;1,2&space;\right&space;\}&space;\left&space;\{&space;1,2,3&space;\right&space;\}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\left&space;\{&space;1&space;\right&space;\}&space;\left&space;\{&space;1,2&space;\right&space;\}&space;\left&space;\{&space;1,2,3&space;\right&space;\}" title="\left \{ 1 \right \} \left \{ 1,2 \right \} \left \{ 1,2,3 \right \}" /></a> | v({1})=80                 | v({1,2})-v({1}) =0      | v({1,2,3})-v({1,2}) =10      |
+| <a href="https://www.codecogs.com/eqnedit.php?latex=\left&space;\{&space;1&space;\right&space;\}&space;\left&space;\{&space;1,3&space;\right&space;\}&space;\left&space;\{&space;1,2,3&space;\right&space;\}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\left&space;\{&space;1&space;\right&space;\}&space;\left&space;\{&space;1,3&space;\right&space;\}&space;\left&space;\{&space;1,2,3&space;\right&space;\}" title="\left \{ 1 \right \} \left \{ 1,3 \right \} \left \{ 1,2,3 \right \}" /></a> | v({1})=80                 | v({1,2,3})-v({1,2}) =5      | v({1,3})-v({1}) =5      |
 
 
 
