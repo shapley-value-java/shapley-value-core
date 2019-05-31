@@ -150,9 +150,9 @@ Characteristic function : <a href="https://www.codecogs.com/eqnedit.php?latex=2^
 - v({1,2,3}) = 90
 
 ### Output
-- phi1 = 39.2
-- phi2 = 20.7
-- phi3 = 30.2
+- <a href="https://www.codecogs.com/eqnedit.php?latex=\phi\left&space;(&space;1&space;\right&space;)=&space;39.2" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\phi\left&space;(&space;1&space;\right&space;)=&space;39.2" title="\phi\left ( 1 \right )= 39.2" /></a>
+- <a href="https://www.codecogs.com/eqnedit.php?latex=\phi\left&space;(&space;2&space;\right&space;)=&space;20.7" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\phi\left&space;(&space;2&space;\right&space;)=&space;20.7" title="\phi\left ( 2 \right )= 20.7" /></a>
+- <a href="https://www.codecogs.com/eqnedit.php?latex=\phi\left&space;(&space;3&space;\right&space;)=&space;30.2" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\phi\left&space;(&space;3&space;\right&space;)=&space;30.2" title="\phi\left ( 3 \right )= 30.2" /></a>
 
 ### Code example
 
