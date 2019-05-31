@@ -154,6 +154,9 @@ Characteristic function : <a href="https://www.codecogs.com/eqnedit.php?latex=2^
 - <a href="https://www.codecogs.com/eqnedit.php?latex=\phi\left&space;(&space;2&space;\right&space;)=&space;20.7" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\phi\left&space;(&space;2&space;\right&space;)=&space;20.7" title="\phi\left ( 2 \right )= 20.7" /></a>
 - <a href="https://www.codecogs.com/eqnedit.php?latex=\phi\left&space;(&space;3&space;\right&space;)=&space;30.2" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\phi\left&space;(&space;3&space;\right&space;)=&space;30.2" title="\phi\left ( 3 \right )= 30.2" /></a>
 
+remarks :
+<a href="https://www.codecogs.com/eqnedit.php?latex=\phi\left&space;(&space;1&space;\right&space;)&plus;\phi\left&space;(&space;2&space;\right&space;)&plus;\phi\left&space;(&space;3&space;\right&space;)&space;=&space;v\left&space;(&space;\left&space;\{&space;1,2,3&space;\right&space;\}&space;\right&space;)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\phi\left&space;(&space;1&space;\right&space;)&plus;\phi\left&space;(&space;2&space;\right&space;)&plus;\phi\left&space;(&space;3&space;\right&space;)&space;=&space;v\left&space;(&space;\left&space;\{&space;1,2,3&space;\right&space;\}&space;\right&space;)" title="\phi\left ( 1 \right )+\phi\left ( 2 \right )+\phi\left ( 3 \right ) = v\left ( \left \{ 1,2,3 \right \} \right )" /></a>
+
 ### Code example
 
 ```java
