@@ -31,7 +31,11 @@ The Shapley value of a null player i is null. A null player is a player who neve
 
 <a href="https://www.codecogs.com/eqnedit.php?latex=\phi&space;_{i}(v)=0" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\phi&space;_{i}(v)=0" title="\phi _{i}(v)=0" /></a>
 
-* Symetry
+* Symmetry
+
+if i and j are two equivalent actors, they will have the same Shapley value.
+<a href="https://www.codecogs.com/eqnedit.php?latex=v(S\cup&space;\left&space;\{&space;i&space;\right&space;\})=&space;v(S\cup&space;\left&space;\{&space;j&space;\right&space;\})\&space;for\&space;all\&space;subset\&space;of\&space;N\&space;then\&space;\phi_{i}(v)&space;=&space;\phi_{j}(v)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?v(S\cup&space;\left&space;\{&space;i&space;\right&space;\})=&space;v(S\cup&space;\left&space;\{&space;j&space;\right&space;\})\&space;for\&space;all\&space;subset\&space;of\&space;N\&space;then\&space;\phi_{i}(v)&space;=&space;\phi_{j}(v)" title="v(S\cup \left \{ i \right \})= v(S\cup \left \{ j \right \})\ for\ all\ subset\ of\ N\ then\ \phi_{i}(v) = \phi_{j}(v)" /></a>
+
 * Additivity
 
 ## Application example share a taxi 
