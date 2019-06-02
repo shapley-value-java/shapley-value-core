@@ -3,7 +3,7 @@
 Thanks to [![Structure101](http://structure101.com/static-content/images/s101_170.png)](https://structure101.com/)
 
 # shapley-value-core
-Shapley value calculation in Java introduced by Lloyd Shapley.
+this project is about Shapley value calculation in Java (and Kotlin) introduced by Lloyd Shapley. To have a complete view you can have a look to the wikipedia article https://en.wikipedia.org/wiki/Shapley_value.
 
 # The Great Debate
 First a little joke : 
