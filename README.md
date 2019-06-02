@@ -21,6 +21,8 @@ The formula are done with the web site https://www.codecogs.com/latex/eqneditor.
 
 ## Fair distribution 
 * Efficiency
+
+<a href="https://www.codecogs.com/eqnedit.php?latex=\sum_{i\subset&space;N}&space;\phi_{i}(v)&space;=&space;v(N)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\sum_{i\subset&space;N}&space;\phi_{i}(v)&space;=&space;v(N)" title="\sum_{i\subset N} \phi_{i}(v) = v(N)" /></a>
 * Null player 
 * Symetry
 * Additivity
