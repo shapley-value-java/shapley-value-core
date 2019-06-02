@@ -235,6 +235,20 @@ Amy, Bob and Clare are sharing a taxi. We imagine they are going to the same dir
 - Bob must pay 12 to go home
 - Clare must pay 42 to go home 
 
+### Calculation
+#### Characteristic function
+
+| S       | V(S) |
+| ------- | ---- | 
+| {}      | 0    |
+| {A}     | 6    |
+| {B}     | 12   |
+| {C}     | 42   |
+| {A,B}   | 12   |
+| {A,C}   | 42   |
+| {B,C}   | 42   |
+| {A,B,C} | 42   |
+
 ### Code example
 
 ```java
