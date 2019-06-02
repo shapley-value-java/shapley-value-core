@@ -151,14 +151,14 @@ Characteristic function : <a href="https://www.codecogs.com/eqnedit.php?latex=2^
 
 ### Calculation
 
-|coalition | marginal contribution 1  | marginal contribution 2 | marginal contribution 3 |
-| -------- | ------------------------ | ----------------------- | ----------------------- |
-| {1} {1,2} {1,2,3} | v({1})=80                | v({1,2})-v({1}) =0      | v({1,2,3})-v({1,2}) =10 |
-| {1} {1,3} {1,2,3} | v({1})=80                | v({1,2,3})-v({1,2}) =5  | v({1,3})-v({1}) =5      |
-| {2} {1,2} {1,2,3} | v({1,2})-v({2})=24       | v({2}) =56              | v({1,2,3})-v({1,2}) =10 |
-| {2} {1,3} {1,2,3} | v({1,2,3})-v({2,3})=18   | v({2}) =56              | v({2,3})-v({2}) =16     |
-| {3} {1,3} {1,2,3} | v({1,3})-v({3})=15       | v({1,2,3}) -v({1,3}) =5 | v({3}) =70              |
-| {3} {2,3} {1,2,3} | v({1,2,3})-v({2,3})=18   | v({2,3}) -v({3}) =56    | v({3}) =70              |
+| Order | marginal contribution 1  | marginal contribution 2 | marginal contribution 3 |
+| ----- | ------------------------ | ----------------------- | ----------------------- |
+| 1 2 3 | v({1})=80                | v({1,2})-v({1}) =0      | v({1,2,3})-v({1,2}) =10 |
+| 1 3 2 | v({1})=80                | v({1,2,3})-v({1,2}) =5  | v({1,3})-v({1}) =5      |
+| 2 1 3 | v({1,2})-v({2})=24       | v({2}) =56              | v({1,2,3})-v({1,2}) =10 |
+| 2 3 1 | v({1,2,3})-v({2,3})=18   | v({2}) =56              | v({2,3})-v({2}) =16     |
+| 3 1 2 | v({1,3})-v({3})=15       | v({1,2,3}) -v({1,3}) =5 | v({3}) =70              |
+| 3 2 1 | v({1,2,3})-v({2,3})=18   | v({2,3}) -v({3}) =56    | v({3}) =70              |
 |   | <a href="https://www.codecogs.com/eqnedit.php?latex=\phi(1)=\frac{80&plus;80&plus;24&plus;18&plus;15&plus;18}{6}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\phi(1)=\frac{80&plus;80&plus;24&plus;18&plus;15&plus;18}{6}" title="\phi(1)=\frac{80+80+24+18+15+18}{6}" /></a> | <a href="https://www.codecogs.com/eqnedit.php?latex=\phi(2)=\frac{0&plus;5&plus;56&plus;56&plus;5&plus;2}{6}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\phi(2)=\frac{0&plus;5&plus;56&plus;56&plus;5&plus;2}{6}" title="\phi(2)=\frac{0+5+56+56+5+2}{6}" /></a> | <a href="https://www.codecogs.com/eqnedit.php?latex=\phi(3)=\frac{10&plus;5&plus;10&plus;16&plus;70&plus;70}{6}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\phi(3)=\frac{10&plus;5&plus;10&plus;16&plus;70&plus;70}{6}" title="\phi(3)=\frac{10+5+10+16+70+70}{6}" /></a> |
 |   | <a href="https://www.codecogs.com/eqnedit.php?latex=\phi&space;\left&space;(&space;1&space;\right&space;)=\frac{235}{6}&space;=&space;39.17" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\phi&space;\left&space;(&space;1&space;\right&space;)=\frac{235}{6}&space;=&space;39.17" title="\phi \left ( 1 \right )=\frac{235}{6} = 39.17" /></a> | <a href="https://www.codecogs.com/eqnedit.php?latex=\phi&space;\left&space;(&space;2&space;\right&space;)=\frac{124}{6}&space;=&space;20.67" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\phi&space;\left&space;(&space;2&space;\right&space;)=\frac{124}{6}&space;=&space;20.67" title="\phi \left ( 2 \right )=\frac{124}{6} = 20.67" /></a> | <a href="https://www.codecogs.com/eqnedit.php?latex=\phi&space;\left&space;(&space;3&space;\right&space;)=\frac{181}{6}&space;=&space;30.17" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\phi&space;\left&space;(&space;3&space;\right&space;)=\frac{181}{6}&space;=&space;30.17" title="\phi \left ( 3 \right )=\frac{181}{6} = 30.17" /></a> |
 
