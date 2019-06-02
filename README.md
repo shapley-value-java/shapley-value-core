@@ -19,6 +19,13 @@ The formula are done with the web site https://www.codecogs.com/latex/eqneditor.
 - Characteristic function is writen down 'v()'
 - The Shapley value is the Greek letter phi (<a href="https://www.codecogs.com/eqnedit.php?latex=\phi" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\phi" title="\phi" /></a>)
 
+## Characteristic function v
+In a cooperative game 
+* with n players N={1,2,..., n}
+* a coalition is a subset of N
+
+The characteristic function associates for each coalition a real number.
+
 ## Fair distribution 
 The Shapley value is based on four axioms :
 
