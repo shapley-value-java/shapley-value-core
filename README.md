@@ -47,6 +47,8 @@ if i and j are two equivalent actors, they will have the same Shapley value.
 
 * Additivity
 
+To respect these 4 axioms there is only one solution, one way to calculate the Shapley value. The calculation is the average of the marginal contribution.
+
 ## Application example share a taxi 
 How to share a taxi travel ?
 Amy, Bob and Clare are sharing a taxi. We imagine they are going to the same direction.
