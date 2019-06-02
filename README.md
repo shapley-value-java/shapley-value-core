@@ -249,6 +249,23 @@ Amy, Bob and Clare are sharing a taxi. We imagine they are going to the same dir
 | {B,C}   | 42   |
 | {A,B,C} | 42   |
 
+#### Permutation
+
+| Order | marginal contribution A  | marginal contribution B | marginal contribution C |
+| ----- | ------------------------ | ----------------------- | ----------------------- |
+| A B C | 6                        | 6                       | 30                      |
+| A C B | 6                        | 0                       | 36                      |
+| B A C | 0                        | 12                      | 30                      |
+| B C A | 0                        | 12                      | 30                      |
+| C A B | 0                        | 0                       | 42                      |
+| C B A | 0                        | 0                       | 42                      |
+
+<a href="https://www.codecogs.com/eqnedit.php?latex=\phi_{A}(v)&space;=&space;\frac{6&plus;6}{6}=2" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\phi_{A}(v)&space;=&space;\frac{6&plus;6}{6}=2" title="\phi_{A}(v) = \frac{6+6}{6}=2" /></a>
+
+<a href="https://www.codecogs.com/eqnedit.php?latex=\phi_{B}(v)&space;=&space;\frac{6&plus;12&plus;12}{6}=5" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\phi_{B}(v)&space;=&space;\frac{6&plus;12&plus;12}{6}=5" title="\phi_{B}(v) = \frac{6+12+12}{6}=5" /></a>
+
+<a href="https://www.codecogs.com/eqnedit.php?latex=\phi_{C}(v)&space;=&space;\frac{30&plus;36&plus;30&plus;30&plus;42&plus;42}{6}=35" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\phi_{C}(v)&space;=&space;\frac{30&plus;36&plus;30&plus;30&plus;42&plus;42}{6}=35" title="\phi_{C}(v) = \frac{30+36+30+30+42+42}{6}=35" /></a>
+
 ### Code example
 
 ```java
