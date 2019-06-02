@@ -54,7 +54,7 @@ If they share the taxi, the Shapley value will give :
 - Clare must pay 35
 - The total 2+5+35 = 42
 
-With this example, we can see that Shapley value is for everybody efficient. Because Amy, Bob, and Clare pay less when they share than when they travel alone. 
+With this example, we can see that Shapley value is for everybody efficient. Because Amy, Bob, and Clare pay less when they share than when they travel alone but the sum of the three values are enough to pay the bill.
 
 
 # Calculation examples
