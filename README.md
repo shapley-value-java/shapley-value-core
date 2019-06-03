@@ -230,11 +230,22 @@ remarks :
 In the glove game the players have a left or a right glove. The goal is to form a pair.
 A coalition with at least one left glove and one right glove wins (v(S)=1) otherwise loses (v(S)=0).
 
-We have three players R1, R2, L3 with R1 and R2 having a right glove and L3 have a left glove
+We have three players R1, R2, L3 with R1 and R2 having a right glove and L3 have a left glove. 
 
+Using the symmetrie axiom we expect that the Shapley value is the same for R1 and R2.
 
+#### Characteristic function
 
-
+| S          | V(S) |
+| ---------- | ---- | 
+| {}         | 0    |
+| {R1}       | 0    |
+| {R2}       | 0    |
+| {L3}       | 0    |
+| {R1,R2}    | 0    |
+| {R1,L3}    | 1    |
+| {R2,L3}    | 1    |
+| {R1,R2,L3} | 1    |
 
 
 
