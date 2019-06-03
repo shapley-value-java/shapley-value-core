@@ -259,6 +259,7 @@ Using the symmetrie axiom we expect that the Shapley value is the same for R1 an
 | R2 L3 R1 | 0                        | 0                        | 1                        |
 | L3 R1 R2 | 1                        | 0                        | 0                        |
 | L3 R2 R1 | 0                        | 1                        | 0                        |
+|          | <a href="https://www.codecogs.com/eqnedit.php?latex=\phi(R1)=\frac{1}{6}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\phi(R1)=\frac{1}{6}" title="\phi(R1)=\frac{1}{6}" /></a> | <a href="https://www.codecogs.com/eqnedit.php?latex=\phi(R2)=\frac{1}{6}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\phi(R2)=\frac{1}{6}" title="\phi(R2)=\frac{1}{6}" /></a> | <a href="https://www.codecogs.com/eqnedit.php?latex=\phi(L3)=\frac{4}{6}=\frac{2}{3}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\phi(L3)=\frac{4}{6}=\frac{2}{3}" title="\phi(L3)=\frac{4}{6}=\frac{2}{3}" /></a> |
 
 ## Share taxi
 ### Example
