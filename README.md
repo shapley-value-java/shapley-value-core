@@ -226,6 +226,18 @@ remarks :
 ```
 
 # Applications
+## Glove game
+In the glove game the players have a left or a right glove. The goal is to form a pair.
+A coalition with at least one left glove and one right glove wins (v(S)=1) otherwise loses (v(S)=0).
+
+We have three players R1, R2, L3 with R1 and R2 having a right glove and L3 have a left glove
+
+
+
+
+
+
+
 ## Share taxi
 ### Example
 This example is :
