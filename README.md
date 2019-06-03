@@ -261,6 +261,31 @@ Using the symmetrie axiom we expect that the Shapley value is the same for R1 an
 | L3 R2 R1 | 0                        | 1                        | 0                        |
 |          | <a href="https://www.codecogs.com/eqnedit.php?latex=\phi(R1)=\frac{1}{6}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\phi(R1)=\frac{1}{6}" title="\phi(R1)=\frac{1}{6}" /></a> | <a href="https://www.codecogs.com/eqnedit.php?latex=\phi(R2)=\frac{1}{6}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\phi(R2)=\frac{1}{6}" title="\phi(R2)=\frac{1}{6}" /></a> | <a href="https://www.codecogs.com/eqnedit.php?latex=\phi(L3)=\frac{4}{6}=\frac{2}{3}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\phi(L3)=\frac{4}{6}=\frac{2}{3}" title="\phi(L3)=\frac{4}{6}=\frac{2}{3}" /></a> |
 
+### Code java
+
+```java
+	@Test
+	public void testEvaluationThreePlayersOne() {
+		
+		GloveGameApplication evaluation = 
+				new GloveGameApplication.GloveGameApplicationBuilder()
+				.addPlayer("Adam1", "left")
+				.addPlayer("Adam2", "left")
+				.addPlayer("Lea1", "right")
+				.build();
+	
+		
+		Map<String,Double> output = evaluation.calculate();
+		double phiAdam1= output.get("Adam1");
+		double phiAdam2= output.get("Adam2");
+		double phiLea1 = output.get("Lea1");
+		
+		assertEquals(phiAdam1, 0.16, 0.01);
+		assertEquals(phiAdam2, 0.16, 0.01);
+		assertEquals(phiLea1, 0.67, 0.01);
+	}
+	```
+
 ## Share taxi
 ### Example
 This example is :
