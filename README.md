@@ -275,7 +275,6 @@ Using the symmetrie axiom we expect that the Shapley value is the same for R1 an
 
 ```java
 	@Test
-	@Test
 	public void testEvaluationThreePlayersOne() {
 		
 		GloveGameApplication evaluation = 
