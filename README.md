@@ -5,7 +5,9 @@ Thanks to [![Structure101](http://structure101.com/static-content/images/s101_17
 # Shapley value introduction
 this project is about Shapley value calculation in Java (and Kotlin) introduced by Lloyd Shapley. To have a complete view you can have a look to the wikipedia article https://en.wikipedia.org/wiki/Shapley_value.
 
-In a cooperative game, some players have the possibility to forge coalitions to reach a common goal. A difficulty in cooperation game theory is the fair distribution of profits among the players. The Shapley value provides on possible answer to this question.
+In a cooperative game, some players have the possibility to forge coalitions to reach a common goal : increase a revenue, or share a cost.
+
+A difficulty in cooperation game theory is the fair distribution of profits among the players. The Shapley value provides on possible answer to this question.
 
 
 # The Great Debate
