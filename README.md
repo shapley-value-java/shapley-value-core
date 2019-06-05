@@ -19,6 +19,8 @@ Only the son received the Nobel price (in economics, in 2012)
 ## Formula and notations
 The formula are done with the web site https://www.codecogs.com/latex/eqneditor.php 
 
+- N is the set containing all the players
+- S is a subset of N
 - Characteristic function is writen down 'v()'
 - The Shapley value is the Greek letter phi (<a href="https://www.codecogs.com/eqnedit.php?latex=\phi" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\phi" title="\phi" /></a>)
 
