@@ -30,7 +30,9 @@ In a cooperative game
 * a coalition is a subset of N
 
 The characteristic function associates for each coalition a real number. 
-The value of v({}) (empty set) is 0.
+With this function, we can know the revenue (or the cost) for the a coalition S : v(S). 
+The value of v({}) (empty set) is 0, because if there is no player there is no cost or revenue.
+
 
 ## Fair distribution 
 The Shapley value is based on four axioms :
