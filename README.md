@@ -294,7 +294,7 @@ Using the symmetrie axiom we expect that the Shapley value is the same for R1 an
 		assertEquals(phiAdam2, 0.16, 0.01);
 		assertEquals(phiLea1, 0.67, 0.01);
 	}
-	```
+```
 
 ## Share taxi
 ### Example
