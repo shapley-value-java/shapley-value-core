@@ -29,7 +29,8 @@ In a cooperative game
 * with n players N={1,2,..., n}
 * a coalition is a subset of N
 
-The characteristic function associates for each coalition a real number.
+The characteristic function associates for each coalition a real number. 
+The value of v({}) (empty set) is 0.
 
 ## Fair distribution 
 The Shapley value is based on four axioms :
