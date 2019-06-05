@@ -232,7 +232,7 @@ A coalition with at least one left glove and one right glove wins (v(S)=1) other
 
 We have three players R1, R2, L3 with R1 and R2 having a right glove and L3 have a left glove. 
 
-Using the symmetrie axiom we expect that the Shapley value is the same for R1 and R2. We expect also that L3 receives more than R1 and R2.
+Using the symmetrie axiom we expect that the Shapley value is the same for R1 and R2. We expect also that L3 receives more than R1 and R2 because L3 is mandatory if we want to win the game whereas R1 or R2 are not mandatory to win the game. R1 and R2 participate less than L3.
 
 
 
