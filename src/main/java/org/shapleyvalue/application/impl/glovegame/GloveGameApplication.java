@@ -33,7 +33,7 @@ public class GloveGameApplication implements ShapleyApplication {
 		
 		private int nbPlayers;
 		private Map<Integer, String> range;
-		private Map<Integer, String> v;
+		private Map<Integer, Hand> v;
 		
 		public GloveGameApplicationBuilder() {
 			nbPlayers = 0;		
@@ -41,7 +41,7 @@ public class GloveGameApplication implements ShapleyApplication {
 			v = new HashMap<>();
 		}
 
-		public GloveGameApplicationBuilder  addPlayer(String playerName, String hand) {
+		public GloveGameApplicationBuilder  addPlayer(String playerName, Hand hand) {
 			nbPlayers++;
 			range.put(nbPlayers, playerName);
 			v.put(nbPlayers, hand);
@@ -61,7 +61,7 @@ public class GloveGameApplication implements ShapleyApplication {
 			return range;
 		}
 		
-		public  Map<Integer, String> getV() {
+		public  Map<Integer, Hand> getV() {
 			return v;
 		}
 
@@ -74,7 +74,7 @@ public class GloveGameApplication implements ShapleyApplication {
 				new CharacteristicFunction.CharacteristicFunctionBuilder(builder.getNbPlayers());
 		
 		for(Set<Integer> set : sets) {
-			Set<String> handFound = new HashSet<>();
+			Set<Hand> handFound = new HashSet<>();
 			for(Integer i : set) {	
 				handFound.add(builder.getV().get(i));			
 			}

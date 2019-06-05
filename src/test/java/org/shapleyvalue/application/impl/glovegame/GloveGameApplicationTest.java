@@ -14,7 +14,7 @@ public class GloveGameApplicationTest {
 		
 		GloveGameApplication evaluation = 
 				new GloveGameApplication.GloveGameApplicationBuilder()
-				.addPlayer("Adam", "left")
+				.addPlayer("Adam", Hand.LEFT)
 				.build();
 	
 		
@@ -30,8 +30,8 @@ public class GloveGameApplicationTest {
 		
 		GloveGameApplication evaluation = 
 				new GloveGameApplication.GloveGameApplicationBuilder()
-				.addPlayer("Adam1", "left")
-				.addPlayer("Adam2", "left")
+				.addPlayer("Adam1", Hand.LEFT)
+				.addPlayer("Adam2", Hand.LEFT)
 				.build();
 	
 		
@@ -49,8 +49,8 @@ public class GloveGameApplicationTest {
 		
 		GloveGameApplication evaluation = 
 				new GloveGameApplication.GloveGameApplicationBuilder()
-				.addPlayer("Adam1", "left")
-				.addPlayer("Lea1", "right")
+				.addPlayer("Adam1", Hand.LEFT)
+				.addPlayer("Lea1", Hand.RIGHT)
 				.build();
 	
 		
@@ -68,9 +68,9 @@ public class GloveGameApplicationTest {
 		
 		GloveGameApplication evaluation = 
 				new GloveGameApplication.GloveGameApplicationBuilder()
-				.addPlayer("Adam1", "left")
-				.addPlayer("Adam2", "left")
-				.addPlayer("Lea1", "right")
+				.addPlayer("Adam1", Hand.LEFT)
+				.addPlayer("Adam2", Hand.LEFT)
+				.addPlayer("Lea1", Hand.RIGHT)
 				.build();
 	
 		
