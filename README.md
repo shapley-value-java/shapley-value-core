@@ -30,6 +30,9 @@ To be more complete the Shapley value for the player i is writen like that
 
 <a href="https://www.codecogs.com/eqnedit.php?latex=\phi_{i}(N,v)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\phi_{i}(N,v)" title="\phi_{i}(N,v)" /></a>
 
+But often I simply write
+<a href="https://www.codecogs.com/eqnedit.php?latex=\phi(i)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\phi(i)" title="\phi(i)" /></a>
+
 ## Characteristic function v
 In a cooperative game 
 * with n players N={1,2,..., n}
