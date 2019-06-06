@@ -26,6 +26,10 @@ The formula are done with the web site https://www.codecogs.com/latex/eqneditor.
 - Characteristic function is writen down 'v()'
 - The Shapley value is the Greek letter phi (<a href="https://www.codecogs.com/eqnedit.php?latex=\phi" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\phi" title="\phi" /></a>)
 
+To be more complete the Shapley value for the player i is writen like that
+
+<a href="https://www.codecogs.com/eqnedit.php?latex=\phi_{i}(N,v)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\phi_{i}(N,v)" title="\phi_{i}(N,v)" /></a>
+
 ## Characteristic function v
 In a cooperative game 
 * with n players N={1,2,..., n}
