@@ -424,7 +424,8 @@ the solution is
 B, C, and D have the same Shapley value, so the same influence.
 
 ### Belgium parliament
-The Belgium parliament has 151 members and a lot of parties (13 parties, figures of the 18/04/2018)
+#### 54th legislature (2014–2019)
+The Belgium parliament has 150 members and a lot of parties (13 parties, figures of the 18/04/2018)
 - NVA 31
 - PS 23
 - MR 20
@@ -459,6 +460,40 @@ With a normalized results to 100, here is the result finally not so far from the
 - PTB 1.1
 - VW 1.1
 - PP 0.6
+
+#### 55th legislature (2019–)
+The Belgium parliament will have 150 members and a lot of parties (12 parties, figures of the 10/06/2019)
+Here Ecolo and Groen are considered as two parties.
+Member per parties
+- NVA 25
+- PS 20
+- VB 18
+- MR 14
+- Ecolo 13
+- CD&V 12
+- openVLD 12
+- PTB-PDVA 12
+- PSA 9
+- Groen 8
+- CDH 5
+- Defi 2
+
+Shapley value (normalized to 100)
+- NVA 18,1
+- PS 13.7
+- VB 12.4
+- MR 9.1
+- Ecolo 8.5
+- CD&V 7.9
+- openVLD 7.9
+- PTB-PDVA 7.9
+- PSA 5.4
+- Groen 5.1
+- CDH 3.1
+- Defi 1.0
+
+
+
 
 # Code quality
 ## Analysis with Struture101
