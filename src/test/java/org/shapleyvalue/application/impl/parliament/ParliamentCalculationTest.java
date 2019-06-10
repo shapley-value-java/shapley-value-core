@@ -87,5 +87,60 @@ public class ParliamentCalculationTest {
 		logger.info("phiPP= {}", String.format("%.3f", phiPP));
 
 	}
+	
+	@Test
+	//@Ignore
+	public void testExampleBelgium2019() throws ShapleyApplicationException {
+
+		ParliamentCalculation parlementCalculation = new ParliamentCalculation.ParliamentCalculationBuilder()
+				.addParty("NVA", 25).addParty("PS", 20).addParty("MR", 14).addParty("CD&V", 12).addParty("openVLD", 12)
+				.addParty("PSA", 9).addParty("Ecolo", 13).addParty("cdH", 5).addParty("VB", 18).addParty("Defi", 2)
+				.addParty("PTB-PDVA", 12).addParty("Groen", 8).build();
+
+		Map<String, Double> output = parlementCalculation.calculate(20_000, CoalitionStrategy.RANDOM);
+	
+		
+		double phiNVA = output.get("NVA");
+		logger.info("phiNVA= {}", String.format("%.3f", phiNVA));
+
+		double phiPS = output.get("PS");
+		logger.info("phiPS= {}", String.format("%.3f", phiPS));
+		
+		double phiVB = output.get("VB");
+		logger.info("phiVB= {}", String.format("%.3f", phiVB));
+		
+		double phiMR = output.get("MR");
+		logger.info("phiMR= {}", String.format("%.3f", phiMR));
+		
+		double phiEcolo = output.get("Ecolo");
+		logger.info("phiEcolo= {}", String.format("%.3f", phiEcolo));
+
+		double phiCDV = output.get("CD&V");
+		logger.info("phiCD&V= {}", String.format("%.3f", phiCDV));
+
+		double phiOpenVld = output.get("openVLD");
+		logger.info("phiOpenVld= {}", String.format("%.3f", phiOpenVld));
+		
+		double phiPTB = output.get("PTB-PDVA");
+		logger.info("phiPTB= {}", String.format("%.3f", phiPTB));
+
+		double phiPSA = output.get("PSA");
+		logger.info("phiPSA= {}", String.format("%.3f", phiPSA));
+		
+		double phiGroen = output.get("Groen");
+		logger.info("phiGroen {}", String.format("%.3f", phiGroen));
+
+
+		double phiCDH = output.get("cdH");
+		logger.info("phicdH= {}", String.format("%.3f", phiCDH));
+
+
+
+		double phiDefi = output.get("Defi");
+		logger.info("phiDefi= {}", String.format("%.3f", phiDefi));
+
+
+
+	}
 
 }
