@@ -492,8 +492,17 @@ Shapley value (normalized to 100)
 - CDH 3.1
 - Defi 1.0
 
+#### Difficulty to do an exact calculation
 
+With my old pc I can calculate 1 000 000 coalitions in 31,5s. So here is a first evaluation of an exact calculation of the parliament application of the Shapley value following the number of parties
 
+| nb parties | exact calculation evaluation |
+| ---------- | ---------------------------- | 
+| 10         | 2 min                        |
+| 11         | 21 min                       |
+| 12         | 4 hours                      |
+| 13         | 2 days                       |
+| 14         | 32 days                      |
 
 # Code quality
 ## Analysis with Struture101
