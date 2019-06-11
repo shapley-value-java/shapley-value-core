@@ -371,6 +371,7 @@ Amy, Bob and Clare are sharing a taxi. We imagine they are going to the same dir
 	}
 ```
 ## Fraud rules evaluation
+### Simple evaluation
 Example:
 There are four fraudulent transactions T1, T2, T3, T4.
 There are four rules trying to detect the fraud events.
@@ -384,7 +385,7 @@ The Rules4 detects 1/4 of the event (alone) so we can expect phiRule4=0.25
 The rules 1, 2, 3 detect the same events and should have the same Shapley value.
 phiRule1=phiRule2=phiRule2=0.25
 
-### Code example
+#### Code example
 
 ```java
 	@Test
@@ -410,6 +411,10 @@ phiRule1=phiRule2=phiRule2=0.25
 		assertEquals(phiRule4, 0.25, 0.01);
 	}
 ```
+
+### V2 using F1-score
+In fact to measure the quality of the fraud rules we can used the metric "f1 score" based on the "recall" and the "precision".
+Please see the article in Wikipedia https://en.wikipedia.org/wiki/F1_score
 
 ## Parliament
 ### First example
