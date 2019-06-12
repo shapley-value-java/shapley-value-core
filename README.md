@@ -415,6 +415,13 @@ phiRule1=phiRule2=phiRule2=0.25
 ### V2 using F1-score
 In fact to measure the quality of the fraud rules we can used the metric "f1 score" based on the "recall" and the "precision". These three metrics f1-score, recall and precision are between 0 and 1.
 
+A bad precision shows us that the rule makes mistake some genuine transactions are considered as fraudulent.
+A bad recall shows us that the rule does not find out all the fraudulent transactions.
+
+The fscore combines the recall and the precision following this formula :
+
+<a href="https://www.codecogs.com/eqnedit.php?latex=fscore&space;=&space;2&space;\times&space;\frac{recall&space;\times&space;precision}{recall&space;&plus;&space;precision}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?fscore&space;=&space;2&space;\times&space;\frac{recall&space;\times&space;precision}{recall&space;&plus;&space;precision}" title="fscore = 2 \times \frac{recall \times precision}{recall + precision}" /></a>
+
 Please see the article in Wikipedia https://en.wikipedia.org/wiki/F1_score for more information.
 
 ## Parliament
