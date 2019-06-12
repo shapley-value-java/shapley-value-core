@@ -413,7 +413,7 @@ phiRule1=phiRule2=phiRule2=0.25
 ```
 
 ### V2 using F1-score
-In fact to measure the quality of the fraud rules we can used the metric "f1 score" based on the "recall" and the "precision". The three metrics f1-score, recall and precision are between 0 and 1.
+In fact to measure the quality of the fraud rules we can used the metric "f1 score" based on the "recall" and the "precision". These three metrics f1-score, recall and precision are between 0 and 1.
 
 Please see the article in Wikipedia https://en.wikipedia.org/wiki/F1_score for more information.
 
