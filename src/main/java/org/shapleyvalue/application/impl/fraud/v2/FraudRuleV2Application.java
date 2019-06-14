@@ -36,6 +36,7 @@ public class FraudRuleV2Application implements ShapleyApplication {
 	
 	private CharacteristicFunctionV2 cfunction;
 	private ShapleyValueV2 shapleyValue;
+	private List<RuledTransaction> ruledTransactions;
 	
 	public CharacteristicFunctionV2 getCfunction() {
 		return cfunction;
@@ -49,12 +50,13 @@ public class FraudRuleV2Application implements ShapleyApplication {
 		cfunction = cfunctionBuilder.build();
 		cfunction.setRuledTransactions(builder.getRuledTransactions());
 		shapleyValue = new ShapleyValueV2(cfunction);
+		ruledTransactions = builder.getRuledTransactions();
 	}
 
 	@Override
 	public Map<String, Double> calculate() {
 		shapleyValue.calculate(0, false);
-		List<Double> tempRes = shapleyValue.getResult(1);
+		List<Double> tempRes = shapleyValue.getResult(0);
 		Map<String, Double> res = new HashMap<>();
 		for(int i=1; i<=shapleyValue.getSize(); i++) {
 			res.put(""+i, tempRes.get(i));
@@ -160,6 +162,26 @@ public class FraudRuleV2Application implements ShapleyApplication {
 	public boolean isLastCoalitionReached() throws ShapleyApplicationException {
 
 		return shapleyValue.isLastReached();
+	}
+	
+	private void resetRuleTransaction() {
+		for(RuledTransaction tx : ruledTransactions)
+			tx.setFired(false);
+	}
+	
+	public double getPrecision(String key) {
+		resetRuleTransaction(); 
+		return new Tpfnfp(ruledTransactions, Integer.valueOf(key)).precision();
+	}
+	
+	public double getRecall(String key) {
+		resetRuleTransaction() ;
+		return new Tpfnfp(ruledTransactions, Integer.valueOf(key)).recall();
+	}
+	
+	public double getFscore(String key) {
+		resetRuleTransaction() ;
+		return new Tpfnfp(ruledTransactions, Integer.valueOf(key)).score();
 	}
 
 }

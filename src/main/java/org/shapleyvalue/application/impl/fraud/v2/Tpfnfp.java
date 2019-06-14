@@ -16,6 +16,7 @@ public class Tpfnfp {
 	private int falsePositif;
 	
 	public Tpfnfp(List<RuledTransaction> tx, Set<Integer> rules) {
+
 		for(RuledTransaction t : tx) {
 			boolean isFired = false;
 	
@@ -41,6 +42,8 @@ public class Tpfnfp {
 	}
 	
 	public Tpfnfp(List<RuledTransaction> tx, Integer rule) {
+		logger.debug("tx {}",tx);
+		
 		for(RuledTransaction t : tx) {
 			boolean isFired = t.isFired();	
 			if(!isFired) {

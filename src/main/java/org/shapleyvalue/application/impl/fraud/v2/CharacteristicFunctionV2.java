@@ -52,6 +52,11 @@ public class CharacteristicFunctionV2 {
 		return nbPlayers;
 	}
 
+	public Tpfnfp getTpfnfp(Integer element) {
+		
+		Tpfnfp v = new Tpfnfp(ruledTransactions, element);
+		return v;
+	}
 	
 	public double getValue(Integer element) {
 		

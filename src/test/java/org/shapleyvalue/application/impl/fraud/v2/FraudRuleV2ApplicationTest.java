@@ -3,6 +3,7 @@ package org.shapleyvalue.application.impl.fraud.v2;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import org.junit.Ignore;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -56,9 +57,25 @@ public class FraudRuleV2ApplicationTest {
 		Map<String,Double> output = evaluation.calculate();
 		double phiRule1 = output.get("1");
 		double phiRule2 = output.get("2");
-		
 		assertEquals(phiRule1, 0.5, 0.01);
 		assertEquals(phiRule2, 0.5, 0.01);
+		
+		double precision1 = evaluation.getPrecision("1");
+		double recall1 = evaluation.getRecall("1");
+		double fscore1 = evaluation.getFscore("1");
+		
+		assertEquals(precision1, 1.0, 0.01);
+		assertEquals(recall1, 0.5, 0.01);
+		assertEquals(fscore1, 0.67, 0.01);
+		
+		double precision2 = evaluation.getPrecision("2");
+		double recall2 = evaluation.getRecall("2");
+		double fscore2 = evaluation.getFscore("2");
+		
+		assertEquals(precision2, 1.0, 0.01);
+		assertEquals(recall2, 0.5, 0.01);
+		assertEquals(fscore2, 0.67, 0.01);
+
 	}
 	
 	@Test
@@ -109,6 +126,7 @@ public class FraudRuleV2ApplicationTest {
 	}
 	
 	
+	@Ignore
 	@Test
 	public void testEvaluationXXXRules() throws ShapleyApplicationException, FileNotFoundException, IOException {
 		
@@ -179,6 +197,7 @@ public class FraudRuleV2ApplicationTest {
 	}
 	
 
+	@Ignore
 	@Test
 	public void testEvaluationFromFileRules() throws ShapleyApplicationException, FileNotFoundException, IOException {
 		

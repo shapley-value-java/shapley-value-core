@@ -6,6 +6,12 @@ import java.util.Set;
 public class RuledTransaction {
 	
 
+	@Override
+	public String toString() {
+		return "RuledTransaction [isFraud=" + isFraud + ", isFired=" + isFired + ", rules=" + rules + ", nbRules="
+				+ nbRules + "]";
+	}
+
 	private boolean isFraud;
 	private boolean isFired;
 	

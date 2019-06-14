@@ -138,7 +138,7 @@ public class ShapleyValueV2 {
 		double total = 0;
 		for (int i = 1; i <= size; i++) {
 			total += output.get(i); 
-			res.add(output.get(i));
+			res.add(output.get(i)/factorialSize);
 		}
 
 		if (normalizedValue!=0) {
