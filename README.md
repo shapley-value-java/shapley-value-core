@@ -424,6 +424,30 @@ The fscore combines the recall and the precision following this formula :
 
 Please see the article in Wikipedia https://en.wikipedia.org/wiki/F1_score for more information.
 
+#### Very simple example
+two rules, two transactions
+
+```java
+		FraudRuleV2Application evaluation = 
+				new FraudRuleV2Application.FraudRuleV2ApplicationBuilder()
+				.addRule(new RuledTransaction("1,1,0")) //T1 is fraudulent, R1 considers it as fraudulent 
+				.addRule(new RuledTransaction("1,0,1")) //T2 is fraudulent, R2 considers it as fraudulent
+				.build();
+```
+It means that: 
+- T1 is fraudulent and the rules R1 considers it as fraudulent but R2 does not consider it as fraudulent (false negative).
+- T2 is fraudulent and the rules R1 does not consider it as fraudulent but R2 considers it as fraudulent.
+
+
+|    | fraudulent  | Rule1 | Rule2 |
+| -- | ----------- | ------| ----- |
+| T1 | fraudulent  | 1     | 0     |
+| T2 | fradulent   | 0     | 1     |
+
+for the two rules 
+the precision is 1 (there is no false positive)
+the recall is 1/2=0.5 (only one fraudulent transaction is found whereas there is two fraudulent transasactions)
+
 ## Parliament
 ### First example
 Question: The parliament of Micronesia is made up of four political parties, A, B, C, and D, which have 45, 25, 15, and 15 representatives, respectively.
