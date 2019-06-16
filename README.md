@@ -428,11 +428,11 @@ Please see the article in Wikipedia https://en.wikipedia.org/wiki/F1_score for m
 two rules, two transactions
 
 ```java
-		FraudRuleV2Application evaluation = 
-				new FraudRuleV2Application.FraudRuleV2ApplicationBuilder()
-				.addRule(new RuledTransaction("1,1,0")) //T1 is fraudulent, R1 considers it as fraudulent 
-				.addRule(new RuledTransaction("1,0,1")) //T2 is fraudulent, R2 considers it as fraudulent
-				.build();
+FraudRuleV2Application evaluation = 
+	new FraudRuleV2Application.FraudRuleV2ApplicationBuilder()
+		.addRule(new RuledTransaction("1,1,0")) //T1 is fraudulent, R1 considers it as fraudulent 
+		.addRule(new RuledTransaction("1,0,1")) //T2 is fraudulent, R2 considers it as fraudulent
+		.build();
 ```
 It means that: 
 - T1 is fraudulent and the rules R1 considers it as fraudulent but R2 does not consider it as fraudulent (false negative).
@@ -447,6 +447,8 @@ It means that:
 for the two rules 
 the precision is 1 (there is no false positive)
 the recall is 1/2=0.5 (only one fraudulent transaction is found whereas there is two fraudulent transasactions)
+
+<a href="https://www.codecogs.com/eqnedit.php?latex=f1score&space;=&space;2*&space;\frac{1*0.5}{1&plus;0.5}&space;=\frac{2}{3}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?f1score&space;=&space;2*&space;\frac{1*0.5}{1&plus;0.5}&space;=\frac{2}{3}" title="f1score = 2* \frac{1*0.5}{1+0.5} =\frac{2}{3}" /></a>
 
 ## Parliament
 ### First example
