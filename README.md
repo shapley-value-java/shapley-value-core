@@ -471,6 +471,8 @@ recall, precision and f1score are equals to 1.
 | 2 1           | v({1,2})-v({2})= 0.133   | v({2})= 0.667           | 
 | shapley value | (0.667+0.133)/2 =0.5     | (0.667+0.133)/2 =0.5    |
 
+We can see the symetry because the contribution of R1 and R2 are the same and their Shapley value are the same.
+
 ## Parliament
 ### First example
 Question: The parliament of Micronesia is made up of four political parties, A, B, C, and D, which have 45, 25, 15, and 15 representatives, respectively.
