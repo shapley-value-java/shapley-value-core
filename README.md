@@ -439,16 +439,29 @@ It means that:
 - T2 is fraudulent and the rules R1 does not consider it as fraudulent but R2 considers it as fraudulent.
 
 
-|    | fraudulent  | Rule1 | Rule2 |
-| -- | ----------- | ------| ----- |
-| T1 | fraudulent  | 1     | 0     |
-| T2 | fradulent   | 0     | 1     |
+|    | fraudulent  | Rule1 | Rule2 | Rule1 and Rule2 |
+| -- | ----------- | ------| ----- | --------------- |
+| T1 | fraudulent  | 1     | 0     | 1               |
+| T2 | fradulent   | 0     | 1     | 1               |
 
 for the two rules 
 the precision is 1 (there is no false positive)
 the recall is 1/2=0.5 (only one fraudulent transaction is found whereas there is two fraudulent transasactions)
 
+
 <a href="https://www.codecogs.com/eqnedit.php?latex=f1score&space;=&space;2*&space;\frac{1*0.5}{1&plus;0.5}&space;=\frac{2}{3}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?f1score&space;=&space;2*&space;\frac{1*0.5}{1&plus;0.5}&space;=\frac{2}{3}" title="f1score = 2* \frac{1*0.5}{1+0.5} =\frac{2}{3}" /></a>
+
+if we conbine the two rules (with the OR operator) then the two fraudulent transaction are found and 
+recall, precision and f1score are equals to 1.
+
+##### Characteristic function
+
+| S       | V(S)  |
+| --------| ----- | 
+| {}      | 0     |
+| {R1}    | 0.667 |
+| {R2}    | 0.667 |
+| {R1 R2} | 1     |
 
 ## Parliament
 ### First example
