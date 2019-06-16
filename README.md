@@ -463,6 +463,14 @@ recall, precision and f1score are equals to 1.
 | {R2}    | 0.667 |
 | {R1 R2} | 1     |
 
+##### Calculation
+
+| Order         | marginal contribution 1  | marginal contribution 2 | 
+| ------------- | ------------------------ | ----------------------- | 
+| 1 2           | v({1})=0.667             | v({1,2})-v({1}) =0.133  | 
+| 2 1           | v({1,2})-v({2})= 0.133   | v({2})= 0.667           | 
+| shapley value | (0.667+0.133)/2 =0.5     | (0.667+0.133)/2 =0.5    |
+
 ## Parliament
 ### First example
 Question: The parliament of Micronesia is made up of four political parties, A, B, C, and D, which have 45, 25, 15, and 15 representatives, respectively.
