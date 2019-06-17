@@ -474,7 +474,7 @@ recall, precision and f1score are equals to 1.
 We can see the symetry because the contribution of R1 and R2 are the same and their Shapley value are the same.
 
 
-#### example three rules, three transactions
+#### Example2 with three rules, three transactions
 
 ```java
 FraudRuleV2Application evaluation = 
@@ -484,6 +484,18 @@ FraudRuleV2Application evaluation =
 		.addRule(new RuledTransaction("0,0,1,1")) //T2 is genuine
 		.build();
 ```
+##### Characteristic function
+
+| S          | Precision | Recall | V(S)  |
+| -----------| --------- | ------ | ----- |
+| {}         |           |        | 0     | 
+| {R1}       | 1         | 1      | 1     |
+| {R2}       | 0.5       | 0.5    | 0.5   |
+| {R3}       | 0.5       | 0.5    | 0.5   |
+| {R1 R2}    | 2/3       | 1      | 0.8   |
+| {R1 R3}    | 2/3       | 1      | 0.8   |
+| {R2 R3}    | 2/3       | 1      | 0.8   |
+| {R1 R2 R3} | 2/3       | 1      | 0.8   |
 
 ## Parliament
 ### First example
