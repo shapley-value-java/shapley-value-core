@@ -102,25 +102,6 @@ public class FraudRuleV2ApplicationTest {
 		//symmetry
 		assertEquals(phiRule2, phiRule3, 0.00001);
 		
-	/*	assertEquals(phiRule1, 0.5, 0.01);
-		assertEquals(phiRule2, 0.5, 0.01);
-		
-		double precision1 = evaluation.getPrecision("1");
-		double recall1 = evaluation.getRecall("1");
-		double fscore1 = evaluation.getFscore("1");
-		
-		assertEquals(precision1, 1.0, 0.01);
-		assertEquals(recall1, 0.5, 0.01);
-		assertEquals(fscore1, 0.67, 0.01);
-		
-		double precision2 = evaluation.getPrecision("2");
-		double recall2 = evaluation.getRecall("2");
-		double fscore2 = evaluation.getFscore("2");
-		
-		assertEquals(precision2, 1.0, 0.01);
-		assertEquals(recall2, 0.5, 0.01);
-		assertEquals(fscore2, 0.67, 0.01);*/
-
 	}
 	
 	@Test
@@ -132,16 +113,31 @@ public class FraudRuleV2ApplicationTest {
 				.addRule(new RuledTransaction("1,1,1,1,0"))
 				.addRule(new RuledTransaction("1,1,1,1,0"))
 				.addRule(new RuledTransaction("1,0,0,0,1"))
+				.addRule(new RuledTransaction("0,1,1,1,0"))
 				.build();
 		
 		Map<String,Double> output = evaluation.calculate();
 		double phiRule1 = output.get("1");
 		double phiRule2 = output.get("2");
 		double phiRule3 = output.get("3");
-		//double phiRule4 = output.get("4");
+		double phiRule4 = output.get("4");
 		
-		assertEquals(phiRule1, phiRule2, 0.01);
-		assertEquals(phiRule2, phiRule3, 0.01);
+		
+		double precision1 = evaluation.getPrecision("1");
+		double recall1 = evaluation.getRecall("1");
+		double fscore1 = evaluation.getFscore("1");
+		
+		System.out.println(precision1);
+		System.out.println(recall1);
+		System.out.println(fscore1);
+		
+		double precision4 = evaluation.getPrecision("4");
+		double recall4 = evaluation.getRecall("4");
+		double fscore4 = evaluation.getFscore("4");
+		
+		System.out.println(precision4);
+		System.out.println(recall4);
+		System.out.println(fscore4);
 
 	}
 	
