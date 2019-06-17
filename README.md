@@ -509,6 +509,7 @@ FraudRuleV2Application evaluation =
 | 3 2 1         | v({R1,R2,R3})-v({R2,R3}) =0  | v({R2,R3})-v({R3})= 0.3          | v({R3})= 0.5                    |
 | Shapley Value | (1+1+0.3+0+0.3+0)/6 = 0.433  | (-0.2+0+0.5+0.5+0+0.3)/6 = 0.183 | (0-0.2+0+0.3+0.5+0.5)/6 = 0.183 |
 
+We can see the symetry because the contribution of R2 and R are the same and their Shapley value are the same.
 
 ## Parliament
 ### First example
