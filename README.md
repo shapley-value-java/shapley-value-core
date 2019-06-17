@@ -465,11 +465,11 @@ recall, precision and f1score are equals to 1.
 
 ##### Calculation
 
-| Order         | marginal contribution 1  | marginal contribution 2 | 
-| ------------- | ------------------------ | ----------------------- | 
-| 1 2           | v({1})=0.667             | v({1,2})-v({1}) =0.133  | 
-| 2 1           | v({1,2})-v({2})= 0.133   | v({2})= 0.667           | 
-| shapley value | (0.667+0.133)/2 =0.5     | (0.667+0.133)/2 =0.5    |
+| Permutation   | marginal contribution R1  | marginal contribution R2 | 
+| ------------- | ------------------------- | ------------------------ | 
+| 1 2           | v({1})=0.667              | v({1,2})-v({1}) =0.133   | 
+| 2 1           | v({1,2})-v({2})= 0.133    | v({2})= 0.667            | 
+| Shapley Value | (0.667+0.133)/2 =0.5      | (0.667+0.133)/2 =0.5     |
 
 We can see the symetry because the contribution of R1 and R2 are the same and their Shapley value are the same.
 
@@ -496,6 +496,19 @@ FraudRuleV2Application evaluation =
 | {R1 R3}    | 2/3       | 1      | 0.8   |
 | {R2 R3}    | 2/3       | 1      | 0.8   |
 | {R1 R2 R3} | 2/3       | 1      | 0.8   |
+
+##### Calculation
+
+| Permutation   | marginal contribution R1     | marginal contribution R2         | marginal contribution R3        | 
+| ------------- | ---------------------------- | -------------------------------- | ------------------------------- | 
+| 1 2 3         | v({R1})=1                    | v({R1,R2})-v({R1})= -0.2         | v({R1,R2,R3})-v({R1,R2}) =0     |
+| 1 3 2         | v({R1})=1                    | v({R1,R2,R3})-v({R1,R3}) =0      | v({R1,R3})-v({R1})= -0.2        | 
+| 2 1 3         | v({R1,R2})-v({R2})= 0.3      | v({R2})= 0.5                     | v({R1,R2,R3})-v({R1,R2}) =0     |
+| 2 3 1         | v({R1,R2,R3})-v({R2,R3}) =0  | v({R2})= 0.5                     | v({R2,R3})-v({R2})= 0.3         |
+| 3 1 2         | v({R1,R3})-v({R3})= 0.3      | v({R1,R2,R3})-v({R1,R3}) =0      | v({R3})= 0.5                    | 
+| 3 2 1         | v({R1,R2,R3})-v({R2,R3}) =0  | v({R2,R3})-v({R3})= 0.3          | v({R3})= 0.5                    |
+| Shapley Value | (1+1+0.3+0+0.3+0)/6 = 0.433  | (-0.2+0+0.5+0.5+0+0.3)/6 = 0.183 | (0-0.2+0+0.3+0.5+0.5)/6 = 0.183 |
+
 
 ## Parliament
 ### First example
