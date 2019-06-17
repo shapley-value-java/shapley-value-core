@@ -79,6 +79,51 @@ public class FraudRuleV2ApplicationTest {
 	}
 	
 	@Test
+	public void testEvaluationThreeRules() {
+		
+		FraudRuleV2Application evaluation = 
+				new FraudRuleV2Application.FraudRuleV2ApplicationBuilder()
+				.addRule(new RuledTransaction("1,1,0,1"))
+				.addRule(new RuledTransaction("1,1,1,0"))
+				.addRule(new RuledTransaction("0,0,1,1"))
+				.build();
+	
+		
+		Map<String,Double> output = evaluation.calculate();
+		double phiRule1 = output.get("1");
+		double phiRule2 = output.get("2");
+		double phiRule3 = output.get("2");
+		
+
+		assertEquals(phiRule1, 0.433, 0.001);
+		assertEquals(phiRule2, 0.183, 0.001);
+		assertEquals(phiRule3, 0.183, 0.001);
+		
+		//symmetry
+		assertEquals(phiRule2, phiRule3, 0.00001);
+		
+	/*	assertEquals(phiRule1, 0.5, 0.01);
+		assertEquals(phiRule2, 0.5, 0.01);
+		
+		double precision1 = evaluation.getPrecision("1");
+		double recall1 = evaluation.getRecall("1");
+		double fscore1 = evaluation.getFscore("1");
+		
+		assertEquals(precision1, 1.0, 0.01);
+		assertEquals(recall1, 0.5, 0.01);
+		assertEquals(fscore1, 0.67, 0.01);
+		
+		double precision2 = evaluation.getPrecision("2");
+		double recall2 = evaluation.getRecall("2");
+		double fscore2 = evaluation.getFscore("2");
+		
+		assertEquals(precision2, 1.0, 0.01);
+		assertEquals(recall2, 0.5, 0.01);
+		assertEquals(fscore2, 0.67, 0.01);*/
+
+	}
+	
+	@Test
 	public void testEvaluationFourRules() {
 		
 		FraudRuleV2Application evaluation = 
