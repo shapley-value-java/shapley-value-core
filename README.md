@@ -473,6 +473,18 @@ recall, precision and f1score are equals to 1.
 
 We can see the symetry because the contribution of R1 and R2 are the same and their Shapley value are the same.
 
+
+#### example three rules, three transactions
+
+```java
+FraudRuleV2Application evaluation = 
+	new FraudRuleV2Application.FraudRuleV2ApplicationBuilder()
+		.addRule(new RuledTransaction("1,1,0,1")) //T1 is fraudulent 
+		.addRule(new RuledTransaction("1,1,1,0")) //T2 is fraudulent
+		.addRule(new RuledTransaction("0,0,1,1")) //T2 is genuine
+		.build();
+```
+
 ## Parliament
 ### First example
 Question: The parliament of Micronesia is made up of four political parties, A, B, C, and D, which have 45, 25, 15, and 15 representatives, respectively.
