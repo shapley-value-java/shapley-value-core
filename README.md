@@ -575,7 +575,7 @@ FraudRuleV2Application evaluation =
 | 4 3 1 2       | 0         | 0          | 22/45     | 2/5       |
 | 4 3 2 1       | 0         | 0          | 22/45     | 2/5       |
 | ------------- | ----------| ---------- | ----------| --------- |
-| Shapley Value | ?         | ?          | ?         | 49/240    |
+| Shapley Value | 493/2160  | 493/2160   | 493/2160  | 49/240    |
 
 ## Parliament
 ### First example
