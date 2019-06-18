@@ -523,6 +523,25 @@ FraudRuleV2Application evaluation =
 		.addRule(new RuledTransaction("0,1,1,1,0")) //T5 is genuine
 		.build();
 ```
+##### Characteristic function
+
+| S             | Precision | Recall | V(S)  |
+| --------------| --------- | ------ | ----- |
+| {}            |           |        | 0     | 
+| {R1}          | 3/4       | 3/4    | 3/4   |
+| {R2}          | 3/4       | 3/4    | 3/4   |
+| {R3}          | 3/4       | 3/4    | 3/4   |
+| {R4}          | 1         | 1/4    | 2/5   |
+| {R1 R2}       | 3/4       | 3/4    | 3/4   |
+| {R1 R3}       | 3/4       | 3/4    | 3/4   |
+| {R1 R4}       | 4/5       | 1      | 8/9   |
+| {R2 R3}       | 3/4       | 3/4    | 3/4   |
+| {R2 R4}       | 4/5       | 1      | 8/9   |
+| {R3 R4}       | 4/5       | 1      | 8/9   |
+| {R1 R2 R3}    | 3/4       | 3/4    | 3/4   |
+| {R1 R2 R4}    | 4/5       | 1      | 8/9   |
+| {R2 R3 R4}    | 4/5       | 1      | 8/9   |
+| {R1 R2 R3 R4} | 4/5       | 1      | 8/9   |
 
 ## Parliament
 ### First example
