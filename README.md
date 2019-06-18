@@ -543,6 +543,11 @@ FraudRuleV2Application evaluation =
 | {R2 R3 R4}    | 4/5       | 1      | 8/9   |
 | {R1 R2 R3 R4} | 4/5       | 1      | 8/9   |
 
+| Permutation   | m cont R1     | m cont R2    | m cont R3        | m cont R4 | 
+| ------------- | ------------- | ------------ | ---------------- | --------- |
+| 1 2 3         | ?             | ?            | ?                | ?         |
+| Shapley Value | ?             | ?            | ?                | ?         |
+
 ## Parliament
 ### First example
 Question: The parliament of Micronesia is made up of four political parties, A, B, C, and D, which have 45, 25, 15, and 15 representatives, respectively.
