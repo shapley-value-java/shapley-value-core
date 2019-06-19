@@ -122,22 +122,17 @@ public class FraudRuleV2ApplicationTest {
 		double phiRule3 = output.get("3");
 		double phiRule4 = output.get("4");
 		
+		assertEquals(phiRule1, 493.0/2160.0, 0.00001);
+		assertEquals(phiRule2, 493.0/2160.0, 0.00001);
+		assertEquals(phiRule3, 493.0/2160.0, 0.00001);
+		assertEquals(phiRule4, 49.0/240.0, 0.00001);
 		
-		double precision1 = evaluation.getPrecision("1");
-		double recall1 = evaluation.getRecall("1");
-		double fscore1 = evaluation.getFscore("1");
+		assertEquals(phiRule1, 0.2282, 0.0001);
+		assertEquals(phiRule2, 0.2282, 0.0001);
+		assertEquals(phiRule3, 0.2282, 0.0001);
+		assertEquals(phiRule4, 0.2042, 0.0001);
 		
-		System.out.println(precision1);
-		System.out.println(recall1);
-		System.out.println(fscore1);
 		
-		double precision4 = evaluation.getPrecision("4");
-		double recall4 = evaluation.getRecall("4");
-		double fscore4 = evaluation.getFscore("4");
-		
-		System.out.println(precision4);
-		System.out.println(recall4);
-		System.out.println(fscore4);
 
 	}
 	
