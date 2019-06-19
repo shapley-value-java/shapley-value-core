@@ -162,7 +162,6 @@ public class FraudRuleV2ApplicationTest {
 	}
 	
 	
-	@Ignore
 	@Test
 	public void testEvaluationXXXRules() throws ShapleyApplicationException, FileNotFoundException, IOException {
 		
@@ -187,13 +186,14 @@ public class FraudRuleV2ApplicationTest {
 				.build();
 	
 		
-		for(int i=1; i<10;i++) {
-		Map<String,Double> output = evaluation.calculate(10_000,CoalitionStrategy.RANDOM);
+		for(int i=1; i<=5;i++) {
+			Map<String,Double> output = evaluation.calculate(100_000,CoalitionStrategy.RANDOM);
+			//System.out.println("output "+output);
 			double phiRule1 = output.get("1");
 			double phiRule2 = output.get("2");
 			logger.info("loop {}",i);
-			logger.info("phiRule1={}",String.format("%.3f", phiRule1));
-			logger.info("phiRule2={}",String.format("%.3f", phiRule2));
+			logger.info("phiRule1={}",String.format("%.4f", phiRule1));
+			logger.info("phiRule2={}",String.format("%.4f", phiRule2));
 		}
 
 	}
@@ -233,7 +233,7 @@ public class FraudRuleV2ApplicationTest {
 	}
 	
 
-	@Ignore
+
 	@Test
 	public void testEvaluationFromFileRules() throws ShapleyApplicationException, FileNotFoundException, IOException {
 		

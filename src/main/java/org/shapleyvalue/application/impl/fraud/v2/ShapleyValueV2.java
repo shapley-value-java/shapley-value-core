@@ -128,29 +128,17 @@ public class ShapleyValueV2 {
 	}
 	
 	public List<Double> getResult() {
-		return getResult(0) ;
-	}
 	
-	public List<Double> getResult(int normalizedValue) {
-		
 		List<Double> res = new ArrayList<>();
 		res.add(0.0);
-		double total = 0;
 		for (int i = 1; i <= size; i++) {
-			total += output.get(i); 
-			res.add(output.get(i)/factorialSize);
+			if(fullSampleSize==0)
+				res.add(output.get(i)/factorialSize);
+			else
+				res.add(output.get(i)/fullSampleSize);
 		}
 
-		if (normalizedValue!=0) {
-			List<Double> normalizedRes = new ArrayList<>();
-			normalizedRes.add(0.0);
-			for (int i = 1; i <= size; i++) {
-				normalizedRes.add(res.get(i) / total);
-			}
-			if (logger.isDebugEnabled())
-				logger.debug("ShapleyValue calculate normalizedOutput={}", normalizedRes);
-			return normalizedRes;
-		}
+
 		if (logger.isDebugEnabled())
 			logger.debug("ShapleyValue getResult output={}", output);
 		return res;

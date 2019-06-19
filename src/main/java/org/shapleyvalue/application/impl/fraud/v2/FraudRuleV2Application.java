@@ -56,7 +56,7 @@ public class FraudRuleV2Application implements ShapleyApplication {
 	@Override
 	public Map<String, Double> calculate() {
 		shapleyValue.calculate(0, false);
-		List<Double> tempRes = shapleyValue.getResult(0);
+		List<Double> tempRes = shapleyValue.getResult();
 		Map<String, Double> res = new HashMap<>();
 		for(int i=1; i<=shapleyValue.getSize(); i++) {
 			res.put(""+i, tempRes.get(i));
@@ -113,7 +113,7 @@ public class FraudRuleV2Application implements ShapleyApplication {
 	@Override
 	public Map<String, Double> calculate(long nbCoalitions) throws ShapleyApplicationException {
 		shapleyValue.calculate(nbCoalitions, false);
-		List<Double> tempRes = shapleyValue.getResult(1);
+		List<Double> tempRes = shapleyValue.getResult();
 		Map<String, Double> res = new HashMap<>();
 		for(int i=1; i<=shapleyValue.getSize(); i++) {
 			res.put(""+i, tempRes.get(i));
@@ -129,7 +129,7 @@ public class FraudRuleV2Application implements ShapleyApplication {
 		else 
 			shapleyValue.randomCalculateWithThreads(nbCoalitions, 4);
 		
-		List<Double> tempRes = shapleyValue.getResult(1);
+		List<Double> tempRes = shapleyValue.getResult();
 		Map<String, Double> res = new HashMap<>();
 		for(int i=1; i<=shapleyValue.getSize(); i++) {
 			res.put(""+i, tempRes.get(i));
