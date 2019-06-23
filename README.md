@@ -685,3 +685,6 @@ https://math.stackexchange.com/questions/1310344/calculating-shapley-value-on-vo
 
 ## Other project in java
 * http://bitsbytesnwords.blogspot.be/2013/02/shapley-value.html
+
+## MOOC
+* full course about game theory https://www.coursera.org/learn/game-theory-1/
